@@ -5,13 +5,12 @@ namespace Mills {
     public Spot[][,] Spots { get; }
     private const int LevelCount = 3;
     private const int Dimensions = 3;
-    private readonly Stack<Move> _moveHistory;
 
-    public Move CurrentMove { get; private set; }
+
+    //public Move CurrentMove { get; private set; }
 
     public Board() {
       this.Spots = new Spot[LevelCount][,];
-      this._moveHistory = new Stack<Move>();
     }
 
     public void Initialize() {
@@ -25,16 +24,20 @@ namespace Mills {
       }
     }
 
-    public void MakeMove(Move move) {
-      this.CurrentMove = move;
-    }
+    //public void MakeMove(Move move) {
+    //  this.CurrentMove = move;
+    //}
 
-    public void CommitMove() {
-      _moveHistory.Push(this.CurrentMove);
-    }
+    //public void RollbackMove() {
+    //  this.CurrentMove = null;
+    //}
 
-    public void RollbackMove() {
-      this.CurrentMove = null;
-    }
+    //public void CommitMove() {
+    //  _moveHistory.Push(this.CurrentMove);
+    //}
+  }
+
+  public interface IHistory {
+    void Add(Move move);
   }
 }

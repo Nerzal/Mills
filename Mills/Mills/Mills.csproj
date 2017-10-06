@@ -44,6 +44,8 @@
   <ItemGroup>
     <Compile Include="Board.cs" />
     <Compile Include="Colors.cs" />
+    <Compile Include="IBoard.cs" />
+    <Compile Include="IGameController.cs" />
     <Compile Include="IPlayer.cs" />
     <Compile Include="Move.cs" />
     <Compile Include="Program.cs" />

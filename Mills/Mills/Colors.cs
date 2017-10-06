@@ -1,5 +1,5 @@
 ﻿namespace Mills {
-  enum Colors {
+  public enum Colors {
     Black,
     White
   }

@@ -48,6 +48,7 @@
     <Compile Include="History.cs" />
     <Compile Include="IBoard.cs" />
     <Compile Include="IGameController.cs" />
+    <Compile Include="IHistory.cs" />
     <Compile Include="IPlayer.cs" />
     <Compile Include="IRuleSet.cs" />
     <Compile Include="Move.cs" />

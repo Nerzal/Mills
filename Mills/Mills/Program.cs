@@ -51,7 +51,7 @@ namespace Mills {
       Console.WriteLine($@"| {level2[0, 2]}---{level2[1, 2]}---{level2[2, 2]} |");
       Console.WriteLine($@"{level1[0, 2]}-----{level1[1, 2]}-----{level1[2, 2]}");
 
-      Console.Write(controllerActivePlayer.Name + "Do something!");
+      Console.Write(controllerActivePlayer.Name + " Do something!");
     }
   }
 }

@@ -2,12 +2,7 @@
 
 namespace Mills {
   class Board : IBoard {
-    public void Move(Move mühv) {
-      
-    }
-
-    Spot[][,] IBoard.Spots { get; set; }
-    public Spot[][,] Spots { get; }
+    public Spot[][,] Spots { get; set; }
     private const int LevelCount = 3;
     private const int Dimensions = 3;
 
@@ -16,6 +11,10 @@ namespace Mills {
 
     public Board() {
       this.Spots = new Spot[LevelCount][,];
+    }
+
+    public void Move(Move mühv) {
+
     }
 
     public void Initialize() {
@@ -29,20 +28,5 @@ namespace Mills {
       }
     }
 
-    //public void MakeMove(Move move) {
-    //  this.CurrentMove = move;
-    //}
-
-    //public void RollbackMove() {
-    //  this.CurrentMove = null;
-    //}
-
-    //public void CommitMove() {
-    //  _moveHistory.Push(this.CurrentMove);
-    //}
-  }
-
-  public interface IHistory {
-    void Add(Move move);
   }
 }

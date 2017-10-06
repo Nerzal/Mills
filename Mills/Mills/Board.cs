@@ -2,6 +2,11 @@
 
 namespace Mills {
   class Board : IBoard {
+    public void Move(Move mühv) {
+      
+    }
+
+    Spot[][,] IBoard.Spots { get; set; }
     public Spot[][,] Spots { get; }
     private const int LevelCount = 3;
     private const int Dimensions = 3;

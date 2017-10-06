@@ -9,7 +9,7 @@ namespace Mills {
     static void Main(string[] args) {
       IPlayer player1 = new Player("Olaf");
       IPlayer player2 = new Player("Karl");
-      IRuleSet ruleSet = new RuleSet();
+      IRuleSet ruleSet = new RuleSet(new List<ValidationRule<Move>>(), new List<ValidationRule<IBoard>>());
       IBoard board = new Board();
       board.Initialize();
       History history = new History();
@@ -18,12 +18,12 @@ namespace Mills {
       controller.NewGame(player1, player2);
 
       while (true) {
-        controller.DoTurn(new Move());
         Draw(board, controller.ActivePlayer);
         Console.ReadKey();
+        controller.DoTurn(new Move());
       }
 
-      
+
       Console.ReadLine();
     }
 

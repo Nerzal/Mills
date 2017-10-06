@@ -1,7 +1,7 @@
 ﻿using System;
 
 namespace Mills {
-  class Spot {
+  public class Spot {
     public IPlayer Player { get; set; }
     /// <summary>
     /// TODO kill me

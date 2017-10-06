@@ -1,6 +1,8 @@
 # Mills
 Repository for participating at IT-Talents Hackaton. 
 
+https://www.it-talents.de/foerderung/code-competition/code-competition-10-2017
+
 
 # License
 

@@ -2,7 +2,13 @@
 
 namespace Mills {
   public class Spot {
+    
     public IPlayer Player { get; set; }
+
+    public Spot(IPlayer player) {
+      this.Player = player;
+    }
+
     /// <summary>
     /// TODO kill me
     /// </summary>

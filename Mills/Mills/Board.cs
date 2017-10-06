@@ -14,7 +14,9 @@ namespace Mills {
     }
 
     public void Move(Move mühv) {
-
+      if (mühv.Source == null) {
+        this.Spots[mühv.Destination.Level][mühv.Destination.X, mühv.Destination.Y] = mühv.Destination;
+      }
     }
 
     public void Initialize() {

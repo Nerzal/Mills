@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Mills {
   class Program {
@@ -19,8 +16,11 @@ namespace Mills {
 
       while (true) {
         Draw(board, controller.ActivePlayer);
-        Console.ReadKey();
-        controller.DoTurn(new Move());
+        ConsoleKeyInfo key = Console.ReadKey();
+        int.TryParse(key.KeyChar.ToString(), out int level);
+        int.TryParse(key.KeyChar.ToString(), out int x);
+        int.TryParse(key.KeyChar.ToString(), out int y);
+        controller.DoTurn(new Move(null, new Spot(level, x, y, controller.ActivePlayer), controller.ActivePlayer));
       }
 
 
@@ -28,7 +28,7 @@ namespace Mills {
     }
 
     private static void OnPlayerWon(IPlayer player) {
-      throw new NotImplementedException();
+      Console.WriteLine(player.Name + " hat krass gewonnen, diggah!");
     }
 
     /// <summary>

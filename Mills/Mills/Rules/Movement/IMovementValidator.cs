@@ -1,4 +1,4 @@
-﻿namespace Mills.ConsoleClient.Rules {
+﻿namespace Mills.ConsoleClient.Rules.Movement {
     /// <summary>
     /// MoveMentValidator
     /// </summary>

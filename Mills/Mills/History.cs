@@ -1,6 +1,10 @@
 ﻿using System.Collections.Generic;
 
 namespace Mills.ConsoleClient {
+    /// <summary>
+    /// Implementation of <see cref="IHistory"/>
+    /// Holds a the history of every move that have been made in a single game
+    /// </summary>
     public class History : IHistory {
         private readonly Stack<Move> _moves;
 

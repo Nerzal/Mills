@@ -46,11 +46,14 @@
     <Compile Include="Colors.cs" />
     <Compile Include="Coordinate.cs" />
     <Compile Include="GameController.cs" />
-    <Compile Include="Rules\IGameOverValidator.cs" />
+    <Compile Include="Rules\GameOver\GameOverRules.cs" />
+    <Compile Include="Rules\GameOver\IGameOverRules.cs" />
+    <Compile Include="Rules\GameOver\IGameOverValidator.cs" />
     <Compile Include="Rules\IMillRuleValidator.cs" />
-    <Compile Include="Rules\IMovementValidator.cs" />
+    <Compile Include="Rules\Movement\IMovementRules.cs" />
+    <Compile Include="Rules\Movement\IMovementValidator.cs" />
     <Compile Include="Rules\IRuleValidator.cs" />
-    <Compile Include="Rules\GameOverValidationRule.cs" />
+    <Compile Include="Rules\GameOver\GameOverValidationRule.cs" />
     <Compile Include="History.cs" />
     <Compile Include="IBoard.cs" />
     <Compile Include="IGameController.cs" />
@@ -58,7 +61,8 @@
     <Compile Include="IPlayer.cs" />
     <Compile Include="Rules\IRuleSet.cs" />
     <Compile Include="Move.cs" />
-    <Compile Include="Rules\MoveValidationRule.cs" />
+    <Compile Include="Rules\Movement\MovementRules.cs" />
+    <Compile Include="Rules\Movement\MoveValidationRule.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

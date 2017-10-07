@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Mills.ConsoleClient.Rules {
+namespace Mills.ConsoleClient.Rules.Movement {
     /// <summary>
     /// A single rule for movement
     /// </summary>
@@ -9,6 +9,7 @@ namespace Mills.ConsoleClient.Rules {
         /// ctor
         /// </summary>
         /// <param name="evaluator"></param>
-        public MoveValidationRule(Func<Move, bool> evaluator) : base(evaluator) { }
+        public MoveValidationRule(Func<Move, bool> evaluator) : base(evaluator) {
+        }
     }
 }

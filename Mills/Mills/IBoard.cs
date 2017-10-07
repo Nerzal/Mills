@@ -1,20 +1,24 @@
-﻿namespace Mills.ConsoleClient {
-  /// <summary>
-  /// The games board
-  /// </summary>
-  public interface IBoard {
+﻿using System.Collections.Generic;
+
+namespace Mills.ConsoleClient {
     /// <summary>
-    /// Initializes the board with the default state
+    /// The games board
     /// </summary>
-    void Initialize();
-    /// <summary>
-    /// Applies a move onto the board
-    /// </summary>
-    /// <param name="move"></param>
-    void Move(Move move);
-    /// <summary>
-    /// The board itself
-    /// </summary>
-    Spot[][,] Spots { get; set; }
-  }
+    public interface IBoard {
+        /// <summary>
+        /// Initializes the board with the default state
+        /// </summary>
+        void Initialize();
+
+        /// <summary>
+        /// Applies a move onto the board
+        /// </summary>
+        /// <param name="move"></param>
+        void Move(Move move);
+
+        /// <summary>
+        /// The board itself
+        /// </summary>
+        Spot[][,] Spots { get; set; }
+    }
 }

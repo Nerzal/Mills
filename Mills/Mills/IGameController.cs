@@ -1,13 +1,13 @@
 ﻿using System;
 
 namespace Mills.ConsoleClient {
-  public interface IGameController {
-    event Action<IPlayer> PlayerWon;
+    public interface IGameController {
+        event Action<IPlayer> PlayerWon;
 
-    IPlayer ActivePlayer { get; }
+        IPlayer ActivePlayer { get; }
 
-    void NewGame(IPlayer player1, IPlayer player2);
+        void NewGame(IPlayer player1, IPlayer player2);
 
-    bool DoTurn(Move move);
-  }
+        bool DoTurn(Move move);
+    }
 }

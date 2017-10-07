@@ -1,5 +1,6 @@
 ﻿using System;
 using Mills.ConsoleClient.Board;
+using Mills.ConsoleClient.GameController;
 using Mills.ConsoleClient.Player;
 using Mills.ConsoleClient.Rules;
 using Mills.ConsoleClient.Rules.GameOver;
@@ -23,7 +24,7 @@ namespace Mills.ConsoleClient {
 
            
             History history = new History();
-            IGameController controller = new GameController(ruleEvaluator, board, history, boardController);
+            IGameController controller = new GameController.GameController(ruleEvaluator, board, history, boardController);
             controller.PlayerWon += OnPlayerWon;
             controller.NewGame(player1, player2);
 

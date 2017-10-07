@@ -1,6 +1,6 @@
 ﻿using Mills.ConsoleClient.Player;
 
-namespace Mills.ConsoleClient {
+namespace Mills.ConsoleClient.Board {
     public class Spot {
         public IPlayer Player { get; set; }
 

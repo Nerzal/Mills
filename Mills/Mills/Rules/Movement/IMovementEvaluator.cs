@@ -1,4 +1,6 @@
-﻿namespace Mills.ConsoleClient.Rules.Movement {
+﻿using Mills.ConsoleClient.GameController;
+
+namespace Mills.ConsoleClient.Rules.Movement {
     /// <summary>
     /// MoveMentValidator
     /// </summary>

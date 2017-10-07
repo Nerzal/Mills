@@ -1,4 +1,6 @@
-﻿namespace Mills.ConsoleClient.Player {
+﻿using Mills.ConsoleClient.Board;
+
+namespace Mills.ConsoleClient.Player {
     public abstract class BasePlayer : IPlayer {
         public string Name { get; }
         public Colors Color { get; set; }

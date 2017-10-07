@@ -1,4 +1,6 @@
-﻿namespace Mills.ConsoleClient.Board {
+﻿using Mills.ConsoleClient.GameController;
+
+namespace Mills.ConsoleClient.Board {
     /// <summary>
     /// Controls the board
     /// </summary>

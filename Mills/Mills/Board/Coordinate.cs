@@ -1,6 +1,6 @@
 ﻿using Mills.ConsoleClient.Player;
 
-namespace Mills.ConsoleClient {
+namespace Mills.ConsoleClient.Board {
     /// <summary>
     /// A single coordinate on the board
     /// </summary>

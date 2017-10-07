@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Mills.ConsoleClient.GameController;
 
 namespace Mills.ConsoleClient {
     /// <summary>

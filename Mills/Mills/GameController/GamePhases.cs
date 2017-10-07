@@ -1,4 +1,4 @@
-﻿namespace Mills.ConsoleClient {
+﻿namespace Mills.ConsoleClient.GameController {
     /// <summary>
     /// Used to determine and set the active gamephase
     /// </summary>

@@ -1,7 +1,7 @@
 ﻿using System;
 using Mills.ConsoleClient.Player;
 
-namespace Mills.ConsoleClient {
+namespace Mills.ConsoleClient.GameController {
     /// <summary>
     /// Controls the game
     /// </summary>

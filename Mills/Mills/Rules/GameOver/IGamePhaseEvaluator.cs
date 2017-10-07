@@ -1,3 +1,4 @@
+using Mills.ConsoleClient.GameController;
 using Mills.ConsoleClient.Player;
 
 namespace Mills.ConsoleClient.Rules.GameOver {

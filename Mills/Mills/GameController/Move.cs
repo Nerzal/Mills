@@ -1,6 +1,7 @@
-﻿using Mills.ConsoleClient.Player;
+﻿using Mills.ConsoleClient.Board;
+using Mills.ConsoleClient.Player;
 
-namespace Mills.ConsoleClient {
+namespace Mills.ConsoleClient.GameController {
     /// <summary>
     /// Represents a single player move
     /// A Move can be setting a new stone, ore moving one

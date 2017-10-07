@@ -1,9 +1,7 @@
-﻿using System.Collections.Generic;
-using Mills.ConsoleClient.Rules;
-using Mills.ConsoleClient.Rules.GameOver;
+﻿using Mills.ConsoleClient.Rules.GameOver;
 using Mills.ConsoleClient.Rules.Movement;
 
-namespace Mills.ConsoleClient {
+namespace Mills.ConsoleClient.Rules {
     public class RuleSet : IRuleSet {
         public IMovementRules MoveValidationRules { get; }
         public IGameOverRules GameOverRules { get; }

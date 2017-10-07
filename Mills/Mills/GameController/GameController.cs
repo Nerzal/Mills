@@ -3,7 +3,7 @@ using Mills.ConsoleClient.Board;
 using Mills.ConsoleClient.Player;
 using Mills.ConsoleClient.Rules;
 
-namespace Mills.ConsoleClient {
+namespace Mills.ConsoleClient.GameController {
     /// <summary>
     /// Implementation of <see cref="IGameController"/>
     /// Controls the game

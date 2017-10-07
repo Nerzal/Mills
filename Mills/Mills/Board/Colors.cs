@@ -1,4 +1,4 @@
-﻿namespace Mills.ConsoleClient {
+﻿namespace Mills.ConsoleClient.Board {
     /// <summary>
     /// Used for the player representation on the board
     /// </summary>

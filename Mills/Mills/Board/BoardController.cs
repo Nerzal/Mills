@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using Mills.ConsoleClient.GameController;
 
 namespace Mills.ConsoleClient.Board {
     public class BoardController : IBoardController {
@@ -51,7 +52,7 @@ namespace Mills.ConsoleClient.Board {
         /// <inheritdoc />
         public int CountPlayerSpots(Colors color) {
             return this.Board.Spots.SelectMany(level => level.Cast<Spot>())
-                .Count(spot => spot?.Player.Color == color);
+                .Count(spot => spot?.Player?.Color == color);
         }
     }
 }

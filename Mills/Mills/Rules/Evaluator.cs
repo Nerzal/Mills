@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using Mills.ConsoleClient.Board;
+using Mills.ConsoleClient.GameController;
 using Mills.ConsoleClient.Player;
 
 namespace Mills.ConsoleClient.Rules {

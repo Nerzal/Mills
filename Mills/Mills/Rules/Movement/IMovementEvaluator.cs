@@ -2,7 +2,7 @@
     /// <summary>
     /// MoveMentValidator
     /// </summary>
-    public interface IMovementValidator {
+    public interface IMovementEvaluator {
         /// <summary>
         /// Validates if the move is valid
         /// </summary>

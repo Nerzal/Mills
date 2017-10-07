@@ -1,4 +1,5 @@
-﻿using Mills.ConsoleClient.Rules.GameOver;
+﻿using Mills.ConsoleClient.Board;
+using Mills.ConsoleClient.Rules.GameOver;
 
 namespace Mills.ConsoleClient.Rules.Movement {
     /// <summary>

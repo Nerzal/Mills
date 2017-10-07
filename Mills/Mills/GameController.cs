@@ -1,4 +1,6 @@
 ﻿using System;
+using Mills.ConsoleClient.Board;
+using Mills.ConsoleClient.Player;
 using Mills.ConsoleClient.Rules;
 
 namespace Mills.ConsoleClient {
@@ -8,6 +10,7 @@ namespace Mills.ConsoleClient {
     /// </summary>
     internal class GameController : IGameController {
         public event Action<IPlayer> PlayerWon;
+        public event Action<GamePhases> PhaseChanged;
 
         private GamePhases _activePhase;
         private IPlayer _player1;
@@ -15,6 +18,7 @@ namespace Mills.ConsoleClient {
         private readonly IBoard _board;
         private readonly IMillRuleEvaluator _ruleEvaluator;
         private readonly IHistory _history;
+        private readonly IBoardController _boardController;
 
         /// <inheritdoc />
         public IPlayer ActivePlayer { get; private set; }
@@ -27,11 +31,13 @@ namespace Mills.ConsoleClient {
         /// <param name="ruleEvaluator"></param>
         /// <param name="board"></param>
         /// <param name="history"></param>
-        public GameController(IMillRuleEvaluator ruleEvaluator, IBoard board, IHistory history) {
+        /// <param name="boardController"></param>
+        public GameController(IMillRuleEvaluator ruleEvaluator, IBoard board, IHistory history, IBoardController boardController) {
             this._activePhase = GamePhases.Set;
             this._ruleEvaluator = ruleEvaluator;
             this._board = board;
             this._history = history;
+            this._boardController = boardController;
         }
 
         /// <inheritdoc />
@@ -64,11 +70,11 @@ namespace Mills.ConsoleClient {
             return this._ruleEvaluator.IsGameOver(this._board);
         }
 
-        private void ApplyMove(Move mühv) {
-            this._board.Move(mühv);
-            this._history.Add(mühv);
+        private void ApplyMove(Move move) {
+            this._boardController.Move(move);
+            this._history.Add(move);
         }
-        
+
         private void SetActivePlayer() {
             if (this.Round % 2 == 1) {
                 this.ActivePlayer = this._player2;

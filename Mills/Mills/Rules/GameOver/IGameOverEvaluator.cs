@@ -1,8 +1,10 @@
+using Mills.ConsoleClient.Board;
+
 namespace Mills.ConsoleClient.Rules.GameOver {
     /// <summary>
     /// Evaluator to determine if the game is in a gameover state
     /// </summary>
-    public interface IGameOverValidator {
+    public interface IGameOverEvaluator {
         /// <summary>
         /// Is this game over?
         /// </summary>

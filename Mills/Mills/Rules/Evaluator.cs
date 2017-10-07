@@ -1,4 +1,6 @@
 ﻿using System.Linq;
+using Mills.ConsoleClient.Board;
+using Mills.ConsoleClient.Player;
 
 namespace Mills.ConsoleClient.Rules {
     /// <summary>
@@ -7,6 +9,9 @@ namespace Mills.ConsoleClient.Rules {
     public class Evaluator : IMillRuleEvaluator {
         /// <inheritdoc />
         public IRuleSet Rules { get; }
+
+        /// <inheritdoc />
+        public IBoardAnalyzer BoardAnalyzer { get; }
 
         /// <inheritdoc />
         public Evaluator(IRuleSet rules) {
@@ -22,6 +27,24 @@ namespace Mills.ConsoleClient.Rules {
         /// <inheritdoc />
         public bool IsGameOver(IBoard board) {
             return this.Rules.GameOverRules.All(gameOverRules => gameOverRules.Evaluate(board));
+        }
+
+        /// <inheritdoc />
+        public GamePhases EvaluatePhase(IPlayer player) {
+            if (player.Color == Colors.White) {
+                if (this.BoardAnalyzer.Player1OffBoardStones > 0) {
+                    return GamePhases.Set;
+                } else if(this.BoardAnalyzer.CountPlayerSpots(Colors.White) == 3) {
+                    return GamePhases.Jump;
+                }
+            } else {
+                if (this.BoardAnalyzer.Player2OffBoardStones > 0) {
+                    return GamePhases.Set;
+                } else if (this.BoardAnalyzer.CountPlayerSpots(Colors.Black) == 3) {
+                    return GamePhases.Jump;
+                }
+            }
+            return GamePhases.Draw;
         }
     }
 }

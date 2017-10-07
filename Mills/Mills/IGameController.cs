@@ -1,4 +1,5 @@
 ﻿using System;
+using Mills.ConsoleClient.Player;
 
 namespace Mills.ConsoleClient {
     /// <summary>

@@ -1,4 +1,6 @@
 ﻿using System;
+using Mills.ConsoleClient.Board;
+using Mills.ConsoleClient.Player;
 using Mills.ConsoleClient.Rules;
 using Mills.ConsoleClient.Rules.GameOver;
 using Mills.ConsoleClient.Rules.Movement;
@@ -6,20 +8,22 @@ using Mills.ConsoleClient.Rules.Movement;
 namespace Mills.ConsoleClient {
     class Program {
         static void Main(string[] args) {
-            IPlayer player1 = new Player("Olaf");
-            IPlayer player2 = new Player("Karl");
+            IPlayer player1 = new Player.Player("Olaf");
+            IPlayer player2 = new Player.Player("Karl");
+            
 
-            IBoard board = new Board();
-            board.Initialize();
+            IBoard board = new Board.Board();
+            IBoardController boardController = new BoardController(board);
+            boardController.Initialize();
 
-            IGameOverRules gameOverRules = new GameOverRules();
+            IGameOverRules gameOverRules = new GameOverRules(boardController);
             IMovementRules moveValidationRules = new MovementRules(board);
             IRuleSet ruleSet = new RuleSet(moveValidationRules, gameOverRules);
             IMillRuleEvaluator ruleEvaluator = new Evaluator(ruleSet);
 
            
             History history = new History();
-            IGameController controller = new GameController(ruleEvaluator, board, history);
+            IGameController controller = new GameController(ruleEvaluator, board, history, boardController);
             controller.PlayerWon += OnPlayerWon;
             controller.NewGame(player1, player2);
 

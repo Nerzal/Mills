@@ -1,4 +1,6 @@
-﻿namespace Mills.ConsoleClient {
+﻿using Mills.ConsoleClient.Player;
+
+namespace Mills.ConsoleClient {
     public class Spot {
         public IPlayer Player { get; set; }
 

@@ -1,4 +1,6 @@
-﻿namespace Mills.ConsoleClient {
+﻿using Mills.ConsoleClient.Player;
+
+namespace Mills.ConsoleClient {
     /// <summary>
     /// A single coordinate on the board
     /// </summary>

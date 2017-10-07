@@ -2,7 +2,7 @@
     /// <summary>
     /// Validates the rules
     /// </summary>
-    public interface IRuleValidator {
+    public interface IRuleEvaluator {
         /// <summary>
         /// A set of rules
         /// </summary>

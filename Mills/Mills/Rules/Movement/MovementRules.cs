@@ -1,4 +1,5 @@
-using System.Linq;
+using System;
+using Mills.ConsoleClient.Board;
 
 namespace Mills.ConsoleClient.Rules.Movement {
     /// <summary>
@@ -80,7 +81,17 @@ namespace Mills.ConsoleClient.Rules.Movement {
         /// <param name="move"></param>
         /// <returns></returns>
         private bool IsInRange(Move move) {
-            return true;
+            int distance = GetDistance(move);
+            return distance == 1;
+        }
+
+        private int GetDistance(Move move) {
+            Coordinate sourceValue = move.Source.Value;
+            Coordinate destinationValue = move.Destination;
+            int sumOfSourceCoordinate = sourceValue.Level + sourceValue.X + sourceValue.Y;
+            int sumOfDestinationCoordinate = destinationValue.Level + destinationValue.X + destinationValue.Y;
+            int distance = Math.Abs(sumOfSourceCoordinate - sumOfDestinationCoordinate);
+            return distance;
         }
     }
 }

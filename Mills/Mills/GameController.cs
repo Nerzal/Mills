@@ -29,11 +29,11 @@ namespace Mills.ConsoleClient {
       this.Round = 0;
     }
 
-    public bool DoTurn(Move mühv) {
-      if (!ValidateMove(mühv)) {
+    public bool DoTurn(Move move) {
+      if (!ValidateMove(move)) {
         return false;
       }
-      ApplyMove(mühv);
+      ApplyMove(move);
       this.Round++;
       if (IsGameOver()) {
         this.PlayerWon?.Invoke(this.ActivePlayer);

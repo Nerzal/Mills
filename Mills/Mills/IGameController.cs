@@ -8,6 +8,6 @@ namespace Mills.ConsoleClient {
 
     void NewGame(IPlayer player1, IPlayer player2);
 
-    bool DoTurn(Move mühv);
+    bool DoTurn(Move move);
   }
 }

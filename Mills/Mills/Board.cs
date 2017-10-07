@@ -1,12 +1,15 @@
 ﻿namespace Mills.ConsoleClient {
+  /// <summary>
+  /// Board that holds all spots
+  /// </summary>
   class Board : IBoard {
     public Spot[][,] Spots { get; set; }
     private const int LevelCount = 3;
     private const int Dimensions = 3;
-
-
-    //public Move CurrentMove { get; private set; }
-
+    
+    /// <summary>
+    /// ctor
+    /// </summary>
     public Board() {
       this.Spots = new Spot[LevelCount][,];
     }
@@ -27,6 +30,5 @@
         }
       }
     }
-
   }
 }

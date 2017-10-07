@@ -1,8 +1,10 @@
-﻿namespace Mills.ConsoleClient.Rules {
+﻿using System.Linq;
+
+namespace Mills.ConsoleClient.Rules {
     /// <summary>
     /// Used to validate GameRules
     /// </summary>
-    public class Validator : IRuleValidator, IMovementValidator {
+    public class Validator : IMillRuleValidator {
         /// <inheritdoc />
         public IRuleSet Rules { get; }
 
@@ -13,12 +15,12 @@
 
         /// <inheritdoc />
         public bool ValidateMovement(Move move) {
-            foreach (ValidationRule<Move> movementRules in this.Rules.MoveValidationRules) {
-                if (!movementRules.Evaluate(move)) {
-                    return false;
-                }
-            }
-            return true;
+            return this.Rules.MoveValidationRules.All(movementRules => movementRules.Evaluate(move));
+        }
+
+        /// <inheritdoc />
+        public bool IsGameOver(IBoard board) {
+            return this.Rules.GameOverRules.All(gameOverRules => gameOverRules.Evaluate(board));
         }
     }
 }

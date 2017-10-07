@@ -48,9 +48,11 @@
     <Compile Include="GameController.cs" />
     <Compile Include="GamePhases.cs" />
     <Compile Include="Rules\GameOver\GameOverRules.cs" />
+    <Compile Include="Rules\GameOver\IBaseRules.cs" />
     <Compile Include="Rules\GameOver\IGameOverRules.cs" />
     <Compile Include="Rules\GameOver\IGameOverValidator.cs" />
     <Compile Include="Rules\IMillRuleEvaluator.cs" />
+    <Compile Include="Rules\Movement\BaseRules.cs" />
     <Compile Include="Rules\Movement\IMovementRules.cs" />
     <Compile Include="Rules\Movement\IMovementValidator.cs" />
     <Compile Include="Rules\IRuleValidator.cs" />

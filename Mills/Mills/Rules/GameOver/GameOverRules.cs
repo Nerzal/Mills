@@ -1,25 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using Mills.ConsoleClient.Rules.Movement;
 
 namespace Mills.ConsoleClient.Rules.GameOver {
     /// <summary>
     /// Holds all GameOver rules
     /// </summary>
-    public class GameOverRules : IGameOverRules {
-        private readonly ICollection<ValidationRule<IBoard>> _rules;
+    public class GameOverRules : BaseRules<IBoard>, IGameOverRules {
 
-        /// <summary>
-        /// ctor
-        /// </summary>
-        public GameOverRules() {
-            this._rules = new List<ValidationRule<IBoard>>();
+        public override void Initialize() {
+            this.Rules.Add(new GameOverValidationRule(PlayerHasLessThan3Stones));
         }
-        
-        public void Initialize() {
-            this._rules.Add(new GameOverValidationRule(PlayerHasMoreThan2Stones));
-        }
-        
-        private bool PlayerHasMoreThan2Stones(IBoard board) {
+
+        private bool PlayerHasLessThan3Stones(IBoard board) {
             int player1SpotCount = 0;
             int player2SpotCount = 0;
 
@@ -37,17 +30,8 @@ namespace Mills.ConsoleClient.Rules.GameOver {
             player1SpotCount += board.Player1OffBoardStones;
             player2SpotCount += board.Player2OffBoardStones;
 
-            return player2SpotCount > 2 && player1SpotCount > 2;
-        }
-
-        /// <inheritdoc />
-        public IEnumerator<ValidationRule<IBoard>> GetEnumerator() {
-            return this._rules.GetEnumerator();
-        }
-
-        /// <inheritdoc />
-        IEnumerator IEnumerable.GetEnumerator() {
-            return this._rules.GetEnumerator();
+            bool playerHasLessThan3Stones = player2SpotCount < 3 || player1SpotCount < 3;
+            return playerHasLessThan3Stones;
         }
     }
 }

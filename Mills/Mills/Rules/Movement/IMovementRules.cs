@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using Mills.ConsoleClient.Rules.GameOver;
 
 namespace Mills.ConsoleClient.Rules.Movement {
-    public interface IMovementRules : IEnumerable<ValidationRule<Move>> {
+    public interface IMovementRules : IBaseRules<Move> {
     }
 }

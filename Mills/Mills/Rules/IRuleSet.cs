@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using Mills.ConsoleClient.Rules.GameOver;
+using Mills.ConsoleClient.Rules.Movement;
 
 namespace Mills.ConsoleClient.Rules {
     /// <summary>
@@ -8,11 +10,11 @@ namespace Mills.ConsoleClient.Rules {
         /// <summary>
         /// Rules for movement
         /// </summary>
-        IEnumerable<ValidationRule<Move>> MoveValidationRules { get; }
+        IMovementRules MoveValidationRules { get; }
 
         /// <summary>
         /// Rules that check gameover state
         /// </summary>
-        IEnumerable<ValidationRule<IBoard>> GameOverRules { get; }
+        IGameOverRules GameOverRules { get; }
     }
 }

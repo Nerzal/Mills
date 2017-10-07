@@ -1,14 +1,16 @@
 ﻿using System.Collections.Generic;
 using Mills.ConsoleClient.Rules;
+using Mills.ConsoleClient.Rules.GameOver;
+using Mills.ConsoleClient.Rules.Movement;
 
 namespace Mills.ConsoleClient {
     public class RuleSet : IRuleSet {
-        public IEnumerable<ValidationRule<Move>> MoveValidationRules { get; }
-        public IEnumerable<ValidationRule<IBoard>> GameOverRules { get; }
+        public IMovementRules MoveValidationRules { get; }
+        public IGameOverRules GameOverRules { get; }
 
         public RuleSet(
-            IEnumerable<ValidationRule<Move>> moveValidationRules,
-            IEnumerable<ValidationRule<IBoard>> gameOverRules) {
+            IMovementRules moveValidationRules,
+            IGameOverRules gameOverRules) {
             this.MoveValidationRules = moveValidationRules;
             this.GameOverRules = gameOverRules;
         }

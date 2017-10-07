@@ -11,6 +11,7 @@ namespace Mills.ConsoleClient.Rules {
         /// <inheritdoc />
         public Evaluator(IRuleSet rules) {
             this.Rules = rules;
+            this.Rules.GameOverRules.Initialize();
         }
 
         /// <inheritdoc />

@@ -1,14 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using Mills.ConsoleClient.Rules;
+using Mills.ConsoleClient.Rules.GameOver;
+using Mills.ConsoleClient.Rules.Movement;
 
 namespace Mills.ConsoleClient {
     class Program {
         static void Main(string[] args) {
             IPlayer player1 = new Player("Olaf");
             IPlayer player2 = new Player("Karl");
-            List<ValidationRule<IBoard>> gameOverRules = new List<ValidationRule<IBoard>>();
-            List<ValidationRule<Move>> moveValidationRules = new List<ValidationRule<Move>>();
+            IGameOverRules gameOverRules = new GameOverRules();
+            IMovementRules moveValidationRules = new MovementRules();
             IRuleSet ruleSet = new RuleSet(moveValidationRules, gameOverRules);
             IMillRuleEvaluator ruleEvaluator = new Evaluator(ruleSet);
 

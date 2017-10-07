@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Mills {
+﻿namespace Mills.ConsoleClient {
   public class Spot {
     
     public IPlayer Player { get; set; }

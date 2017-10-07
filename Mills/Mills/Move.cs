@@ -1,10 +1,10 @@
-﻿namespace Mills {
+﻿namespace Mills.ConsoleClient {
   public class Move {
-    public Spot Source { get; set; }
-    public Spot Destination { get; set; }
+    public Coordinate? Source { get; set; }
+    public Coordinate Destination { get; set; }
     public IPlayer Player { get; set; }
 
-    public Move(Spot source, Spot target, IPlayer activePlayer) {
+    public Move(Coordinate? source, Coordinate target, IPlayer activePlayer) {
       this.Source = source;
       this.Destination = target;
       this.Player = activePlayer;

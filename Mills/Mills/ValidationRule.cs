@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Mills {
+namespace Mills.ConsoleClient {
   public abstract class ValidationRule<TValidateable>  {
     private readonly Func<TValidateable, bool> _evaluator;
 

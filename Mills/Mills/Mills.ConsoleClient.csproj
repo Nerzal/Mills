@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{E0B05326-1A7B-42EF-8CC8-B61A15E97AD6}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Mills</RootNamespace>
-    <AssemblyName>Mills</AssemblyName>
+    <RootNamespace>Mills.ConsoleClient</RootNamespace>
+    <AssemblyName>Mills.ConsoleClient</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

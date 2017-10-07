@@ -1,4 +1,4 @@
-﻿namespace Mills {
+﻿namespace Mills.ConsoleClient {
   public class Player : IPlayer {
     public string Name { get; }
     public Colors Color { get; set; }

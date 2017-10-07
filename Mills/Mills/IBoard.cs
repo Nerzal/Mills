@@ -1,7 +1,7 @@
-﻿namespace Mills {
+﻿namespace Mills.ConsoleClient {
   public interface IBoard {
     void Initialize();
-    void Move(Move mühv);
+    void Move(Move move);
     Spot[][,] Spots { get; set; }
   }
 }

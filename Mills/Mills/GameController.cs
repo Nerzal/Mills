@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Mills {
+namespace Mills.ConsoleClient {
   internal class GameController : IGameController {
     public event Action<IPlayer> PlayerWon;
 

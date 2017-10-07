@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Mills {
+namespace Mills.ConsoleClient {
   class Program {
     static void Main(string[] args) {
       IPlayer player1 = new Player("Olaf");
@@ -20,7 +20,8 @@ namespace Mills {
         int.TryParse(key.KeyChar.ToString(), out int level);
         int.TryParse(key.KeyChar.ToString(), out int x);
         int.TryParse(key.KeyChar.ToString(), out int y);
-        controller.DoTurn(new Move(null, new Spot(level, x, y, controller.ActivePlayer), controller.ActivePlayer));
+        Coordinate coordinate = new Coordinate(level, x, y, controller.ActivePlayer);
+        controller.DoTurn(new Move(null, coordinate, controller.ActivePlayer));
       }
 
 

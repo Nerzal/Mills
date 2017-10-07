@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-namespace Mills {
+namespace Mills.ConsoleClient {
     public class History : IHistory {
         private readonly Stack<Move> _moves;
 

@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-namespace Mills {
+namespace Mills.ConsoleClient {
   public class RuleSet : IRuleSet {
     public IEnumerable<ValidationRule<Move>> MoveValidationRules { get; }
     public IEnumerable<ValidationRule<IBoard>> GameOverRules { get; }

@@ -16,6 +16,7 @@ namespace Mills.ConsoleClient {
         private readonly IMillRuleEvaluator _ruleEvaluator;
         private readonly IHistory _history;
 
+        /// <inheritdoc />
         public IPlayer ActivePlayer { get; private set; }
 
         public int Round { get; private set; }

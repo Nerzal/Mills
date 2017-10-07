@@ -16,6 +16,11 @@ namespace Mills.ConsoleClient {
         IPlayer ActivePlayer { get; }
 
         /// <summary>
+        /// Numer of rounds played
+        /// </summary>
+        int Round { get; }
+
+        /// <summary>
         /// Starts a new game
         /// </summary>
         /// <param name="player1"></param>

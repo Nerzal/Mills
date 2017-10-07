@@ -6,6 +6,16 @@ namespace Mills.ConsoleClient {
     /// </summary>
     public interface IBoard {
         /// <summary>
+        /// Stones that are not set onto the board yet
+        /// </summary>
+        int Player1OffBoardStones { get; }
+
+        /// <summary>
+        /// Stones that are not set onto the board yet
+        /// </summary>
+        int Player2OffBoardStones { get; }
+
+        /// <summary>
         /// Initializes the board with the default state
         /// </summary>
         void Initialize();

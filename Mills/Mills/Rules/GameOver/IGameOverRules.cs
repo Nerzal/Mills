@@ -6,7 +6,7 @@ namespace Mills.ConsoleClient.Rules.GameOver {
     /// </summary>
     public interface IGameOverRules : IBaseRules<IBoard> {
         /// <summary>
-        /// Board Analyzer
+        /// BoardAnalyzer Analyzer
         /// </summary>
         IBoardAnalyzer BoardAnalyzer { get; }
     }

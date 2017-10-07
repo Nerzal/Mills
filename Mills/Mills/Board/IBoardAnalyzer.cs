@@ -19,5 +19,21 @@
         /// <param name="color">the color of the player</param>
         /// <returns></returns>
         int CountPlayerSpots(Colors color);
+
+        /// <summary>
+        /// Returns the distance of 2 coordinates
+        /// The distance is measured in fields
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="destination"></param>
+        /// <returns></returns>
+        int GetDistance(Coordinate source, Coordinate destination);
+
+        /// <summary>
+        /// Checks if the spot is free
+        /// </summary>
+        /// <param name="coordinate"></param>
+        /// <returns>true if the coordinate is not occupied</returns>
+        bool IsFreeSpot(Coordinate coordinate);
     }
 }

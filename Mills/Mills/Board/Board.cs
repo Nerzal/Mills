@@ -1,6 +1,6 @@
 ﻿namespace Mills.ConsoleClient.Board {
     /// <summary>
-    /// Board that holds all spots
+    /// BoardAnalyzer that holds all spots
     /// </summary>
     class Board : IBoard {
         private const int Levels = 3;

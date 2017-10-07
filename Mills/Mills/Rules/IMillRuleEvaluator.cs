@@ -8,7 +8,7 @@ namespace Mills.ConsoleClient.Rules {
     /// </summary>
     public interface IMillRuleEvaluator : IRuleEvaluator, IMovementEvaluator, IGameOverEvaluator, IGamePhaseEvaluator {
         /// <summary>
-        /// Board Analyzer
+        /// BoardAnalyzer Analyzer
         /// </summary>
         IBoardAnalyzer BoardAnalyzer { get; }
     }

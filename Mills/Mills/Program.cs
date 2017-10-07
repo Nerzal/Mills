@@ -18,7 +18,7 @@ namespace Mills.ConsoleClient {
             boardController.Initialize();
 
             IGameOverRules gameOverRules = new GameOverRules(boardController);
-            IMovementRules moveValidationRules = new MovementRules(board);
+            IMovementRules moveValidationRules = new MovementRules(boardController, board);
             IRuleSet ruleSet = new RuleSet(moveValidationRules, gameOverRules);
             IMillRuleEvaluator ruleEvaluator = new Evaluator(ruleSet);
 

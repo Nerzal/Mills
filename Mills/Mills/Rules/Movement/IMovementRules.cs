@@ -11,6 +11,6 @@ namespace Mills.ConsoleClient.Rules.Movement {
         /// <summary>
         /// The board
         /// </summary>
-        IBoard Board { get; }
+        IBoardAnalyzer BoardAnalyzer { get; }
     }
 }

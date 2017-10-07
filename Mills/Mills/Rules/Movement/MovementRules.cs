@@ -10,13 +10,15 @@ namespace Mills.ConsoleClient.Rules.Movement {
     /// Holds all rules that are important for movement
     /// </summary>
     public class MovementRules : BaseRules<Move>, IMovementRules {
+        private IBoard _board;
 
         /// <inheritdoc />
-        public IBoard Board { get; }
+        public IBoardAnalyzer BoardAnalyzer { get; }
 
         /// <inheritdoc />
-        public MovementRules(IBoard board) {
-            this.Board = board;
+        public MovementRules(IBoardAnalyzer boardAnalyzer, IBoard board) {
+            this.BoardAnalyzer = boardAnalyzer;
+            this._board = board;
         }
 
         /// <inheritdoc cref="BaseRules{Move}" />
@@ -34,19 +36,19 @@ namespace Mills.ConsoleClient.Rules.Movement {
         /// <returns></returns>
         private bool IsValidCoordinate(Move arg) {
             if (arg.Destination.Level == 2 && arg.Destination.X == 1 && arg.Destination.Y == 1) {
-                //that would be the middle of the board which is not a valid field
+                //that would be the middle of the boardAnalyzer which is not a valid field
                 return false;
             }
 
-            if (arg.Destination.Level < 0 || arg.Destination.Level > this.Board.LevelCount - 1) {
+            if (arg.Destination.Level < 0 || arg.Destination.Level > this._board.LevelCount - 1) {
                 return false;
             }
 
-            if (arg.Destination.X < 0 || arg.Destination.X > this.Board.DimensionCount - 1) {
+            if (arg.Destination.X < 0 || arg.Destination.X > this._board.DimensionCount - 1) {
                 return false;
             }
 
-            if (arg.Destination.Y < 0 || arg.Destination.Y > this.Board.DimensionCount - 1) {
+            if (arg.Destination.Y < 0 || arg.Destination.Y > this._board.DimensionCount - 1) {
                 return false;
             }
 
@@ -61,8 +63,11 @@ namespace Mills.ConsoleClient.Rules.Movement {
         private bool IsConnected(Move move) {
             Coordinate source = move.Source.Value;
             Coordinate destination = move.Destination;
+            return CheckCoordinatesAreConnected(source, destination);
+        }
 
-            int distance = GetDistance(move);
+        private bool CheckCoordinatesAreConnected(Coordinate source, Coordinate destination) {
+            int distance = this.BoardAnalyzer.GetDistance(source, destination);
             if (distance > 1) {
                 return false;
             }
@@ -85,16 +90,6 @@ namespace Mills.ConsoleClient.Rules.Movement {
         }
 
         /// <summary>
-        /// Checks if the spot is not occupied yet
-        /// </summary>
-        /// <param name="move"></param>
-        /// <returns></returns>
-        private bool IsFreeSpot(Move move) {
-            Coordinate destination = move.Destination;
-            return this.Board.Spots[destination.Level][destination.X, destination.Y] == null;
-        }
-
-        /// <summary>
         /// Checks if the source and destination spots are neighbours
         /// </summary>
         /// <param name="move"></param>
@@ -103,17 +98,11 @@ namespace Mills.ConsoleClient.Rules.Movement {
             if (!move.Source.HasValue) {
                 return true;
             }
-            int distance = GetDistance(move);
+            int distance = this.BoardAnalyzer.GetDistance(move.Source.Value, move.Destination);
             return distance == 1;
         }
-
-        private int GetDistance(Move move) {
-            Coordinate sourceValue = move.Source.Value;
-            Coordinate destinationValue = move.Destination;
-            int sumOfSourceCoordinate = sourceValue.Level + sourceValue.X + sourceValue.Y;
-            int sumOfDestinationCoordinate = destinationValue.Level + destinationValue.X + destinationValue.Y;
-            int distance = Math.Abs(sumOfSourceCoordinate - sumOfDestinationCoordinate);
-            return distance;
+        private bool IsFreeSpot(Move arg) {
+            return this.BoardAnalyzer.IsFreeSpot(arg.Destination);
         }
     }
 }

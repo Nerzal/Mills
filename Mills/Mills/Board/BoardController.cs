@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Mills.ConsoleClient.GameController;
 
 namespace Mills.ConsoleClient.Board {
@@ -48,11 +49,27 @@ namespace Mills.ConsoleClient.Board {
                 }
             }
         }
-  
+
         /// <inheritdoc />
         public int CountPlayerSpots(Colors color) {
             return this.Board.Spots.SelectMany(level => level.Cast<Spot>())
                 .Count(spot => spot?.Player?.Color == color);
+        }
+
+        public int GetDistance(Coordinate source, Coordinate destination) {
+            int sumOfSourceCoordinate = source.Level + source.X + source.Y;
+            int sumOfDestinationCoordinate = destination.Level + destination.X + destination.Y;
+            int distance = Math.Abs(sumOfSourceCoordinate - sumOfDestinationCoordinate);
+            return distance;
+        }
+
+        /// <summary>
+        /// Checks if the spot is not occupied yet
+        /// </summary>
+        /// <param name="move"></param>
+        /// <returns></returns>
+        public bool IsFreeSpot(Coordinate coordinate) {
+            return this.Board.Spots[coordinate.Level][coordinate.X, coordinate.Y] == null;
         }
     }
 }

@@ -1,11 +1,14 @@
 ﻿using System;
 
-namespace Mills.ConsoleClient {
-  public class MoveValidationRule : ValidationRule<Move> {
-    public MoveValidationRule(Func<Move, bool> evaluator) : base(evaluator) { }
-  }
-
-  public class GameOverValidationRule : ValidationRule<IBoard> {
-    
-  }
+namespace Mills.ConsoleClient.Rules {
+    /// <summary>
+    /// A single rule for movement
+    /// </summary>
+    public class MoveValidationRule : ValidationRule<Move> {
+        /// <summary>
+        /// ctor
+        /// </summary>
+        /// <param name="evaluator"></param>
+        public MoveValidationRule(Func<Move, bool> evaluator) : base(evaluator) { }
+    }
 }

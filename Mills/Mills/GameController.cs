@@ -1,4 +1,5 @@
 ﻿using System;
+using Mills.ConsoleClient.Rules;
 
 namespace Mills.ConsoleClient {
   internal class GameController : IGameController {

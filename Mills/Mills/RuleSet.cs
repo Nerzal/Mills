@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Mills.ConsoleClient.Rules;
 
 namespace Mills.ConsoleClient {
   public class RuleSet : IRuleSet {

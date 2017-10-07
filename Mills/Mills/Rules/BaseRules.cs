@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Mills.ConsoleClient.Rules.GameOver;
 
-namespace Mills.ConsoleClient.Rules.Movement {
+namespace Mills.ConsoleClient.Rules {
     /// <summary>
     /// BaseClass for rules
     /// </summary>

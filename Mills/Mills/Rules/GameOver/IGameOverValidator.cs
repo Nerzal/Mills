@@ -1,6 +1,6 @@
 namespace Mills.ConsoleClient.Rules.GameOver {
     /// <summary>
-    /// Validator to determine if the game is in a gameover state
+    /// Evaluator to determine if the game is in a gameover state
     /// </summary>
     public interface IGameOverValidator {
         /// <summary>

@@ -50,7 +50,7 @@
     <Compile Include="Rules\GameOver\GameOverRules.cs" />
     <Compile Include="Rules\GameOver\IGameOverRules.cs" />
     <Compile Include="Rules\GameOver\IGameOverValidator.cs" />
-    <Compile Include="Rules\IMillRuleValidator.cs" />
+    <Compile Include="Rules\IMillRuleEvaluator.cs" />
     <Compile Include="Rules\Movement\IMovementRules.cs" />
     <Compile Include="Rules\Movement\IMovementValidator.cs" />
     <Compile Include="Rules\IRuleValidator.cs" />
@@ -70,7 +70,7 @@
     <Compile Include="Spot.cs" />
     <Compile Include="Rules\ValidationRule.cs" />
     <Compile Include="RuleSet.cs" />
-    <Compile Include="Rules\Validator.cs" />
+    <Compile Include="Rules\Evaluator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -13,7 +13,7 @@ namespace Mills.ConsoleClient {
         private IPlayer _player1;
         private IPlayer _player2;
         private readonly IBoard _board;
-        private readonly IMillRuleValidator _ruleValidator;
+        private readonly IMillRuleEvaluator _ruleEvaluator;
         private readonly IHistory _history;
 
         public IPlayer ActivePlayer { get; private set; }
@@ -23,12 +23,12 @@ namespace Mills.ConsoleClient {
         /// <summary>
         /// ctor
         /// </summary>
-        /// <param name="ruleValidator"></param>
+        /// <param name="ruleEvaluator"></param>
         /// <param name="board"></param>
         /// <param name="history"></param>
-        public GameController(IMillRuleValidator ruleValidator, IBoard board, IHistory history) {
+        public GameController(IMillRuleEvaluator ruleEvaluator, IBoard board, IHistory history) {
             this._activePhase = GamePhases.Set;
-            this._ruleValidator = ruleValidator;
+            this._ruleEvaluator = ruleEvaluator;
             this._board = board;
             this._history = history;
         }
@@ -45,7 +45,7 @@ namespace Mills.ConsoleClient {
 
         /// <inheritdoc />
         public bool DoTurn(Move move) {
-            if (!this._ruleValidator.ValidateMovement(move)) {
+            if (!this._ruleEvaluator.ValidateMovement(move)) {
                 return false;
             }
 
@@ -60,7 +60,7 @@ namespace Mills.ConsoleClient {
         }
 
         private bool IsGameOver() {
-            return this._ruleValidator.IsGameOver(this._board);
+            return this._ruleEvaluator.IsGameOver(this._board);
         }
 
         private void ApplyMove(Move mühv) {

@@ -5,6 +5,6 @@ namespace Mills.ConsoleClient.Rules {
     /// <summary>
     /// Markerinterface
     /// </summary>
-    public interface IMillRuleValidator : IRuleValidator, IMovementValidator, IGameOverValidator {
+    public interface IMillRuleEvaluator : IRuleValidator, IMovementValidator, IGameOverValidator {
     }
 }

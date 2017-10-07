@@ -10,12 +10,12 @@ namespace Mills.ConsoleClient {
             List<ValidationRule<IBoard>> gameOverRules = new List<ValidationRule<IBoard>>();
             List<ValidationRule<Move>> moveValidationRules = new List<ValidationRule<Move>>();
             IRuleSet ruleSet = new RuleSet(moveValidationRules, gameOverRules);
-            IMillRuleValidator ruleValidator = new Validator(ruleSet);
+            IMillRuleEvaluator ruleEvaluator = new Evaluator(ruleSet);
 
             IBoard board = new Board();
             board.Initialize();
             History history = new History();
-            IGameController controller = new GameController(ruleValidator, board, history);
+            IGameController controller = new GameController(ruleEvaluator, board, history);
             controller.PlayerWon += OnPlayerWon;
             controller.NewGame(player1, player2);
 

@@ -4,12 +4,12 @@ namespace Mills.ConsoleClient.Rules {
     /// <summary>
     /// Used to validate GameRules
     /// </summary>
-    public class Validator : IMillRuleValidator {
+    public class Evaluator : IMillRuleEvaluator {
         /// <inheritdoc />
         public IRuleSet Rules { get; }
 
         /// <inheritdoc />
-        public Validator(IRuleSet rules) {
+        public Evaluator(IRuleSet rules) {
             this.Rules = rules;
         }
 

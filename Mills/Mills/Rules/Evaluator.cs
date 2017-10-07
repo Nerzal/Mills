@@ -18,6 +18,7 @@ namespace Mills.ConsoleClient.Rules {
         public Evaluator(IRuleSet rules) {
             this.Rules = rules;
             this.Rules.GameOverRules.Initialize();
+            this.Rules.MoveValidationRules.Initialize();
         }
 
         /// <inheritdoc />

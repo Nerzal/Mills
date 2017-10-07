@@ -38,7 +38,7 @@ namespace Mills.ConsoleClient {
                 int.TryParse(key.KeyChar.ToString(), out int y);
                 Console.WriteLine();
                 Coordinate coordinate = new Coordinate(level, x, y, controller.ActivePlayer);
-                controller.DoTurn(new Move(null, coordinate, controller.ActivePlayer));
+                bool validTurn = controller.DoTurn(new Move(null, coordinate, controller.ActivePlayer));
             }
 
 

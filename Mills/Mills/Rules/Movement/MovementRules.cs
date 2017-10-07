@@ -59,12 +59,29 @@ namespace Mills.ConsoleClient.Rules.Movement {
         /// <param name="move"></param>
         /// <returns></returns>
         private bool IsConnected(Move move) {
-            Coordinate? source = move.Source;
+            Coordinate source = move.Source.Value;
             Coordinate destination = move.Destination;
 
+            int distance = GetDistance(move);
+            if (distance > 1) {
+                return false;
+            }
 
+            if (source.Level == destination.Level) {
+                return true;
+            }
 
-            return true;
+            if (source.X == destination.X && source.Y == destination.Y) {
+                if (source.X == 1) {
+                    return true;
+                }
+
+                if (source.Y == 1) {
+                    return true;
+                }
+            }
+
+            return false;
         }
 
         /// <summary>
@@ -73,7 +90,8 @@ namespace Mills.ConsoleClient.Rules.Movement {
         /// <param name="move"></param>
         /// <returns></returns>
         private bool IsFreeSpot(Move move) {
-            return true;
+            Coordinate destination = move.Destination;
+            return this.Board.Spots[destination.Level][destination.X, destination.Y] == null;
         }
 
         /// <summary>
@@ -82,6 +100,9 @@ namespace Mills.ConsoleClient.Rules.Movement {
         /// <param name="move"></param>
         /// <returns></returns>
         private bool IsInRange(Move move) {
+            if (!move.Source.HasValue) {
+                return true;
+            }
             int distance = GetDistance(move);
             return distance == 1;
         }

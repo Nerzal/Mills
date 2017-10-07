@@ -15,7 +15,7 @@ namespace Mills.ConsoleClient {
             IBoard board = new Board();
             board.Initialize();
             History history = new History();
-            IGameController controller = new GameController(ruleSet, board, history);
+            IGameController controller = new GameController(ruleValidator, board, history);
             controller.PlayerWon += OnPlayerWon;
             controller.NewGame(player1, player2);
 

@@ -46,6 +46,7 @@
     <Compile Include="Colors.cs" />
     <Compile Include="Coordinate.cs" />
     <Compile Include="GameController.cs" />
+    <Compile Include="GamePhases.cs" />
     <Compile Include="Rules\GameOver\GameOverRules.cs" />
     <Compile Include="Rules\GameOver\IGameOverRules.cs" />
     <Compile Include="Rules\GameOver\IGameOverValidator.cs" />

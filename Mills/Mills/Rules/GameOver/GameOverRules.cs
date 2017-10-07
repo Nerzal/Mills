@@ -19,11 +19,11 @@ namespace Mills.ConsoleClient.Rules.GameOver {
             this._rules.Add(new GameOverValidationRule(PlayerHasMoreThan2Stones));
         }
         
-        private bool PlayerHasMoreThan2Stones(IBoard arg) {
+        private bool PlayerHasMoreThan2Stones(IBoard board) {
             int player1SpotCount = 0;
             int player2SpotCount = 0;
 
-            foreach (Spot[,] level in arg.Spots) {
+            foreach (Spot[,] level in board.Spots) {
                 foreach (Spot spot in level) {
                     if (spot.Player.Color == Colors.White) {
                         player1SpotCount++;
@@ -32,6 +32,10 @@ namespace Mills.ConsoleClient.Rules.GameOver {
                     }
                 }
             }
+
+            //In phase 1 the offBoardStones need to be added to the count
+            player1SpotCount += board.Player1OffBoardStones;
+            player2SpotCount += board.Player2OffBoardStones;
 
             return player2SpotCount > 2 && player1SpotCount > 2;
         }

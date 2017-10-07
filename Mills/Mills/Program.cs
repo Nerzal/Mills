@@ -8,12 +8,10 @@ namespace Mills.ConsoleClient {
       IPlayer player1 = new Player("Olaf");
       IPlayer player2 = new Player("Karl");
       List<ValidationRule<IBoard>> gameOverRules = new List<ValidationRule<IBoard>>();
-      //gameOverRules.Add(new GameOverValidationRule());
-
       List<ValidationRule<Move>> moveValidationRules = new List<ValidationRule<Move>>();
-
-
       IRuleSet ruleSet = new RuleSet(moveValidationRules, gameOverRules);
+      IMillRuleValidator ruleValidator = new Validator(ruleSet);
+
       IBoard board = new Board();
       board.Initialize();
       History history = new History();

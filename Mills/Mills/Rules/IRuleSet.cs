@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 
 namespace Mills.ConsoleClient.Rules {
   /// <summary>
@@ -14,4 +15,38 @@ namespace Mills.ConsoleClient.Rules {
     /// </summary>
     IEnumerable<ValidationRule<IBoard>> GameOverRules { get; }
   }
+
+    public interface IMovementRules : IEnumerable<ValidationRule<Move>> {
+              
+    }
+
+    public interface IGameOverRules : IEnumerable<ValidationRule<IBoard>> {
+
+    }
+
+    public class MovementRules : IMovementRules
+    {
+        public IEnumerator<ValidationRule<Move>> GetEnumerator()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            throw new System.NotImplementedException();
+        }
+    }
+
+    public class GameOverRules : IGameOverRules
+    {
+        public IEnumerator<ValidationRule<IBoard>> GetEnumerator()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            throw new System.NotImplementedException();
+        }
+    }
 }

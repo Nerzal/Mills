@@ -1,10 +1,19 @@
-﻿namespace Mills.ConsoleClient {
+﻿using System.Collections.Generic;
+
+namespace Mills.ConsoleClient {
     /// <summary>
     /// Board that holds all spots
     /// </summary>
     class Board : IBoard {
-        private const int LevelCount = 3;
+        private readonly ICollection<Coordinate> _validCoordinates;
+        private const int Levels = 3;
         private const int Dimensions = 3;
+
+        /// <inheritdoc />
+        public int LevelCount => Levels;
+
+        /// <inheritdoc />
+        public int DimensionCount => Dimensions;
 
         public Spot[][,] Spots { get; set; }
 
@@ -13,11 +22,15 @@
 
         /// <inheritdoc />
         public int Player2OffBoardStones { get; private set; }
+        
+        /// <inheritdoc />
+        public IEnumerable<Coordinate> ValidCoordinates => this._validCoordinates;
 
         /// <summary>
         /// ctor
         /// </summary>
         public Board() {
+            this._validCoordinates = new List<Coordinate>();
             this.Spots = new Spot[LevelCount][,];
         }
 
@@ -33,7 +46,6 @@
             }
         }
 
-
         /// <inheritdoc />
         public void Initialize() {
             this.Player1OffBoardStones = 8;
@@ -44,6 +56,7 @@
                 for (int xIndex = 0; xIndex < Dimensions; xIndex++) {
                     for (int yIndex = 0; yIndex < Dimensions; yIndex++) {
                         level[xIndex, yIndex] = new Spot(null);
+                        this._validCoordinates.Add(new Coordinate(levelIndex, xIndex, yIndex, null));
                     }
                 }
             }

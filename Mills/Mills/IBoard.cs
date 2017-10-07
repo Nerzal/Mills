@@ -16,6 +16,21 @@ namespace Mills.ConsoleClient {
         int Player2OffBoardStones { get; }
 
         /// <summary>
+        /// Count of the levels
+        /// </summary>
+        int LevelCount { get; }
+
+        /// <summary>
+        /// Count of the dimension
+        /// </summary>
+        int DimensionCount { get; }
+
+        /// <summary>
+        /// Holds all valid spots
+        /// </summary>
+        IEnumerable<Coordinate> ValidCoordinates { get; }
+
+        /// <summary>
         /// Initializes the board with the default state
         /// </summary>
         void Initialize();

@@ -2,7 +2,7 @@
     /// <summary>
     /// BoardAnalyzer that holds all spots
     /// </summary>
-    class Board : IBoard {
+    internal class Board : IBoard {
         private const int Levels = 3;
         private const int Dimensions = 3;
 

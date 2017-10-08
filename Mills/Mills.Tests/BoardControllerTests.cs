@@ -54,6 +54,38 @@ namespace Mills.Tests {
         }
 
         [TestMethod]
+        public void Unset_IsTrue_OccupiedByEnemy() {
+            //Arrange
+            Coordinate coordinate = new Coordinate(2, 1, 2);
+            //Act
+            this.Controller.Set(coordinate, this.Player);
+            bool result = this.Controller.Unset(coordinate, this.Player2);
+            //Assert
+            Assert.IsTrue(result);
+        }
+
+        [TestMethod]
+        public void Unset_IsFalse_OccupiedBySelf() {
+            //Arrange
+            Coordinate coordinate = new Coordinate(2, 1, 1);
+            //Act
+            this.Controller.Set(coordinate, this.Player);
+            bool result = this.Controller.Unset(coordinate, this.Player);
+            //Assert
+            Assert.IsFalse(result);
+        }
+
+        [TestMethod]
+        public void Unset_IsFalse_OccupiedByNone() {
+            //Arrange
+            Coordinate coordinate = new Coordinate(2, 1, 1);
+            //Act
+            bool result = this.Controller.Unset(coordinate, this.Player);
+            //Assert
+            Assert.IsFalse(result);
+        }
+
+        [TestMethod]
         public void Move_IsTrue_ValidMoveFor1Field() {
             //Arrange
             Coordinate source = new Coordinate(0, 0, 0);

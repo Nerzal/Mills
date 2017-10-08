@@ -25,6 +25,14 @@ namespace Mills.ConsoleClient.Board.Controller {
         bool Set(Coordinate coordinate, IPlayer player);
 
         /// <summary>
+        /// Release a coordinate
+        /// </summary>
+        /// <param name="coordinate"></param>
+        /// <param name="activePlayer"></param>
+        /// <returns>true if the move was valid</returns>
+        bool Unset(Coordinate coordinate, IPlayer activePlayer);
+
+        /// <summary>
         /// Applies a move onto the board
         /// </summary>
         /// <param name="move"></param>

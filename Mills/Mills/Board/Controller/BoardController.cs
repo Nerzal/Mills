@@ -39,6 +39,21 @@ namespace Mills.ConsoleClient.Board.Controller {
         }
 
         /// <inheritdoc />
+        public bool Unset(Coordinate coordinate, IPlayer activePlayer) {
+            if (this._analyzer.IsFreeSpot(coordinate)) {
+                return false;
+            }
+
+            IPlayer occupier = this._analyzer.GetOccupier(coordinate);
+            if (occupier != activePlayer) {
+                this.Board.Spots[coordinate.Level][coordinate.X, coordinate.Y].Player = null;
+                return true;
+            }
+
+            return false;
+        }
+
+        /// <inheritdoc />
         public bool Move(Move move) {
             if (!CheckDestinationIsValidAndFree(move.Destination)) {
                 return false;

@@ -45,6 +45,9 @@
   <ItemGroup>
     <Compile Include="Ai\AiPlayer.cs" />
     <Compile Include="Board\Analyzer\BoardAnalyzer.cs" />
+    <Compile Include="Board\Analyzer\IPatternRecognizer.cs" />
+    <Compile Include="Board\Analyzer\PatternRecognizer.cs" />
+    <Compile Include="Board\Analyzer\Row.cs" />
     <Compile Include="Player\BasePlayer.cs" />
     <Compile Include="Board\Board.cs" />
     <Compile Include="Board\Controller\BoardController.cs" />

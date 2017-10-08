@@ -8,6 +8,11 @@ namespace Mills.ConsoleClient.Board.Analyzer {
     /// </summary>
     public interface IPatternRecognizer {
         /// <summary>
+        /// The games board
+        /// </summary>
+        IBoard Board { get; }
+
+        /// <summary>
         /// Finds all rows of the given player
         /// </summary>
         /// <param name="player"></param>

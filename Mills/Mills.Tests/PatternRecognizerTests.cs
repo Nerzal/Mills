@@ -10,7 +10,7 @@ namespace Mills.Tests {
         [TestMethod]
         public void FindAllRowsFor_2_PlayerOne2Rows() {
             //Arrange
-            IPatternRecognizer recognizer = new PatternRecognizer();
+            IPatternRecognizer recognizer = new PatternRecognizer(this.Board);
             //Create row 1
             Coordinate row1Coordinate1 = new Coordinate(0, 0, 0);
             this.Controller.Set(row1Coordinate1, this.Player);
@@ -41,7 +41,7 @@ namespace Mills.Tests {
         [TestMethod]
         public void FindAllMillsFor_1_PlayerOne() {
             //Arrange
-            IPatternRecognizer recognizer = new PatternRecognizer();
+            IPatternRecognizer recognizer = new PatternRecognizer(this.Board);
             Coordinate row2Coordinate1 = new Coordinate(2, 2, 0);
             this.Controller.Set(row2Coordinate1, this.Player);
             Coordinate row2Coordinate2 = new Coordinate(2, 2, 1);

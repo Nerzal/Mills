@@ -84,5 +84,55 @@ namespace Mills.Tests {
             IPlayer sourceOccupier = this.Analyzer.GetOccupier(source);
             Assert.AreEqual(this.Player, sourceOccupier);
         }
+
+        [TestMethod]
+        public void Move_IsTrue_InvalidMoveForNotConnectedFields120To020() {
+            //Arrange
+            Coordinate source = new Coordinate(1, 2, 0);
+            Coordinate destination = new Coordinate(0, 2, 0);
+            this.Controller.Set(source, this.Player);
+            Move move = new Move(source, destination, this.Player);
+            //Act
+            bool result = this.Controller.Move(move);
+            //Assert
+            Assert.IsFalse(result);
+            IPlayer sourceOccupier = this.Analyzer.GetOccupier(source);
+            Assert.AreEqual(this.Player, sourceOccupier);
+        }
+
+        [TestMethod]
+        public void Jump_IsTrue_120To020() {
+            //Arrange
+            Coordinate source = new Coordinate(1, 2, 0);
+            Coordinate destination = new Coordinate(0, 2, 0);
+            this.Controller.Set(source, this.Player);
+            Move move = new Move(source, destination, this.Player);
+            //Act
+            bool result = this.Controller.Jump(move);
+            //Assert
+            Assert.IsTrue(result);
+            IPlayer sourceOccupier = this.Analyzer.GetOccupier(source);
+            Assert.IsNull(sourceOccupier);
+            IPlayer destinationOccupier = this.Analyzer.GetOccupier(destination);
+            Assert.AreEqual(this.Player, destinationOccupier);
+        }
+
+        [TestMethod]
+        public void Jump_IsFalse_120To020AllreadyOccupied() {
+            //Arrange
+            Coordinate source = new Coordinate(1, 2, 0);
+            Coordinate destination = new Coordinate(0, 2, 0);
+            this.Controller.Set(source, this.Player);
+            this.Controller.Set(destination, this.Player2);
+            Move move = new Move(source, destination, this.Player);
+            //Act
+            bool result = this.Controller.Jump(move);
+            //Assert
+            Assert.IsFalse(result);
+            IPlayer sourceOccupier = this.Analyzer.GetOccupier(source);
+            Assert.AreEqual(this.Player, sourceOccupier);
+            IPlayer destinationOccupier = this.Analyzer.GetOccupier(destination);
+            Assert.AreEqual(this.Player2, destinationOccupier);
+        }
     }
 }

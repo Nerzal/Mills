@@ -54,7 +54,8 @@ namespace Mills.ConsoleClient.Board.Analyzer {
 
         /// <inheritdoc />
         public bool IsFreeSpot(Coordinate coordinate) {
-            return this.Board.Spots[coordinate.Level][coordinate.X, coordinate.Y] == null;
+            Spot spot = this.Board.Spots[coordinate.Level][coordinate.X, coordinate.Y];
+            return spot.Player == null; //Not occupied by a player, so its free else its occupied thus not free
         }
     }
 }

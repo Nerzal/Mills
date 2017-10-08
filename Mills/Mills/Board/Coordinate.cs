@@ -30,5 +30,10 @@
             this.X = x;
             this.Y = y;
         }
+
+        /// <inheritdoc />
+        public override string ToString() {
+            return $"Level: {this.Level} X: {this.X}, Y: {this.Y}";
+        }
     }
 }

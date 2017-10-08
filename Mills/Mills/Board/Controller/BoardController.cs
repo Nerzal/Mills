@@ -25,7 +25,7 @@ namespace Mills.ConsoleClient.Board.Controller {
 
         /// <inheritdoc />
         public bool Set(Coordinate coordinate, IPlayer player) {
-            if (!this._analyzer.IsValidCoordinate(coordinate) && !this._analyzer.IsFreeSpot(coordinate)) {
+            if (!this._analyzer.IsValidCoordinate(coordinate) || !this._analyzer.IsFreeSpot(coordinate)) {
                 return false;
             }
 

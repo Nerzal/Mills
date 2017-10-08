@@ -39,12 +39,12 @@ namespace Mills.ConsoleClient.Board.Controller {
         }
 
         /// <inheritdoc />
-        public void Move(Move move) {
+        public bool Move(Move move) {
             throw new NotImplementedException();
         }
 
         /// <inheritdoc />
-        public void Jump(Move move) {
+        public bool Jump(Move move) {
             throw new System.NotImplementedException();
         }
 

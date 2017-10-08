@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using Mills.ConsoleClient.Player;
 
 namespace Mills.ConsoleClient.Board.Analyzer {
     /// <summary>
@@ -29,7 +30,13 @@ namespace Mills.ConsoleClient.Board.Analyzer {
             int distance = Math.Abs(sumOfSourceCoordinate - sumOfDestinationCoordinate);
             return distance;
         }
-        
+
+        /// <inheritdoc />
+        public IPlayer GetOccupier(Coordinate coordinate) {
+            Spot spot = this.Board.Spots[coordinate.Level][coordinate.X, coordinate.Y];
+            return spot.Player;
+        }
+
         /// <inheritdoc />
         public bool IsValidCoordinate(Coordinate coordinate) {
             if (coordinate.Level == 2 && coordinate.X == 1 && coordinate.Y == 1) {
@@ -54,8 +61,7 @@ namespace Mills.ConsoleClient.Board.Analyzer {
 
         /// <inheritdoc />
         public bool IsFreeSpot(Coordinate coordinate) {
-            Spot spot = this.Board.Spots[coordinate.Level][coordinate.X, coordinate.Y];
-            return spot.Player == null; //Not occupied by a player, so its free else its occupied thus not free
+            return this.GetOccupier(coordinate) == null;
         }
     }
 }

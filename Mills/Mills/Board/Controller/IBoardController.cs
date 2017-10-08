@@ -17,22 +17,25 @@ namespace Mills.ConsoleClient.Board.Controller {
         void Initialize();
 
         /// <summary>
-        /// Applies a move onto the board
-        /// </summary>
-        /// <param name="move"></param>
-        void Move(Move move);
-
-        /// <summary>
         /// Occupy a coordinate
         /// </summary>
         /// <param name="coordinate"></param>
         /// <param name="player"></param>
+        /// <returns>true if the move was valid</returns>
         bool Set(Coordinate coordinate, IPlayer player);
+
+        /// <summary>
+        /// Applies a move onto the board
+        /// </summary>
+        /// <param name="move"></param>
+        /// <returns>true if the move was valid</returns>
+        bool Move(Move move);
 
         /// <summary>
         /// Jump from Coordinate to Coordinate
         /// </summary>
         /// <param name="move"></param>
-        void Jump(Move move);
+        /// <returns>true if the move was valid</returns>
+        bool Jump(Move move);
     }
 }

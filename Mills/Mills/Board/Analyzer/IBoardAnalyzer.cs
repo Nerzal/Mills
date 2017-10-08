@@ -1,4 +1,6 @@
-﻿namespace Mills.ConsoleClient.Board.Analyzer {
+﻿using Mills.ConsoleClient.Player;
+
+namespace Mills.ConsoleClient.Board.Analyzer {
     /// <summary>
     /// Analyzes the board
     /// </summary>
@@ -30,6 +32,13 @@
         /// <param name="coordinate"></param>
         /// <returns>true if the coordinate is not occupied</returns>
         bool IsFreeSpot(Coordinate coordinate);
+
+        /// <summary>
+        /// Checks if the spot is free
+        /// </summary>
+        /// <param name="coordinate"></param>
+        /// <returns>true if the coordinate is not occupied</returns>
+        IPlayer GetOccupier(Coordinate coordinate);
 
         /// <summary>
         /// Checks if the destination is a valid coordinate

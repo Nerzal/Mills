@@ -1,7 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Mills.ConsoleClient.Board;
-using Mills.ConsoleClient.GameController;
 using Mills.ConsoleClient.Player;
 
 namespace Mills.Tests {
@@ -52,13 +51,56 @@ namespace Mills.Tests {
         }
 
         [TestMethod]
-        public void GetOccupier_000_Player() {
+        public void GetOccupier_Player_000() {
             //Arrange
             this.Controller.Set(new Coordinate(0, 0, 0), this.Player);
             //Act
             IPlayer player = this.Analyzer.GetOccupier(new Coordinate(0, 0, 0));
             //Assert
             Assert.AreEqual(player, this.Player);
+        }
+
+        [TestMethod]
+        public void GetOccupier_Null_000() {
+            //Arrange
+            //Arranging is done by TestInitialize-Method from baseclass
+            //Act
+            IPlayer player = this.Analyzer.GetOccupier(new Coordinate(0, 0, 0));
+            //Assert
+            Assert.IsNull(player);
+        }
+
+        [TestMethod]
+        public void GetDistance_0_000To000() {
+            //Arrange
+            Coordinate source = new Coordinate(0,0,0);
+            Coordinate destination = new Coordinate(0,0,0);
+            //Act
+            int result = this.Analyzer.GetDistance(source, destination);
+            //Assert
+            Assert.AreEqual(0, result);
+        }
+
+        [TestMethod]
+        public void GetDistance_1_000To010() {
+            //Arrange
+            Coordinate source = new Coordinate(0, 0, 0);
+            Coordinate destination = new Coordinate(0, 1, 0);
+            //Act
+            int result = this.Analyzer.GetDistance(source, destination);
+            //Assert
+            Assert.AreEqual(1, result);
+        }
+
+        [TestMethod]
+        public void GetDistance_2_000To002() {
+            //Arrange
+            Coordinate source = new Coordinate(0, 0, 0);
+            Coordinate destination = new Coordinate(0, 0, 2);
+            //Act
+            int result = this.Analyzer.GetDistance(source, destination);
+            //Assert
+            Assert.AreEqual(2, result);
         }
     }
 }

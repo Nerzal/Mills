@@ -7,6 +7,8 @@ namespace Mills.ConsoleClient.Ai {
 
         IBoardAnalyzer BoardAnalyzer { get; }
 
+        GamePhases CurrentPhase { get; }
+
         Move Analyse();
 
         void Act(Move move);

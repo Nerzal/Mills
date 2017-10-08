@@ -22,18 +22,37 @@ namespace Mills.ConsoleClient.Board.Analyzer {
                 .Count(spot => spot?.Player?.Color == color);
         }
 
+        /// <inheritdoc />
         public int GetDistance(Coordinate source, Coordinate destination) {
             int sumOfSourceCoordinate = source.Level + source.X + source.Y;
             int sumOfDestinationCoordinate = destination.Level + destination.X + destination.Y;
             int distance = Math.Abs(sumOfSourceCoordinate - sumOfDestinationCoordinate);
             return distance;
         }
+        
+        /// <inheritdoc />
+        public bool IsValidCoordinate(Coordinate coordinate) {
+            if (coordinate.Level == 2 && coordinate.X == 1 && coordinate.Y == 1) {
+                //that would be the middle of the boardAnalyzer which is not a valid field
+                return false;
+            }
 
-        /// <summary>
-        /// Checks if the spot is not occupied yet
-        /// </summary>
-        /// <param name="move"></param>
-        /// <returns></returns>
+            if (coordinate.Level < 0 || coordinate.Level > this.Board.LevelCount - 1) {
+                return false;
+            }
+
+            if (coordinate.X < 0 || coordinate.X > this.Board.DimensionCount - 1) {
+                return false;
+            }
+
+            if (coordinate.Y < 0 || coordinate.Y > this.Board.DimensionCount - 1) {
+                return false;
+            }
+
+            return true;
+        }
+
+        /// <inheritdoc />
         public bool IsFreeSpot(Coordinate coordinate) {
             return this.Board.Spots[coordinate.Level][coordinate.X, coordinate.Y] == null;
         }

@@ -30,5 +30,12 @@
         /// <param name="coordinate"></param>
         /// <returns>true if the coordinate is not occupied</returns>
         bool IsFreeSpot(Coordinate coordinate);
+
+        /// <summary>
+        /// Checks if the destination is a valid coordinate
+        /// </summary>
+        /// <param name="coordinate"></param>
+        /// <returns></returns>
+        bool IsValidCoordinate(Coordinate coordinate);
     }
 }

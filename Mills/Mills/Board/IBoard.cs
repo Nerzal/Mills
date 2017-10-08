@@ -12,6 +12,16 @@
         /// Count of the dimension
         /// </summary>
         int DimensionCount { get; }
+        
+        /// <summary>
+        /// Stones that are not set onto the board yet
+        /// </summary>
+        int Player1OffBoardStones { get; set; }
+
+        /// <summary>
+        /// Stones that are not set onto the board yet
+        /// </summary>
+        int Player2OffBoardStones { get; set; }
 
         /// <summary>
         /// The board itself

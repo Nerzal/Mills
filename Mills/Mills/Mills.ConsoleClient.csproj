@@ -44,15 +44,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Ai\AiPlayer.cs" />
+    <Compile Include="Board\Analyzer\BoardAnalyzer.cs" />
     <Compile Include="Player\BasePlayer.cs" />
     <Compile Include="Board\Board.cs" />
-    <Compile Include="Board\BoardController.cs" />
+    <Compile Include="Board\Controller\BoardController.cs" />
     <Compile Include="Board\Colors.cs" />
     <Compile Include="Board\Coordinate.cs" />
     <Compile Include="GameController\GameController.cs" />
     <Compile Include="GameController\GamePhases.cs" />
-    <Compile Include="Board\IBoardAnalyzer.cs" />
-    <Compile Include="Board\IBoardController.cs" />
+    <Compile Include="Board\Analyzer\IBoardAnalyzer.cs" />
+    <Compile Include="Board\Controller\IBoardController.cs" />
     <Compile Include="Ai\IAiPlayer.cs" />
     <Compile Include="Rules\GameOver\GameOverRules.cs" />
     <Compile Include="Rules\IBaseRules.cs" />
@@ -85,5 +86,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

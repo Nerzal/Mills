@@ -1,17 +1,12 @@
-﻿namespace Mills.ConsoleClient.Board {
+﻿namespace Mills.ConsoleClient.Board.Analyzer {
     /// <summary>
     /// Analyzes the board
     /// </summary>
     public interface IBoardAnalyzer {
         /// <summary>
-        /// Stones that are not set onto the board yet
+        /// The games board
         /// </summary>
-        int Player1OffBoardStones { get; }
-
-        /// <summary>
-        /// Stones that are not set onto the board yet
-        /// </summary>
-        int Player2OffBoardStones { get; }
+        IBoard Board { get; }
 
         /// <summary>
         /// Counts all spots owned by the given color

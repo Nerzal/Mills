@@ -1,5 +1,6 @@
 using System;
 using Mills.ConsoleClient.Board;
+using Mills.ConsoleClient.Board.Analyzer;
 using Mills.ConsoleClient.GameController;
 
 namespace Mills.ConsoleClient.Rules.Movement {

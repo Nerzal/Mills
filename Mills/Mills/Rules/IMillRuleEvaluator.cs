@@ -1,4 +1,5 @@
 using Mills.ConsoleClient.Board;
+using Mills.ConsoleClient.Board.Analyzer;
 using Mills.ConsoleClient.Rules.GameOver;
 using Mills.ConsoleClient.Rules.Movement;
 

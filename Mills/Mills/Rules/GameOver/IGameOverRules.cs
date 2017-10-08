@@ -1,4 +1,5 @@
 using Mills.ConsoleClient.Board;
+using Mills.ConsoleClient.Board.Analyzer;
 
 namespace Mills.ConsoleClient.Rules.GameOver {
     /// <summary>

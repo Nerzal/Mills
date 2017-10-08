@@ -12,6 +12,13 @@
         /// <inheritdoc />
         public int DimensionCount => Dimensions;
 
+
+        /// <inheritdoc />
+        public int Player1OffBoardStones { get; set; }
+
+        /// <inheritdoc />
+        public int Player2OffBoardStones { get; set; }
+
         /// <inheritdoc />
         public Spot[][,] Spots { get; set; }
         

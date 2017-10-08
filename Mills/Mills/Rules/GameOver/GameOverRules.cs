@@ -1,5 +1,6 @@
 using System.Linq;
 using Mills.ConsoleClient.Board;
+using Mills.ConsoleClient.Board.Analyzer;
 
 namespace Mills.ConsoleClient.Rules.GameOver {
     /// <summary>
@@ -26,8 +27,8 @@ namespace Mills.ConsoleClient.Rules.GameOver {
             int player2SpotCount = this.BoardAnalyzer.CountPlayerSpots(Colors.Black);
 
             //In phase 1 the offBoardStones need to be added to the count
-            player1SpotCount += this.BoardAnalyzer.Player1OffBoardStones;
-            player2SpotCount += this.BoardAnalyzer.Player2OffBoardStones;
+            player1SpotCount += this.BoardAnalyzer.Board.Player1OffBoardStones;
+            player2SpotCount += this.BoardAnalyzer.Board.Player2OffBoardStones;
 
             bool playerHasLessThan3Stones = player2SpotCount < 3 || player1SpotCount < 3;
             return playerHasLessThan3Stones;

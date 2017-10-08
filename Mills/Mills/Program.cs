@@ -1,5 +1,7 @@
 ﻿using System;
 using Mills.ConsoleClient.Board;
+using Mills.ConsoleClient.Board.Analyzer;
+using Mills.ConsoleClient.Board.Controller;
 using Mills.ConsoleClient.GameController;
 using Mills.ConsoleClient.Player;
 using Mills.ConsoleClient.Rules;
@@ -11,17 +13,18 @@ namespace Mills.ConsoleClient {
         static void Main(string[] args) {
             IPlayer player1 = new Player.Player("Olaf");
             IPlayer player2 = new Player.Player("Karl");
-            
+
             IBoard board = new Board.Board();
             IBoardController boardController = new BoardController(board);
+            IBoardAnalyzer analyzer = new BoardAnalyzer(board);
             boardController.Initialize();
 
-            IGameOverRules gameOverRules = new GameOverRules(boardController);
-            IMovementRules moveValidationRules = new MovementRules(boardController, board);
+            IGameOverRules gameOverRules = new GameOverRules(analyzer);
+            IMovementRules moveValidationRules = new MovementRules(analyzer, board);
             IRuleSet ruleSet = new RuleSet(moveValidationRules, gameOverRules);
-            IMillRuleEvaluator ruleEvaluator = new Evaluator(ruleSet);
+            IMillRuleEvaluator ruleEvaluator = new Evaluator(ruleSet, analyzer);
 
-           
+
             History history = new History();
             IGameController controller = new GameController.GameController(ruleEvaluator, board, history, boardController);
             controller.PlayerWon += OnPlayerWon;
@@ -39,7 +42,7 @@ namespace Mills.ConsoleClient {
                 Coordinate coordinate = new Coordinate(level, x, y, controller.ActivePlayer);
                 bool validTurn = controller.DoTurn(new Move(null, coordinate, controller.ActivePlayer));
             }
-            
+
             Console.ReadLine();
         }
 

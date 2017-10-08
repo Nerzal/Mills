@@ -1,10 +1,10 @@
 ﻿using Mills.ConsoleClient.GameController;
 
-namespace Mills.ConsoleClient.Board {
+namespace Mills.ConsoleClient.Board.Controller {
     /// <summary>
     /// Controls the board
     /// </summary>
-    public interface IBoardController : IBoardAnalyzer {
+    public interface IBoardController {
         /// <summary>
         /// The board to control
         /// </summary>

@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using Mills.ConsoleClient.Board;
+using Mills.ConsoleClient.Board.Analyzer;
 using Mills.ConsoleClient.GameController;
 using Mills.ConsoleClient.Player;
 
@@ -15,10 +16,12 @@ namespace Mills.ConsoleClient.Rules {
         public IBoardAnalyzer BoardAnalyzer { get; }
 
         /// <inheritdoc />
-        public Evaluator(IRuleSet rules) {
+        public Evaluator(IRuleSet rules, IBoardAnalyzer analyzer) {
             this.Rules = rules;
             this.Rules.GameOverRules.Initialize();
             this.Rules.MoveValidationRules.Initialize();
+
+            this.BoardAnalyzer = analyzer;
         }
 
         /// <inheritdoc />
@@ -34,13 +37,13 @@ namespace Mills.ConsoleClient.Rules {
         /// <inheritdoc />
         public GamePhases EvaluatePhase(IPlayer player) {
             if (player.Color == Colors.White) {
-                if (this.BoardAnalyzer.Player1OffBoardStones > 0) {
+                if (this.BoardAnalyzer.Board.Player1OffBoardStones > 0) {
                     return GamePhases.Set;
                 } else if(this.BoardAnalyzer.CountPlayerSpots(Colors.White) == 3) {
                     return GamePhases.Jump;
                 }
             } else {
-                if (this.BoardAnalyzer.Player2OffBoardStones > 0) {
+                if (this.BoardAnalyzer.Board.Player2OffBoardStones > 0) {
                     return GamePhases.Set;
                 } else if (this.BoardAnalyzer.CountPlayerSpots(Colors.Black) == 3) {
                     return GamePhases.Jump;

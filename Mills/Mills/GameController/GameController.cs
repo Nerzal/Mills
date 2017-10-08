@@ -1,5 +1,6 @@
 ﻿using System;
 using Mills.ConsoleClient.Board;
+using Mills.ConsoleClient.Board.Controller;
 using Mills.ConsoleClient.Player;
 using Mills.ConsoleClient.Rules;
 

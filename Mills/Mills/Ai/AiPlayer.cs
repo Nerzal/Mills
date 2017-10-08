@@ -1,9 +1,9 @@
 ﻿using System;
-using Mills.ConsoleClient.Ai;
-using Mills.ConsoleClient.Board;
+using Mills.ConsoleClient.Board.Analyzer;
 using Mills.ConsoleClient.GameController;
+using Mills.ConsoleClient.Player;
 
-namespace Mills.ConsoleClient.Player {
+namespace Mills.ConsoleClient.Ai {
     /// <summary>
     /// This class represents a Player, that is controlled by the computer
     /// It Analyzes the board and acts afterwards

@@ -40,12 +40,39 @@ namespace Mills.ConsoleClient.Board.Controller {
 
         /// <inheritdoc />
         public bool Move(Move move) {
-            throw new NotImplementedException();
+            if (!CheckDestinationIsValidAndFree(move.Destination)) {
+                return false;
+            }
+
+            if (!this._analyzer.CheckCoordinatesAreConnected(move.Source, move.Destination)) {
+                return false;
+            }
+
+            if (this._analyzer.GetDistance(move.Source, move.Destination) != 1) {
+                return false;
+            }
+            ApplyMove(move);
+            return true;
+        }
+
+        private bool CheckDestinationIsValidAndFree(Coordinate destination) {
+            if (!this._analyzer.IsValidCoordinate(destination)) {
+                return false;
+            }
+            if (!this._analyzer.IsFreeSpot(destination)) {
+                return false;
+            }
+            return true;
         }
 
         /// <inheritdoc />
         public bool Jump(Move move) {
-            throw new System.NotImplementedException();
+            if (!CheckDestinationIsValidAndFree(move.Destination)) {
+                return false;
+            }
+
+            ApplyMove(move);
+            return true;
         }
 
         /// <inheritdoc />
@@ -63,5 +90,15 @@ namespace Mills.ConsoleClient.Board.Controller {
             }
         }
 
+        /// <summary>
+        /// Unset source and set destination
+        /// </summary>
+        /// <param name="move"></param>
+        private void ApplyMove(Move move) {
+            Coordinate source = move.Source;
+            Coordinate destination = move.Destination;
+            this.Board.Spots[source.Level][source.X, source.Y].Player = null;
+            this.Board.Spots[destination.Level][destination.X, destination.Y].Player = move.Player;
+        }
     }
 }

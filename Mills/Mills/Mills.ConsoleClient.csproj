@@ -42,7 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Player\AiPlayer.cs" />
+    <Compile Include="Ai\AiPlayer.cs" />
     <Compile Include="Player\BasePlayer.cs" />
     <Compile Include="Board\Board.cs" />
     <Compile Include="Board\BoardController.cs" />
@@ -52,8 +52,9 @@
     <Compile Include="GameController\GamePhases.cs" />
     <Compile Include="Board\IBoardAnalyzer.cs" />
     <Compile Include="Board\IBoardController.cs" />
+    <Compile Include="Ai\IAiPlayer.cs" />
     <Compile Include="Rules\GameOver\GameOverRules.cs" />
-    <Compile Include="Rules\GameOver\IBaseRules.cs" />
+    <Compile Include="Rules\IBaseRules.cs" />
     <Compile Include="Rules\GameOver\IGameOverRules.cs" />
     <Compile Include="Rules\GameOver\IGameOverEvaluator.cs" />
     <Compile Include="Rules\GameOver\IGamePhaseEvaluator.cs" />

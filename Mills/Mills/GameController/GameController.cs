@@ -53,7 +53,14 @@ namespace Mills.ConsoleClient.GameController {
 
         /// <inheritdoc />
         public bool DoTurn(Coordinate coordinate, IPlayer activePlayer) {
-            throw new NotImplementedException();
+            bool result = this._boardController.Set(coordinate, activePlayer);
+            if (!result) {
+                return result;
+            }
+
+            this.Round++;
+            SetActivePlayer();
+            return result;
         }
 
         /// <inheritdoc />
@@ -76,9 +83,13 @@ namespace Mills.ConsoleClient.GameController {
             return this._ruleEvaluator.IsGameOver(this._board);
         }
 
-        private void ApplyMove(Move move) {
-            this._boardController.Move(move);
+        private bool ApplyMove(Move move) {
+            bool result = this._boardController.Move(move);
+            if (!result) {
+                return result;
+            }
             this._history.Add(move);
+            return result;
         }
 
         private void SetActivePlayer() {

@@ -46,5 +46,13 @@ namespace Mills.ConsoleClient.Board.Analyzer {
         /// <param name="coordinate"></param>
         /// <returns></returns>
         bool IsValidCoordinate(Coordinate coordinate);
+
+        /// <summary>
+        /// Checks if the fields of the 2 given coordinates are connected
+        /// </summary>
+        /// <param name="source">first field</param>
+        /// <param name="destination">second field</param>
+        /// <returns></returns>
+        bool CheckCoordinatesAreConnected(Coordinate source, Coordinate destination);
     }
 }

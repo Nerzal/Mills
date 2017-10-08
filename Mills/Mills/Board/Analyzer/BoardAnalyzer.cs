@@ -63,5 +63,29 @@ namespace Mills.ConsoleClient.Board.Analyzer {
         public bool IsFreeSpot(Coordinate coordinate) {
             return this.GetOccupier(coordinate) == null;
         }
+
+        /// <inheritdoc />
+        public bool CheckCoordinatesAreConnected(Coordinate source, Coordinate destination) {
+            int distance = GetDistance(source, destination);
+            if (distance > 1) {
+                return false;
+            }
+
+            if (source.Level == destination.Level) {
+                return true;
+            }
+
+            if (source.X == destination.X && source.Y == destination.Y) {
+                if (source.X == 1) {
+                    return true;
+                }
+
+                if (source.Y == 1) {
+                    return true;
+                }
+            }
+
+            return false;
+        }
     }
 }

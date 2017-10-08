@@ -73,8 +73,8 @@ namespace Mills.Tests {
         [TestMethod]
         public void GetDistance_0_000To000() {
             //Arrange
-            Coordinate source = new Coordinate(0,0,0);
-            Coordinate destination = new Coordinate(0,0,0);
+            Coordinate source = new Coordinate(0, 0, 0);
+            Coordinate destination = new Coordinate(0, 0, 0);
             //Act
             int result = this.Analyzer.GetDistance(source, destination);
             //Assert
@@ -101,6 +101,104 @@ namespace Mills.Tests {
             int result = this.Analyzer.GetDistance(source, destination);
             //Assert
             Assert.AreEqual(2, result);
+        }
+
+        [TestMethod]
+        public void IsFreeSpot_True_000() {
+            //Arrange
+            Coordinate coordinate = new Coordinate(0, 0, 0);
+            //Act
+            bool result = this.Analyzer.IsFreeSpot(coordinate);
+            //Assert
+            Assert.IsTrue(result);
+        }
+
+        [TestMethod]
+        public void IsFreeSpot_False_000() {
+            //Arrange
+            Coordinate coordinate = new Coordinate(0, 0, 0);
+            this.Controller.Set(coordinate, this.Player);
+            //Act
+            bool result = this.Analyzer.IsFreeSpot(coordinate);
+            //Assert
+            Assert.IsFalse(result);
+        }
+
+        [TestMethod]
+        public void CheckCoordinatesAreConnected_True_000To010() {
+            //Arrange
+            Coordinate firstSpot = new Coordinate(0, 0, 0);
+            Coordinate secondSpot = new Coordinate(0, 1, 0);
+            //Act
+            bool result = this.Analyzer.CheckCoordinatesAreConnected(firstSpot, secondSpot);
+            //Assert
+            Assert.IsTrue(result);
+        }
+
+        [TestMethod]
+        public void CheckCoordinatesAreConnected_False_000To020() {
+            //Arrange
+            Coordinate firstSpot = new Coordinate(0, 0, 0);
+            Coordinate secondSpot = new Coordinate(0, 2, 0);
+            //Act
+            bool result = this.Analyzer.CheckCoordinatesAreConnected(firstSpot, secondSpot);
+            //Assert
+            Assert.IsFalse(result);
+        }
+
+        [TestMethod]
+        public void CheckCoordinatesAreConnected_True_001To101() {
+            //Arrange
+            Coordinate firstSpot = new Coordinate(0, 0, 1);
+            Coordinate secondSpot = new Coordinate(1, 0, 1);
+            //Act
+            bool result = this.Analyzer.CheckCoordinatesAreConnected(firstSpot, secondSpot);
+            //Assert
+            Assert.IsTrue(result);
+        }
+
+        [TestMethod]
+        public void CheckCoordinatesAreConnected_True_002To012() {
+            //Arrange
+            Coordinate firstSpot = new Coordinate(0, 0, 2);
+            Coordinate secondSpot = new Coordinate(0, 1, 2);
+            //Act
+            bool result = this.Analyzer.CheckCoordinatesAreConnected(firstSpot, secondSpot);
+            //Assert
+            Assert.IsTrue(result);
+        }
+
+        [TestMethod]
+        public void CheckCoordinatesAreConnected_True_221To121() {
+            //Arrange
+            Coordinate firstSpot = new Coordinate(2, 2, 1);
+            Coordinate secondSpot = new Coordinate(1, 2, 1);
+            //Act
+            bool result = this.Analyzer.CheckCoordinatesAreConnected(firstSpot, secondSpot);
+            //Assert
+            Assert.IsTrue(result);
+        }
+
+        [TestMethod]
+        public void CheckCoordinatesAreConnected_False_022To122() {
+            //Arrange
+            Coordinate firstSpot = new Coordinate(0, 2, 2);
+            Coordinate secondSpot = new Coordinate(1, 2, 2);
+            //Act
+            bool result = this.Analyzer.CheckCoordinatesAreConnected(firstSpot, secondSpot);
+            //Assert
+            Assert.IsFalse(result);
+        }
+
+        [TestMethod]
+        public void CheckCoordinatesAreConnected_False_002To122() {
+            //Arrange
+            Coordinate firstSpot = new Coordinate(0, 0, 2);
+            Coordinate secondSpot = new Coordinate(1, 2, 2);
+            //Act
+            bool result = this.Analyzer.CheckCoordinatesAreConnected(firstSpot, secondSpot);
+            //Assert
+            Assert.IsFalse(result);
         }
     }
 }

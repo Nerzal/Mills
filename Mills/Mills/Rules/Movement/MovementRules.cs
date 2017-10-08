@@ -64,31 +64,9 @@ namespace Mills.ConsoleClient.Rules.Movement {
         private bool IsConnected(Move move) {
             Coordinate source = move.Source;
             Coordinate destination = move.Destination;
-            return CheckCoordinatesAreConnected(source, destination);
+            return this.BoardAnalyzer.CheckCoordinatesAreConnected(source, destination);
         }
 
-        private bool CheckCoordinatesAreConnected(Coordinate source, Coordinate destination) {
-            int distance = this.BoardAnalyzer.GetDistance(source, destination);
-            if (distance > 1) {
-                return false;
-            }
-
-            if (source.Level == destination.Level) {
-                return true;
-            }
-
-            if (source.X == destination.X && source.Y == destination.Y) {
-                if (source.X == 1) {
-                    return true;
-                }
-
-                if (source.Y == 1) {
-                    return true;
-                }
-            }
-
-            return false;
-        }
 
         /// <summary>
         /// Checks if the source and destination spots are neighbours
@@ -99,6 +77,12 @@ namespace Mills.ConsoleClient.Rules.Movement {
             int distance = this.BoardAnalyzer.GetDistance(move.Source, move.Destination);
             return distance == 1;
         }
+
+        /// <summary>
+        /// Checks if a given spot is not occupied yet
+        /// </summary>
+        /// <param name="arg"></param>
+        /// <returns></returns>
         private bool IsFreeSpot(Move arg) {
             return this.BoardAnalyzer.IsFreeSpot(arg.Destination);
         }

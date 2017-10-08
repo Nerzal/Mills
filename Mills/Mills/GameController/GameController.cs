@@ -52,6 +52,11 @@ namespace Mills.ConsoleClient.GameController {
         }
 
         /// <inheritdoc />
+        public bool DoTurn(Coordinate coordinate, IPlayer activePlayer) {
+            throw new NotImplementedException();
+        }
+
+        /// <inheritdoc />
         public bool DoTurn(Move move) {
             if (!this._ruleEvaluator.ValidateMovement(move)) {
                 return false;

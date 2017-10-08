@@ -10,7 +10,7 @@ namespace Mills.ConsoleClient.GameController {
         /// <summary>
         /// The source of the movement
         /// </summary>
-        public Coordinate? Source { get; set; }
+        public Coordinate Source { get; set; }
         /// <summary>
         /// The destination of the movement
         /// </summary>
@@ -27,7 +27,7 @@ namespace Mills.ConsoleClient.GameController {
         /// <param name="source"></param>
         /// <param name="target"></param>
         /// <param name="activePlayer"></param>
-        public Move(Coordinate? source, Coordinate target, IPlayer activePlayer) {
+        public Move(Coordinate source, Coordinate target, IPlayer activePlayer) {
             this.Source = source;
             this.Destination = target;
             this.Player = activePlayer;

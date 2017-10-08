@@ -62,10 +62,7 @@ namespace Mills.ConsoleClient.Rules.Movement {
         /// <param name="move"></param>
         /// <returns></returns>
         private bool IsConnected(Move move) {
-            if (!move.Source.HasValue) {
-                return true; //TODO fix me i don't want to be executed in phase 1
-            }
-            Coordinate source = move.Source.Value;
+            Coordinate source = move.Source;
             Coordinate destination = move.Destination;
             return CheckCoordinatesAreConnected(source, destination);
         }
@@ -99,10 +96,7 @@ namespace Mills.ConsoleClient.Rules.Movement {
         /// <param name="move"></param>
         /// <returns></returns>
         private bool IsInRange(Move move) {
-            if (!move.Source.HasValue) {
-                return true;
-            }
-            int distance = this.BoardAnalyzer.GetDistance(move.Source.Value, move.Destination);
+            int distance = this.BoardAnalyzer.GetDistance(move.Source, move.Destination);
             return distance == 1;
         }
         private bool IsFreeSpot(Move arg) {

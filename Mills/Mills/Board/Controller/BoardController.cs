@@ -1,4 +1,6 @@
-﻿using Mills.ConsoleClient.GameController;
+﻿using System;
+using Mills.ConsoleClient.GameController;
+using Mills.ConsoleClient.Player;
 
 namespace Mills.ConsoleClient.Board.Controller {
     /// <summary>
@@ -18,17 +20,24 @@ namespace Mills.ConsoleClient.Board.Controller {
         }
 
         /// <inheritdoc />
-        public void Move(Move move) {
-            if (!move.Source.HasValue) {
-                this.Board.Spots[move.Destination.Level][move.Destination.X, move.Destination.Y] = new Spot(move.Player);
-                if (move.Player.Color == Colors.White) {
-                    this.Board.Player1OffBoardStones--;
-                } else {
-                    this.Board.Player2OffBoardStones--;
-                }
+        public void Set(Coordinate coordinate, IPlayer player) {
+            this.Board.Spots[coordinate.Level][coordinate.X, coordinate.Y] = new Spot(player);
+            if (player.Color == Colors.White) {
+                this.Board.Player1OffBoardStones--;
+            } else {
+                this.Board.Player2OffBoardStones--;
             }
         }
 
+        /// <inheritdoc />
+        public void Move(Move move) {
+            throw new NotImplementedException();
+        }
+        
+        /// <inheritdoc />
+        public void Jump(Move move) {
+            throw new System.NotImplementedException();
+        }
 
         /// <inheritdoc />
         public void Initialize() {

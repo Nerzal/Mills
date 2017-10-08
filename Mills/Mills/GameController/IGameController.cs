@@ -1,4 +1,5 @@
 ﻿using System;
+using Mills.ConsoleClient.Board;
 using Mills.ConsoleClient.Player;
 
 namespace Mills.ConsoleClient.GameController {
@@ -29,7 +30,15 @@ namespace Mills.ConsoleClient.GameController {
         void NewGame(IPlayer player1, IPlayer player2);
 
         /// <summary>
-        /// Tries to apply a turn
+        /// Tries to apply a turn of phase 1
+        /// </summary>
+        /// <param name="coordinate"></param>
+        /// <param name="activePlayer"></param>
+        /// <returns></returns>
+        bool DoTurn(Coordinate coordinate, IPlayer activePlayer);
+
+        /// <summary>
+        /// Tries to apply a turn of phase 2 and phase 3
         /// </summary>
         /// <param name="move"></param>
         /// <returns></returns>

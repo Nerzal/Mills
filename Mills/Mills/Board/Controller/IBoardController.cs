@@ -27,7 +27,7 @@ namespace Mills.ConsoleClient.Board.Controller {
         /// </summary>
         /// <param name="coordinate"></param>
         /// <param name="player"></param>
-        void Set(Coordinate coordinate, IPlayer player);
+        bool Set(Coordinate coordinate, IPlayer player);
 
         /// <summary>
         /// Jump from Coordinate to Coordinate

@@ -1,4 +1,5 @@
 ﻿using System;
+using Mills.ConsoleClient.Board.Analyzer;
 using Mills.ConsoleClient.GameController;
 using Mills.ConsoleClient.Player;
 
@@ -7,6 +8,7 @@ namespace Mills.ConsoleClient.Board.Controller {
     /// Controls and analyzes the board..oh gosh i have to split that
     /// </summary>
     public class BoardController : IBoardController {
+        private readonly IBoardAnalyzer _analyzer;
 
         /// <inheritdoc />
         public IBoard Board { get; }
@@ -15,25 +17,32 @@ namespace Mills.ConsoleClient.Board.Controller {
         /// ctor
         /// </summary>
         /// <param name="board"></param>
-        public BoardController(IBoard board) {
+        /// <param name="analyzer"></param>
+        public BoardController(IBoard board, IBoardAnalyzer analyzer) {
             this.Board = board;
+            this._analyzer = analyzer;
         }
 
         /// <inheritdoc />
-        public void Set(Coordinate coordinate, IPlayer player) {
+        public bool Set(Coordinate coordinate, IPlayer player) {
+            if (!this._analyzer.IsValidCoordinate(coordinate) && !this._analyzer.IsFreeSpot(coordinate)) {
+                return false;
+            }
+
             this.Board.Spots[coordinate.Level][coordinate.X, coordinate.Y] = new Spot(player);
             if (player.Color == Colors.White) {
                 this.Board.Player1OffBoardStones--;
             } else {
                 this.Board.Player2OffBoardStones--;
             }
+            return true;
         }
 
         /// <inheritdoc />
         public void Move(Move move) {
             throw new NotImplementedException();
         }
-        
+
         /// <inheritdoc />
         public void Jump(Move move) {
             throw new System.NotImplementedException();

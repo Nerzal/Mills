@@ -15,8 +15,8 @@ namespace Mills.ConsoleClient {
             IPlayer player2 = new Player.Player("Karl");
 
             IBoard board = new Board.Board();
-            IBoardController boardController = new BoardController(board);
             IBoardAnalyzer analyzer = new BoardAnalyzer(board);
+            IBoardController boardController = new BoardController(board, analyzer);
             boardController.Initialize();
 
             IGameOverRules gameOverRules = new GameOverRules(analyzer);

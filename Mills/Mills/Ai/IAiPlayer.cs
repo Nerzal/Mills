@@ -1,11 +1,14 @@
-﻿using Mills.ConsoleClient.GameController;
+﻿using Mills.ConsoleClient.Board;
+using Mills.ConsoleClient.GameController;
 
 namespace Mills.ConsoleClient.Ai {
     public interface IAiPlayer {
         IGameController GameController { get; }
 
-        void Analyse();
+        IBoardAnalyzer BoardAnalyzer { get; }
 
-        void Act();
+        Move Analyse();
+
+        void Act(Move move);
     }
 }

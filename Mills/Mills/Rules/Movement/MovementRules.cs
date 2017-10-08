@@ -10,7 +10,7 @@ namespace Mills.ConsoleClient.Rules.Movement {
     /// Holds all rules that are important for movement
     /// </summary>
     public class MovementRules : BaseRules<Move>, IMovementRules {
-        private IBoard _board;
+        private readonly IBoard _board;
 
         /// <inheritdoc />
         public IBoardAnalyzer BoardAnalyzer { get; }
@@ -61,6 +61,9 @@ namespace Mills.ConsoleClient.Rules.Movement {
         /// <param name="move"></param>
         /// <returns></returns>
         private bool IsConnected(Move move) {
+            if (!move.Source.HasValue) {
+                return true; //TODO fix me i don't want to be executed in phase 1
+            }
             Coordinate source = move.Source.Value;
             Coordinate destination = move.Destination;
             return CheckCoordinatesAreConnected(source, destination);

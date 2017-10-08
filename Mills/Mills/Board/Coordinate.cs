@@ -1,6 +1,4 @@
-﻿using Mills.ConsoleClient.Player;
-
-namespace Mills.ConsoleClient.Board {
+﻿namespace Mills.ConsoleClient.Board {
     /// <summary>
     /// A single coordinate on the board
     /// </summary>
@@ -22,22 +20,15 @@ namespace Mills.ConsoleClient.Board {
         public int Y { get; set; }
 
         /// <summary>
-        /// the player who holds a spot, can be null
-        /// </summary>
-        public IPlayer Owner { get; private set; }
-
-        /// <summary>
         /// ctor
         /// </summary>
         /// <param name="level"><see cref="Level"/></param>
         /// <param name="x"><see cref="X"/></param>
         /// <param name="y"><see cref="Y"/></param>
-        /// <param name="owner"><see cref="Owner"/></param>
-        public Coordinate(int level, int x, int y, IPlayer owner) {
+        public Coordinate(int level, int x, int y) {
             this.Level = level;
             this.X = x;
             this.Y = y;
-            this.Owner = owner;
         }
     }
 }

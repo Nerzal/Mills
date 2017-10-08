@@ -11,8 +11,7 @@
 
         /// <inheritdoc />
         public int DimensionCount => Dimensions;
-
-
+        
         /// <inheritdoc />
         public int Player1OffBoardStones { get; set; }
 

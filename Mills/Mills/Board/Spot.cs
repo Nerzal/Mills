@@ -1,9 +1,19 @@
 ﻿using Mills.ConsoleClient.Player;
 
 namespace Mills.ConsoleClient.Board {
+    /// <summary>
+    /// Represents a spot on the board
+    /// </summary>
     public class Spot {
+        /// <summary>
+        /// Player that occupies this spots
+        /// </summary>
         public IPlayer Player { get; set; }
 
+        /// <summary>
+        /// ctor
+        /// </summary>
+        /// <param name="player">the player to occupy this spot. can be null</param>
         public Spot(IPlayer player) {
             this.Player = player;
         }
@@ -16,17 +26,20 @@ namespace Mills.ConsoleClient.Board {
             string result;
             switch (this.Player?.Color) {
                 case Colors.Black: {
-                    result = "B";
-                    break;
-                }
+                        result = "B";
+                        break;
+                    }
                 case Colors.White: {
-                    result = "W";
-                    break;
-                }
-                default: {
+                        result = "W";
+                        break;
+                    }
+                case null:
                     result = " ";
                     break;
-                }
+                default: {
+                        result = " ";
+                        break;
+                    }
             }
             return result;
         }

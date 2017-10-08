@@ -3,6 +3,9 @@ using System.Linq;
 using Mills.ConsoleClient.GameController;
 
 namespace Mills.ConsoleClient.Board {
+    /// <summary>
+    /// Controls and analyzes the board..oh gosh i have to split that
+    /// </summary>
     public class BoardController : IBoardController {
 
         /// <inheritdoc />

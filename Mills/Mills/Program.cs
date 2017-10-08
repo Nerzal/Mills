@@ -12,7 +12,6 @@ namespace Mills.ConsoleClient {
             IPlayer player1 = new Player.Player("Olaf");
             IPlayer player2 = new Player.Player("Karl");
             
-
             IBoard board = new Board.Board();
             IBoardController boardController = new BoardController(board);
             boardController.Initialize();
@@ -40,8 +39,7 @@ namespace Mills.ConsoleClient {
                 Coordinate coordinate = new Coordinate(level, x, y, controller.ActivePlayer);
                 bool validTurn = controller.DoTurn(new Move(null, coordinate, controller.ActivePlayer));
             }
-
-
+            
             Console.ReadLine();
         }
 

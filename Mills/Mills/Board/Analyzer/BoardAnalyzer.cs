@@ -19,7 +19,7 @@ namespace Mills.ConsoleClient.Board.Analyzer {
 
         /// <inheritdoc />
         public int CountPlayerSpots(Colors color) {
-            return this.Board.Spots.SelectMany(level => level.Cast<Spot>())
+            return this.Board.Spots.SelectMany(level => level.OfType<Spot>())
                 .Count(spot => spot?.Player?.Color == color);
         }
 

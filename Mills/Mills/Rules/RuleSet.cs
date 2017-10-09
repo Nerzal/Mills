@@ -2,15 +2,26 @@
 using Mills.ConsoleClient.Rules.Movement;
 
 namespace Mills.ConsoleClient.Rules {
-    public class RuleSet : IRuleSet {
-        public IMovementRules MoveValidationRules { get; }
-        public IGameOverRules GameOverRules { get; }
+  /// <inheritdoc />
+  /// <summary>
+  /// Holds all GameRules
+  /// </summary>
+  public class RuleSet : IRuleSet {
+    /// <inheritdoc />
+    public IMovementRules MoveValidationRules { get; }
+    /// <inheritdoc />
+    public IGameOverRules GameOverRules { get; }
 
-        public RuleSet(
-            IMovementRules moveValidationRules,
-            IGameOverRules gameOverRules) {
-            this.MoveValidationRules = moveValidationRules;
-            this.GameOverRules = gameOverRules;
-        }
+    /// <summary>
+    /// ctor
+    /// </summary>
+    /// <param name="moveValidationRules"></param>
+    /// <param name="gameOverRules"></param>
+    public RuleSet(
+        IMovementRules moveValidationRules,
+        IGameOverRules gameOverRules) {
+      this.MoveValidationRules = moveValidationRules;
+      this.GameOverRules = gameOverRules;
     }
+  }
 }

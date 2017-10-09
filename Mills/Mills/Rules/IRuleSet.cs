@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Mills.ConsoleClient.Rules.GameOver;
+﻿using Mills.ConsoleClient.Rules.GameOver;
 using Mills.ConsoleClient.Rules.Movement;
 
 namespace Mills.ConsoleClient.Rules {

@@ -274,8 +274,10 @@ namespace Mills.Tests {
       this.Controller.Set(row2Coordinate2, this.Player);
       Coordinate row2Coordinate3 = new Coordinate(1, 2, 0);
       this.Controller.Set(row2Coordinate3, this.Player);
+
       //Act
       IEnumerable<Row> player1Rows = recognizer.FindAllRowsFor(this.Player);
+
       //Assert
       Assert.AreEqual(1, player1Rows.Count());
 
@@ -296,8 +298,10 @@ namespace Mills.Tests {
       this.Controller.Set(row2Coordinate2, this.Player);
       Coordinate row2Coordinate3 = new Coordinate(2, 2, 0);
       this.Controller.Set(row2Coordinate3, this.Player);
+
       //Act
       IEnumerable<Row> player1Rows = recognizer.FindAllRowsFor(this.Player);
+
       //Assert
       Assert.AreEqual(1, player1Rows.Count());
 
@@ -312,14 +316,16 @@ namespace Mills.Tests {
       //Arrange
       IRowController rowController = new RowController();
       IPatternRecognizer recognizer = new PatternRecognizer(this.Board, rowController);
-      Coordinate row2Coordinate1 = new Coordinate(0, 1, 0);
+      Coordinate row2Coordinate1 = new Coordinate(2, 2, 1);
       this.Controller.Set(row2Coordinate1, this.Player);
-      Coordinate row2Coordinate2 = new Coordinate(1, 1, 0);
+      Coordinate row2Coordinate2 = new Coordinate(1, 2, 1);
       this.Controller.Set(row2Coordinate2, this.Player);
-      Coordinate row2Coordinate3 = new Coordinate(2, 1, 0);
+      Coordinate row2Coordinate3 = new Coordinate(0, 2, 1);
       this.Controller.Set(row2Coordinate3, this.Player);
+
       //Act
       IEnumerable<Row> player1Rows = recognizer.FindAllRowsFor(this.Player);
+
       //Assert
       Assert.AreEqual(1, player1Rows.Count());
 
@@ -341,8 +347,10 @@ namespace Mills.Tests {
       this.Controller.Set(row2Coordinate2, this.Player);
       Coordinate row2Coordinate3 = new Coordinate(2, 2, 2);
       this.Controller.Set(row2Coordinate3, this.Player);
+
       //Act
       IEnumerable<Row> player1Rows = recognizer.FindAllRowsFor(this.Player);
+
       //Assert
       Assert.AreEqual(1, player1Rows.Count());
 

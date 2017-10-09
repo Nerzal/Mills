@@ -60,5 +60,31 @@ namespace Mills.Tests {
       //Assert
       Assert.AreEqual(GamePhases.Draw, phase);
     }
+
+    [TestMethod]
+    public void EvaluatePhase_Phase3_2StonesWhite() {
+      // Arrange
+      // Most of Arrangement is done via TestInitialize of the BaseClass
+      // The Second part is done via the Initialize Method of this class
+      this.Controller.Set(new Coordinate(0, 0, 0), this.Player);
+      this.Controller.Set(new Coordinate(0, 0, 1), this.Player);
+      this.Controller.Set(new Coordinate(0, 0, 2), this.Player);
+      this.Controller.Set(new Coordinate(0, 1, 0), this.Player);
+      this.Controller.Set(new Coordinate(0, 2, 0), this.Player);
+      this.Controller.Set(new Coordinate(1, 1, 0), this.Player);
+      this.Controller.Set(new Coordinate(1, 2, 0), this.Player);
+      this.Controller.Set(new Coordinate(1, 0, 1), this.Player);
+      this.Controller.Unset(new Coordinate(0, 0, 0), this.Player2);
+      this.Controller.Unset(new Coordinate(0, 0, 1), this.Player2);
+      this.Controller.Unset(new Coordinate(0, 0, 2), this.Player2);
+      this.Controller.Unset(new Coordinate(1, 1, 0), this.Player2);
+      this.Controller.Unset(new Coordinate(1, 2, 0), this.Player2);
+
+      //Act
+      GamePhases phase = this._evaluator.EvaluatePhase(this.Player);
+
+      //Assert
+      Assert.AreEqual(GamePhases.Jump, phase);
+    }
   }
 }

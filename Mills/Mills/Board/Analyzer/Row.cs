@@ -9,7 +9,7 @@ namespace Mills.ConsoleClient.Board.Analyzer {
     /// <summary>
     /// The Player to own this row
     /// </summary>
-    public IPlayer Player { get; set; }
+    public IPlayer Owner { get; }
     /// <summary>
     /// First element of the row
     /// </summary>
@@ -23,10 +23,18 @@ namespace Mills.ConsoleClient.Board.Analyzer {
     /// </summary>
     public Coordinate? Third { get; set; }
 
+    /// <summary>
+    /// ctor
+    /// </summary>
+    /// <param name="owner"></param>
+    public Row(IPlayer owner) {
+      this.Owner = owner;
+    }
+
     /// <inheritdoc />
     public override string ToString() {
       return
-        $"Row occupied by {this.Player.Color}, Coordinates: First: {this.First} Second: {this.Second} Third: {this.Third}";
+        $"Row occupied by {this.Owner.Color}, Coordinates: First: {this.First} Second: {this.Second} Third: {this.Third}";
     }
   }
 

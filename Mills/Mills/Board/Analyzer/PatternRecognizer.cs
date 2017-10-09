@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Mills.ConsoleClient.Player;
 
@@ -9,7 +10,7 @@ namespace Mills.ConsoleClient.Board.Analyzer {
   /// Finds all rows and mills
   /// </summary>
   public class PatternRecognizer : IPatternRecognizer {
-    private IRowController _controller;
+    private readonly IRowController _controller;
 
     /// <inheritdoc />
     public IBoard Board { get; }
@@ -28,11 +29,16 @@ namespace Mills.ConsoleClient.Board.Analyzer {
     public IEnumerable<Row> FindAllRowsFor(IPlayer player) {
       ICollection<Row> result = new List<Row>();
       for (int level = 0; level < this.Board.LevelCount; level++) {
-        Row row = new Row();
         for (int x = 0; x < this.Board.DimensionCount; x++) {
-          IPlayer occuppier = this.Board.Spots[level][x, 0].Player;
-          if (occuppier == player) {
-
+          Row verticalRow = new Row(player);
+          for (int y = 0; y < this.Board.DimensionCount; y++) {
+            IPlayer occuppier = this.Board.Spots[level][x, y].Player;
+            if (occuppier == player) {
+              this._controller.AddToRow(verticalRow, new Coordinate(level, x, y));
+            }
+          }
+          if (verticalRow.Second != null) {
+            result.Add(verticalRow);
           }
         }
       }

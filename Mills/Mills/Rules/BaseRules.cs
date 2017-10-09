@@ -30,14 +30,9 @@ namespace Mills.ConsoleClient.Rules {
       return GetEnumerator();
     }
 
-    public bool Evaluate(TEvaluationObject evaluatableObject) {
-      foreach (ValidationRule<TEvaluationObject> validationRule in this.Rules) {
-        if (!validationRule.Evaluate(evaluatableObject)) {
-          return false;
-        }
-      }
-
-      return true;
+    /// <inheritdoc cref="IBaseRules{TEvaluationObject}"/>
+    public bool Evaluate(TEvaluationObject evaluatable) {
+      return this.Rules.All(movementRules => movementRules.Evaluate(evaluatable));
     }
   }
 }

@@ -62,7 +62,7 @@ namespace Mills.ConsoleClient.Board.Analyzer {
 
     /// <inheritdoc />
     public bool IsFreeSpot(Coordinate coordinate) {
-      return this.GetOccupier(coordinate) == null;
+      return GetOccupier(coordinate) == null;
     }
 
     /// <inheritdoc />

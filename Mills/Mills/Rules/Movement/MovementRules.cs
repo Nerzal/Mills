@@ -75,7 +75,11 @@ namespace Mills.ConsoleClient.Rules.Movement {
     /// <returns></returns>
     private bool IsInRange(Move move) {
       int distance = this.BoardAnalyzer.GetDistance(move.Source, move.Destination);
-      return distance == 1;
+      if (distance == 1) {
+        return IsConnected(move);
+      }
+
+      return false;
     }
 
     /// <summary>

@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mills.ConsoleClient", "Mill
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mills.Tests", "Mills.Tests\Mills.Tests.csproj", "{607AC931-B6B1-483F-973D-33492AE36A94}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mills.Ai.Simple", "Mills.Ai.Simple\Mills.Ai.Simple.csproj", "{9D06BBA1-0F77-43EC-9501-D9899EE81C9C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mills.Ai.Tests", "Mills.Ai.Tests\Mills.Ai.Tests.csproj", "{7F0B7B7D-AB24-4B78-82F1-53498AEED72F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{607AC931-B6B1-483F-973D-33492AE36A94}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{607AC931-B6B1-483F-973D-33492AE36A94}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{607AC931-B6B1-483F-973D-33492AE36A94}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D06BBA1-0F77-43EC-9501-D9899EE81C9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D06BBA1-0F77-43EC-9501-D9899EE81C9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D06BBA1-0F77-43EC-9501-D9899EE81C9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D06BBA1-0F77-43EC-9501-D9899EE81C9C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F0B7B7D-AB24-4B78-82F1-53498AEED72F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F0B7B7D-AB24-4B78-82F1-53498AEED72F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F0B7B7D-AB24-4B78-82F1-53498AEED72F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F0B7B7D-AB24-4B78-82F1-53498AEED72F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

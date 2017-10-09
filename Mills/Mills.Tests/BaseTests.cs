@@ -6,7 +6,7 @@ using Mills.ConsoleClient.Player;
 
 namespace Mills.Tests {
     [TestClass]
-    public abstract class BaseAnalyzerControllerTests {
+    public abstract class BaseTests {
         protected IBoard Board;
         protected IBoardAnalyzer Analyzer;
         protected IBoardController Controller;

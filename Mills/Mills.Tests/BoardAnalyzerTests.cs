@@ -5,7 +5,7 @@ using Mills.ConsoleClient.Player;
 
 namespace Mills.Tests {
     [TestClass]
-    public class BoardAnalyzerTests : BaseAnalyzerControllerTests {
+    public class BoardAnalyzerTests : BaseTests {
 
         [TestMethod]
         public void Set_True_FreeSpot() {

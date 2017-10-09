@@ -23,13 +23,7 @@ namespace Mills.ConsoleClient.Board.Analyzer {
         /// <inheritdoc />
         public IEnumerable<Row> FindAllRowsFor(IPlayer player) {
             ICollection<Row> result = new List<Row>();
-            for (int level = 0; level < this.Board.LevelCount; level++) {
-                for (int x = 0; x < this.Board.DimensionCount; x++) {
-                    for (int y = 0; y < this.Board.DimensionCount; y++) {
-                        IPlayer spot = this.Board.Spots[level][x, y].Player;
-                    }
-                }
-            }
+            
             return result;
         }
 

@@ -5,7 +5,7 @@ using Mills.ConsoleClient.Player;
 
 namespace Mills.Tests {
     [TestClass]
-    public class BoardControllerTests : BaseAnalyzerControllerTests {
+    public class BoardControllerTests : BaseTests {
 
         [TestMethod]
         public void Set_SetNew_PlayerWhite() {

@@ -24,10 +24,7 @@ namespace Mills.ConsoleClient {
     public History(Stack<Move> moves) {
       this._moves = moves;
     }
-    /// <summary>
-    /// <inheritdoc cref="IHistory.Add"/>
-    /// </summary>
-    /// <param name="move"></param>
+    /// <inheritdoc />
     public void Add(Move move) {
       this._moves.Push(move);
     }

@@ -5,7 +5,7 @@ using Mills.ConsoleClient.GameController;
 using Mills.ConsoleClient.Player;
 
 namespace Mills.ConsoleClient.Rules {
-    /// <inheritdoc />
+  /// <inheritdoc />
   /// <summary>
   /// Used to validate GameRules
   /// </summary>
@@ -40,13 +40,17 @@ namespace Mills.ConsoleClient.Rules {
       if (player.Color == Colors.White) {
         if (this.BoardAnalyzer.Board.Player1OffBoardStones > 0) {
           return GamePhases.Set;
-        } else if (this.BoardAnalyzer.CountPlayerSpots(Colors.White) == 3) {
+        }
+
+        if (this.BoardAnalyzer.CountPlayerSpots(Colors.White) == 3) {
           return GamePhases.Jump;
         }
       } else {
         if (this.BoardAnalyzer.Board.Player2OffBoardStones > 0) {
           return GamePhases.Set;
-        } else if (this.BoardAnalyzer.CountPlayerSpots(Colors.Black) == 3) {
+        }
+
+        if (this.BoardAnalyzer.CountPlayerSpots(Colors.Black) == 3) {
           return GamePhases.Jump;
         }
       }

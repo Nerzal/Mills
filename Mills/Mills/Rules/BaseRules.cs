@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Mills.ConsoleClient.Rules {
   /// <summary>
@@ -27,6 +28,16 @@ namespace Mills.ConsoleClient.Rules {
     /// <inheritdoc />
     IEnumerator IEnumerable.GetEnumerator() {
       return GetEnumerator();
+    }
+
+    public bool Evaluate(TEvaluationObject evaluatableObject) {
+      foreach (ValidationRule<TEvaluationObject> validationRule in this.Rules) {
+        if (!validationRule.Evaluate(evaluatableObject)) {
+          return false;
+        }
+      }
+
+      return true;
     }
   }
 }

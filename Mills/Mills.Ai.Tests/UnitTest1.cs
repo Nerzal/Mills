@@ -9,7 +9,9 @@ namespace Mills.Ai.Tests {
   public class UnitTest1 : BaseTests {
     [TestMethod]
     public void TestMethod1() {
-      IAiPlayer simpleAi = new SimpleAi(this.GameController, this.Analyzer);
+      //IRandomProvider randomProvider = NSubstitute.Substitute.For<IRandomProvider>();
+      //randomProvider.ReturnsForAll<IRandomProvider>();
+      IAiPlayer simpleAi = new SimpleAi(this.GameController, this.Analyzer, randomProvider);
       Move move = simpleAi.Analyse();
       simpleAi.Act(move);
     }

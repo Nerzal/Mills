@@ -40,7 +40,8 @@ namespace Mills.ConsoleClient.Ai {
     }
 
     private GamePhases GetCurrentPhase() {
-      throw new NotImplementedException();
+      // TODO if(this.BoardAnalyzer.CountPlayerSpots())
+      return GamePhases.Set;
     }
   }
 }

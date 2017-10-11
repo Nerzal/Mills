@@ -1,0 +1,27 @@
+{
+  "_spots": [[[
+    { "Coordinate": { "Level": 0, "X": 0, "Y": 0 }, "BaseScore": 60, "BaseMovabilityIndex": 2 }, 
+    { "Coordinate": { "Level": 0, "X": 1, "Y": 0 }, "BaseScore": 62, "BaseMovabilityIndex": 3 }, 
+    { "Coordinate": { "Level": 0, "X": 2, "Y": 0 }, "BaseScore": 60, "BaseMovabilityIndex": 2 }], [ 
+    { "Coordinate": { "Level": 0, "X": 0, "Y": 1 }, "BaseScore": 62, "BaseMovabilityIndex": 3 }, null, 
+    { "Coordinate": { "Level": 0, "X": 2, "Y": 1 }, "BaseScore": 62, "BaseMovabilityIndex": 3 }], [
+    { "Coordinate": { "Level": 0, "X": 0, "Y": 2 }, "BaseScore": 60, "BaseMovabilityIndex": 2 }, 
+    { "Coordinate": { "Level": 0, "X": 1, "Y": 2 }, "BaseScore": 62, "BaseMovabilityIndex": 3 }, 
+    { "Coordinate": { "Level": 0, "X": 2, "Y": 2 }, "BaseScore": 60, "BaseMovabilityIndex": 2 }]], [[
+    { "Coordinate": { "Level": 1, "X": 0, "Y": 0 }, "BaseScore": 63, "BaseMovabilityIndex": 2 }, 
+    { "Coordinate": { "Level": 1, "X": 1, "Y": 0 }, "BaseScore": 64, "BaseMovabilityIndex": 4 }, 
+    { "Coordinate": { "Level": 1, "X": 2, "Y": 0 }, "BaseScore": 63, "BaseMovabilityIndex": 2 }], [
+    { "Coordinate": { "Level": 1, "X": 0, "Y": 1 }, "BaseScore": 64, "BaseMovabilityIndex": 4 }, null, 
+    { "Coordinate": { "Level": 1, "X": 2, "Y": 1 }, "BaseScore": 64, "BaseMovabilityIndex": 4 }], [
+    { "Coordinate": { "Level": 1, "X": 0, "Y": 2 }, "BaseScore": 63, "BaseMovabilityIndex": 2 }, 
+    { "Coordinate": { "Level": 1, "X": 1, "Y": 2 }, "BaseScore": 64, "BaseMovabilityIndex": 4 }, 
+    { "Coordinate": { "Level": 1, "X": 2, "Y": 2 }, "BaseScore": 63, "BaseMovabilityIndex": 2 }]], [[
+    { "Coordinate": { "Level": 2, "X": 0, "Y": 0 }, "BaseScore": 60, "BaseMovabilityIndex": 2 }, 
+    { "Coordinate": { "Level": 2, "X": 1, "Y": 0 }, "BaseScore": 62, "BaseMovabilityIndex": 3 }, 
+    { "Coordinate": { "Level": 2, "X": 2, "Y": 0 }, "BaseScore": 60, "BaseMovabilityIndex": 2 }], [
+    { "Coordinate": { "Level": 2, "X": 0, "Y": 1 }, "BaseScore": 62, "BaseMovabilityIndex": 3 }, null, 
+    { "Coordinate": { "Level": 2, "X": 2, "Y": 1 }, "BaseScore": 62, "BaseMovabilityIndex": 3 }], [
+    { "Coordinate": { "Level": 2, "X": 0, "Y": 2 }, "BaseScore": 60, "BaseMovabilityIndex": 2 }, 
+    { "Coordinate": { "Level": 2, "X": 1, "Y": 2 }, "BaseScore": 62, "BaseMovabilityIndex": 3 },
+    { "Coordinate": { "Level": 2, "X": 2, "Y": 2 }, "BaseScore": 60, "BaseMovabilityIndex": 2 }]]]
+}

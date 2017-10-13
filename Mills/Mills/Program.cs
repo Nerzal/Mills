@@ -41,8 +41,6 @@ namespace Mills.ConsoleClient {
         Coordinate coordinate = new Coordinate(level, x, y);
         bool validTurn = controller.DoTurn(coordinate, controller.ActivePlayer);
       }
-
-      Console.ReadLine();
     }
 
     private static void OnPlayerWon(IPlayer player) {

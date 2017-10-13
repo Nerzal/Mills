@@ -11,9 +11,7 @@ namespace Mills.ConsoleClient.GameController {
     /// </summary>
     internal class GameController : IGameController {
         public event Action<IPlayer> PlayerWon;
-        public event Action<GamePhases> PhaseChanged;
 
-        private GamePhases _activePhase;
         private IPlayer _player1;
         private IPlayer _player2;
         private readonly IBoard _board;
@@ -34,7 +32,6 @@ namespace Mills.ConsoleClient.GameController {
         /// <param name="history"></param>
         /// <param name="boardController"></param>
         public GameController(IMillRuleEvaluator ruleEvaluator, IBoard board, IHistory history, IBoardController boardController) {
-            this._activePhase = GamePhases.Set;
             this._ruleEvaluator = ruleEvaluator;
             this._board = board;
             this._history = history;

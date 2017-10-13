@@ -31,16 +31,56 @@ namespace Mills.ConsoleClient {
 
       while (true) {
         Draw(board, controller.ActivePlayer);
-        ConsoleKeyInfo key = Console.ReadKey();
-        int.TryParse(key.KeyChar.ToString(), out int level);
-        key = Console.ReadKey();
-        int.TryParse(key.KeyChar.ToString(), out int x);
-        key = Console.ReadKey();
-        int.TryParse(key.KeyChar.ToString(), out int y);
-        Console.WriteLine();
-        Coordinate coordinate = new Coordinate(level, x, y);
-        bool validTurn = controller.DoTurn(coordinate, controller.ActivePlayer);
+        GamePhases activePhase = ruleEvaluator.EvaluatePhase(controller.ActivePlayer);
+        switch (activePhase) {
+          case GamePhases.Set:
+            Set(controller);
+            break;
+          case GamePhases.Draw:
+          case GamePhases.Jump:
+            DrawJump(controller);
+            break;
+          default:
+            throw new ArgumentOutOfRangeException();
+        }
       }
+    }
+
+    private static void DrawJump(IGameController controller) {
+      Console.Write(controller.ActivePlayer.Name + " Chose Level, X and Y: ");
+      ConsoleKeyInfo key = Console.ReadKey();
+      int.TryParse(key.KeyChar.ToString(), out int level);
+      key = Console.ReadKey();
+      int.TryParse(key.KeyChar.ToString(), out int x);
+      key = Console.ReadKey();
+      int.TryParse(key.KeyChar.ToString(), out int y);
+      Console.WriteLine();
+      Coordinate coordinate = new Coordinate(level, x, y);
+      bool validTurn = controller.DoTurn(coordinate, controller.ActivePlayer);
+    }
+
+    private static void Set(IGameController controller) {
+      Console.Write(controller.ActivePlayer.Name + " Chose Start Level, X and Y: ");
+      ConsoleKeyInfo key = Console.ReadKey();
+      int.TryParse(key.KeyChar.ToString(), out int level);
+      key = Console.ReadKey();
+      int.TryParse(key.KeyChar.ToString(), out int x);
+      key = Console.ReadKey();
+      int.TryParse(key.KeyChar.ToString(), out int y);
+      Console.WriteLine();
+      Coordinate source = new Coordinate(level, x, y);
+
+      Console.Write(controller.ActivePlayer.Name + " Chose Destination Level, X and Y: ");
+      key = Console.ReadKey();
+      int.TryParse(key.KeyChar.ToString(), out level);
+      key = Console.ReadKey();
+      int.TryParse(key.KeyChar.ToString(), out x);
+      key = Console.ReadKey();
+      int.TryParse(key.KeyChar.ToString(), out y);
+      Console.WriteLine();
+      Coordinate destination = new Coordinate(level, x, y);
+      Move move = new Move(source, destination, controller.ActivePlayer);
+      bool validTurn = controller.DoTurn(move);
     }
 
     private static void OnPlayerWon(IPlayer player) {
@@ -65,8 +105,6 @@ namespace Mills.ConsoleClient {
       Console.WriteLine($@"| | {level3[0, 2]}-{level3[1, 2]}-{level3[2, 2]} | |");
       Console.WriteLine($@"| {level2[0, 2]}---{level2[1, 2]}---{level2[2, 2]} |");
       Console.WriteLine($@"{level1[0, 2]}-----{level1[1, 2]}-----{level1[2, 2]}");
-
-      Console.Write(controllerActivePlayer.Name + " Chose Level, X and Y: ");
     }
   }
 }

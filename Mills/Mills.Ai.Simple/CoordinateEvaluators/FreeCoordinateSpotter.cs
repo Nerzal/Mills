@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Mills.ConsoleClient.Board.Analyzer;
+using Mills.Board.Logic.Contract;
 
 namespace Mills.Ai.Simple.CoordinateEvaluators {
   internal sealed class FreeCoordinateSpotter : CoordinateEvaluator {

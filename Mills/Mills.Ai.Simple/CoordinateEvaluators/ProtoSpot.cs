@@ -1,4 +1,4 @@
-﻿using Mills.ConsoleClient.Board;
+﻿using Mills.Game.Data.Contract;
 using Newtonsoft.Json;
 
 namespace Mills.Ai.Simple.CoordinateEvaluators {

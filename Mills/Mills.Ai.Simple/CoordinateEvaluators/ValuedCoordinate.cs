@@ -1,4 +1,4 @@
-﻿using Mills.ConsoleClient.Board;
+﻿using Mills.Game.Data.Contract;
 
 namespace Mills.Ai.Simple.CoordinateEvaluators {
   internal class ValuedCoordinate {

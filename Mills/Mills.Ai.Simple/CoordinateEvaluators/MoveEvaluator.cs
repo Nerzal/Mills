@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
-using Mills.ConsoleClient.Board;
-using Mills.ConsoleClient.Board.Analyzer;
+using Mills.Board.Logic.Contract;
+using Mills.Game.Data.Contract;
 
 namespace Mills.Ai.Simple.CoordinateEvaluators {
   internal class MoveEvaluator {

@@ -288,6 +288,30 @@ namespace Mills.Tests {
     }
 
     [TestMethod]
+    public void FindAllMillsFor_102To112To122_PlayerOne() {
+      //Arrange
+      IRowController rowController = new RowController();
+      IPatternRecognizer recognizer = new PatternRecognizer(this.Board, rowController);
+      Coordinate row2Coordinate1 = new Coordinate(1, 0, 2);
+      this.Controller.Set(row2Coordinate1, this.Player);
+      Coordinate row2Coordinate2 = new Coordinate(1, 1, 2);
+      this.Controller.Set(row2Coordinate2, this.Player);
+      Coordinate row2Coordinate3 = new Coordinate(1, 2, 2);
+      this.Controller.Set(row2Coordinate3, this.Player);
+
+      //Act
+      IEnumerable<Row> player1Rows = recognizer.FindAllRowsFor(this.Player);
+
+      //Assert
+      Assert.AreEqual(1, player1Rows.Count());
+
+      Row row = player1Rows.FirstOrDefault();
+      Assert.AreEqual(row2Coordinate1, row.First);
+      Assert.AreEqual(row2Coordinate2, row.Second);
+      Assert.AreEqual(row2Coordinate3, row.Third);
+    }
+
+    [TestMethod]
     public void FindAllMillsFor_200To210To220_PlayerOne() {
       //Arrange
       IRowController rowController = new RowController();
@@ -335,7 +359,30 @@ namespace Mills.Tests {
       Assert.AreEqual(row2Coordinate3, row.Third);
     }
 
-    
+    [TestMethod]
+    public void FindAllMillsFor_212To112To012_PlayerOne() {
+      //Arrange
+      IRowController rowController = new RowController();
+      IPatternRecognizer recognizer = new PatternRecognizer(this.Board, rowController);
+      Coordinate row2Coordinate1 = new Coordinate(2, 1, 2);
+      this.Controller.Set(row2Coordinate1, this.Player);
+      Coordinate row2Coordinate2 = new Coordinate(1, 2, 2);
+      this.Controller.Set(row2Coordinate2, this.Player);
+      Coordinate row2Coordinate3 = new Coordinate(0, 1, 2);
+      this.Controller.Set(row2Coordinate3, this.Player);
+
+      //Act
+      IEnumerable<Row> player1Rows = recognizer.FindAllRowsFor(this.Player);
+
+      //Assert
+      Assert.AreEqual(1, player1Rows.Count());
+
+      Row row = player1Rows.FirstOrDefault();
+      Assert.AreEqual(row2Coordinate1, row.First);
+      Assert.AreEqual(row2Coordinate2, row.Second);
+      Assert.AreEqual(row2Coordinate3, row.Third);
+    }
+
     [TestMethod]
     public void FindAllMillsFor_202To212To222_PlayerOne() {
       //Arrange

@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.CompilerServices;
+
 using Mills.ConsoleClient.Player;
 
 namespace Mills.ConsoleClient.Board.Analyzer {

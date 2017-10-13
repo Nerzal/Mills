@@ -34,7 +34,10 @@ namespace Mills.Ai.Tests {
       IRuleSet ruleSet = new RuleSet(movementRules, gameOverRules);
       IHistory history = new History();
       IMillRuleEvaluator millRuleEvaluator = new Evaluator(ruleSet, this.Analyzer);
-      this.GameController = new GameController(millRuleEvaluator, this.Board, history, this.Controller);
+      IRowController rowController = new RowController();
+      IPatternRecognizer patternRecognizer = new PatternRecognizer(this.Board, rowController);
+
+      this.GameController = new GameController(millRuleEvaluator, this.Board, history, this.Controller, patternRecognizer, rowController);
     }
 
   }

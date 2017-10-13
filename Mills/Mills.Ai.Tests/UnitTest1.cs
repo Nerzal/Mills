@@ -11,9 +11,9 @@ namespace Mills.Ai.Tests {
     public void TestMethod1() {
       //IRandomProvider randomProvider = NSubstitute.Substitute.For<IRandomProvider>();
       //randomProvider.ReturnsForAll<IRandomProvider>();
-      IAiPlayer simpleAi = new SimpleAi(this.GameController, this.Analyzer, randomProvider);
-      Move move = simpleAi.Analyse();
-      simpleAi.Act(move);
+      //IAiPlayer simpleAi = new SimpleAi(this.GameController, this.Analyzer, randomProvider);
+      //Move move = simpleAi.Analyse();
+      //simpleAi.Act(move);
     }
   }
 }

@@ -219,7 +219,7 @@ namespace Mills.Tests {
     }
 
     [TestMethod]
-    public void FindAllMillsFor_001To101To102_PlayerOne() {
+    public void FindAllMillsFor_001To101To201_PlayerOne() {
       //Arrange
       IRowController rowController = new RowController();
       IPatternRecognizer recognizer = new PatternRecognizer(this.Board, rowController);

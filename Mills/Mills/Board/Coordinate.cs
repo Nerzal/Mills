@@ -59,6 +59,8 @@ namespace Mills.ConsoleClient.Board {
                 hashCode = (hashCode * 397) ^ this.Y;
                 return hashCode;
             }
-        }
-    }
+    
+
+    public static Coordinate Empty { get { return new Coordinate(-1, -1, -1); } }
+  }
 }

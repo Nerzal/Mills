@@ -1,5 +1,5 @@
 {
-  "_spots": [[[
+  "Spots": [[[
     { "Coordinate": { "Level": 0, "X": 0, "Y": 0 }, "BaseScore": 60, "BaseMovabilityIndex": 2 }, 
     { "Coordinate": { "Level": 0, "X": 1, "Y": 0 }, "BaseScore": 62, "BaseMovabilityIndex": 3 }, 
     { "Coordinate": { "Level": 0, "X": 2, "Y": 0 }, "BaseScore": 60, "BaseMovabilityIndex": 2 }], [ 

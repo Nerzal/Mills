@@ -44,8 +44,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CoordinateEvaluators\BasicScoreApplier.cs" />
+    <Compile Include="CoordinateEvaluators\CoordinateEvaluator.cs" />
+    <Compile Include="CoordinateEvaluators\SetPhaseEvaluationNarrower.cs" />
+    <Compile Include="CoordinateEvaluators\FreeCoordinateSpotter.cs" />
+    <Compile Include="IRandomProvider.cs" />
+    <Compile Include="CoordinateEvaluators\MoveEvaluator.cs" />
+    <Compile Include="CoordinateEvaluators\ProtoBoard.cs" />
+    <Compile Include="CoordinateEvaluators\ProtoSpot.cs" />
+    <Compile Include="RandomProvider.cs" />
     <Compile Include="SimpleAi.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="CoordinateEvaluators\ValuedCoordinate.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Mills\Mills.ConsoleClient.csproj">

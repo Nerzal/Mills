@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using Mills.ConsoleClient.Player;
 
 namespace Mills.ConsoleClient.Board.Analyzer {
@@ -38,6 +39,44 @@ namespace Mills.ConsoleClient.Board.Analyzer {
           result.AddRange(rows);
         }
       }
+
+      for (int y = 0; y < this.Board.DimensionCount; y++) {
+        Row row = new Row(player);
+        for (int level = 0; level < this.Board.LevelCount; level++) {
+          IPlayer occuppier = this.Board.Spots[level][0, y].Player;
+          if (occuppier == player) {
+            this._controller.AddToRow(row, new Coordinate(level, 0, y));
+          }
+        }
+        if (row.Second.HasValue) {
+          result.Add(row);
+        }
+      }
+
+      for (int x = 0; x < this.Board.DimensionCount; x++) {
+        Row row = new Row(player);
+        for (int level = 0; level < this.Board.LevelCount; level++) {
+          IPlayer occuppier = this.Board.Spots[level][x, 0].Player;
+          if (occuppier == player) {
+            this._controller.AddToRow(row, new Coordinate(level, x, 0));
+          }
+        }
+        if (row.Second.HasValue) {
+          result.Add(row);
+        }
+      }
+
+      Row foo = new Row(player);
+      for (int level = 0; level < this.Board.LevelCount; level++) {
+        IPlayer occuppier = this.Board.Spots[level][2, 1].Player;
+        if (occuppier == player) {
+          this._controller.AddToRow(foo, new Coordinate(level, 2, 1));
+        }
+      }
+      if (foo.Second.HasValue) {
+        result.Add(foo);
+      }
+
       return result;
     }
 

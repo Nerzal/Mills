@@ -316,11 +316,11 @@ namespace Mills.Tests {
       //Arrange
       IRowController rowController = new RowController();
       IPatternRecognizer recognizer = new PatternRecognizer(this.Board, rowController);
-      Coordinate row2Coordinate1 = new Coordinate(2, 2, 1);
+      Coordinate row2Coordinate1 = new Coordinate(0, 2, 1);
       this.Controller.Set(row2Coordinate1, this.Player);
       Coordinate row2Coordinate2 = new Coordinate(1, 2, 1);
       this.Controller.Set(row2Coordinate2, this.Player);
-      Coordinate row2Coordinate3 = new Coordinate(0, 2, 1);
+      Coordinate row2Coordinate3 = new Coordinate(2, 2, 1);
       this.Controller.Set(row2Coordinate3, this.Player);
 
       //Act

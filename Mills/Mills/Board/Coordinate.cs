@@ -1,8 +1,10 @@
-﻿namespace Mills.ConsoleClient.Board {
+﻿using System;
+
+namespace Mills.ConsoleClient.Board {
     /// <summary>
     /// A single coordinate on the board
     /// </summary>
-    public struct Coordinate {
+    public struct Coordinate : IEquatable<Coordinate> {
         /// <summary>
         /// There are 3 levels on the board
         /// </summary>
@@ -34,6 +36,29 @@
         /// <inheritdoc />
         public override string ToString() {
             return $"Level: {this.Level} X: {this.X}, Y: {this.Y}";
+        }
+
+        /// <inheritdoc />
+        public bool Equals(Coordinate other) {
+            return this.Level == other.Level && this.X == other.X && this.Y == other.Y;
+        }
+
+        /// <inheritdoc />
+        public override bool Equals(object obj) {
+            if (ReferenceEquals(null, obj)) {
+                return false;
+            }
+            return obj is Coordinate && Equals((Coordinate)obj);
+        }
+
+        /// <inheritdoc />
+        public override int GetHashCode() {
+            unchecked {
+                int hashCode = this.Level;
+                hashCode = (hashCode * 397) ^ this.X;
+                hashCode = (hashCode * 397) ^ this.Y;
+                return hashCode;
+            }
         }
     }
 }

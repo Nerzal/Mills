@@ -13,6 +13,11 @@ namespace Mills.ConsoleClient.GameController {
         event Action<IPlayer> PlayerWon;
 
         /// <summary>
+        /// Invoked when a mill was completed this round
+        /// </summary>
+        event Action MillCompleted;
+
+        /// <summary>
         /// The player that has it's turn
         /// </summary>
         IPlayer ActivePlayer { get; }
@@ -35,7 +40,7 @@ namespace Mills.ConsoleClient.GameController {
         /// <param name="coordinate"></param>
         /// <param name="activePlayer"></param>
         /// <returns></returns>
-        bool DoTurn(Coordinate coordinate, IPlayer activePlayer);
+        bool Set(Coordinate coordinate, IPlayer activePlayer);
 
         /// <summary>
         /// Tries to apply a turn of phase 2 and phase 3
@@ -43,5 +48,14 @@ namespace Mills.ConsoleClient.GameController {
         /// <param name="move"></param>
         /// <returns></returns>
         bool DoTurn(Move move);
+
+        /// <summary>
+        /// Tries to apply an unset on the board
+        /// Has to be called after a mill was found
+        /// </summary>
+        /// <param name="coordinate"></param>
+        /// <param name="activePlayer"></param>
+        /// <returns></returns>
+        bool Unset(Coordinate coordinate, IPlayer activePlayer);
     }
 }

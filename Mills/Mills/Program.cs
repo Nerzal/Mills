@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 using Mills.ConsoleClient.Board;
 using Mills.ConsoleClient.Board.Analyzer;
 using Mills.ConsoleClient.Board.Controller;
@@ -10,10 +11,12 @@ using Mills.ConsoleClient.Rules.Movement;
 
 namespace Mills.ConsoleClient {
   class Program {
+    private static IGameController _controller;
+
     static void Main(string[] args) {
       IPlayer player1 = new Player.Player("Olaf");
       IPlayer player2 = new Player.Player("Karl");
-
+      IRowController rowController = new RowController();
       IBoard board = new Board.Board();
       IBoardAnalyzer analyzer = new BoardAnalyzer(board);
       IBoardController boardController = new BoardController(board, analyzer);
@@ -23,22 +26,24 @@ namespace Mills.ConsoleClient {
       IMovementRules moveValidationRules = new MovementRules(analyzer, board);
       IRuleSet ruleSet = new RuleSet(moveValidationRules, gameOverRules);
       IMillRuleEvaluator ruleEvaluator = new Evaluator(ruleSet, analyzer);
+      IPatternRecognizer recognizer = new PatternRecognizer(board, rowController);
 
       History history = new History();
-      IGameController controller = new GameController.GameController(ruleEvaluator, board, history, boardController);
-      controller.PlayerWon += OnPlayerWon;
-      controller.NewGame(player1, player2);
+      _controller = new GameController.GameController(ruleEvaluator, board, history, boardController, recognizer, rowController);
+      _controller.PlayerWon += OnPlayerWon;
+      _controller.MillCompleted += OnMillCompleted;
+      _controller.NewGame(player1, player2);
 
       while (true) {
-        Draw(board, controller.ActivePlayer);
-        GamePhases activePhase = ruleEvaluator.EvaluatePhase(controller.ActivePlayer);
+        Draw(board, _controller.ActivePlayer);
+        GamePhases activePhase = ruleEvaluator.EvaluatePhase(_controller.ActivePlayer);
         switch (activePhase) {
           case GamePhases.Set:
-            Set(controller);
+            Set(_controller);
             break;
           case GamePhases.Draw:
           case GamePhases.Jump:
-            DrawJump(controller);
+            DrawJump(_controller);
             break;
           default:
             throw new ArgumentOutOfRangeException();
@@ -46,20 +51,11 @@ namespace Mills.ConsoleClient {
       }
     }
 
-    private static void DrawJump(IGameController controller) {
-      Console.Write(controller.ActivePlayer.Name + " Chose Level, X and Y: ");
-      ConsoleKeyInfo key = Console.ReadKey();
-      int.TryParse(key.KeyChar.ToString(), out int level);
-      key = Console.ReadKey();
-      int.TryParse(key.KeyChar.ToString(), out int x);
-      key = Console.ReadKey();
-      int.TryParse(key.KeyChar.ToString(), out int y);
-      Console.WriteLine();
-      Coordinate coordinate = new Coordinate(level, x, y);
-      bool validTurn = controller.DoTurn(coordinate, controller.ActivePlayer);
+    private static void OnMillCompleted() {
+      Unset(_controller);
     }
 
-    private static void Set(IGameController controller) {
+    private static void DrawJump(IGameController controller) {
       Console.Write(controller.ActivePlayer.Name + " Chose Start Level, X and Y: ");
       ConsoleKeyInfo key = Console.ReadKey();
       int.TryParse(key.KeyChar.ToString(), out int level);
@@ -81,6 +77,32 @@ namespace Mills.ConsoleClient {
       Coordinate destination = new Coordinate(level, x, y);
       Move move = new Move(source, destination, controller.ActivePlayer);
       bool validTurn = controller.DoTurn(move);
+    }
+
+    private static void Set(IGameController controller) {
+      Console.Write(controller.ActivePlayer.Name + " Chose Level, X and Y: ");
+      ConsoleKeyInfo key = Console.ReadKey();
+      int.TryParse(key.KeyChar.ToString(), out int level);
+      key = Console.ReadKey();
+      int.TryParse(key.KeyChar.ToString(), out int x);
+      key = Console.ReadKey();
+      int.TryParse(key.KeyChar.ToString(), out int y);
+      Console.WriteLine();
+      Coordinate coordinate = new Coordinate(level, x, y);
+      bool validTurn = controller.Set(coordinate, controller.ActivePlayer);
+    }
+
+    private static void Unset(IGameController controller) {
+      Console.Write(controller.ActivePlayer.Name + " Chose to remove: Level, X and Y: ");
+      ConsoleKeyInfo key = Console.ReadKey();
+      int.TryParse(key.KeyChar.ToString(), out int level);
+      key = Console.ReadKey();
+      int.TryParse(key.KeyChar.ToString(), out int x);
+      key = Console.ReadKey();
+      int.TryParse(key.KeyChar.ToString(), out int y);
+      Console.WriteLine();
+      Coordinate coordinate = new Coordinate(level, x, y);
+      bool validTurn = controller.Unset(coordinate, controller.ActivePlayer);
     }
 
     private static void OnPlayerWon(IPlayer player) {

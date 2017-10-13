@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using Mills.ConsoleClient.Board;
+using Mills.ConsoleClient.Board.Analyzer;
 using Mills.ConsoleClient.Board.Controller;
 using Mills.ConsoleClient.Player;
 using Mills.ConsoleClient.Rules;
@@ -10,7 +12,11 @@ namespace Mills.ConsoleClient.GameController {
     /// Controls the game
     /// </summary>
     internal class GameController : IGameController {
+        /// <inheritdoc />
         public event Action<IPlayer> PlayerWon;
+
+        /// <inheritdoc />
+        public event Action MillCompleted;
 
         private IPlayer _player1;
         private IPlayer _player2;
@@ -18,6 +24,8 @@ namespace Mills.ConsoleClient.GameController {
         private readonly IMillRuleEvaluator _ruleEvaluator;
         private readonly IHistory _history;
         private readonly IBoardController _boardController;
+        private readonly IPatternRecognizer _recognizer;
+        private readonly IRowController _rowController;
 
         /// <inheritdoc />
         public IPlayer ActivePlayer { get; private set; }
@@ -31,11 +39,14 @@ namespace Mills.ConsoleClient.GameController {
         /// <param name="board"></param>
         /// <param name="history"></param>
         /// <param name="boardController"></param>
-        public GameController(IMillRuleEvaluator ruleEvaluator, IBoard board, IHistory history, IBoardController boardController) {
+        /// <param name="recognizer"></param>
+        public GameController(IMillRuleEvaluator ruleEvaluator, IBoard board, IHistory history, IBoardController boardController, IPatternRecognizer recognizer, IRowController rowController) {
             this._ruleEvaluator = ruleEvaluator;
             this._board = board;
             this._history = history;
             this._boardController = boardController;
+            this._recognizer = recognizer;
+            this._rowController = rowController;
         }
 
         /// <inheritdoc />
@@ -49,15 +60,25 @@ namespace Mills.ConsoleClient.GameController {
         }
 
         /// <inheritdoc />
-        public bool DoTurn(Coordinate coordinate, IPlayer activePlayer) {
+        public bool Set(Coordinate coordinate, IPlayer activePlayer) {
             bool result = this._boardController.Set(coordinate, activePlayer);
             if (!result) {
                 return result;
             }
+            CheckForMill(coordinate);
 
             this.Round++;
             SetActivePlayer();
             return result;
+        }
+
+        private void CheckForMill(Coordinate coordinate) {
+            IEnumerable<Row> mills = this._recognizer.FindAllMillsFor(this.ActivePlayer);
+            foreach (Row mill in mills) {
+                if (this._rowController.Contains(mill, coordinate)) {
+                    this.MillCompleted?.Invoke();
+                }
+            }
         }
 
         /// <inheritdoc />
@@ -74,6 +95,11 @@ namespace Mills.ConsoleClient.GameController {
 
             SetActivePlayer();
             return true;
+        }
+
+        /// <inheritdoc />
+        public bool Unset(Coordinate coordinate, IPlayer activePlayer) {
+            return this._boardController.Unset(coordinate, activePlayer);
         }
 
         private bool IsGameOver() {

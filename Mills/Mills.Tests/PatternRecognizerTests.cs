@@ -1,9 +1,9 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Mills.ConsoleClient.Board;
-using Mills.ConsoleClient.Board.Analyzer;
+using Mills.Board.Logic;
+using Mills.Board.Logic.Contract;
+using Mills.Game.Data.Contract;
 
 namespace Mills.Tests {
   [TestClass]

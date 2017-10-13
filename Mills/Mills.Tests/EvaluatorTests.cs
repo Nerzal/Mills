@@ -1,9 +1,9 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Mills.ConsoleClient.Board;
-using Mills.ConsoleClient.GameController;
-using Mills.ConsoleClient.Rules;
-using Mills.ConsoleClient.Rules.GameOver;
-using Mills.ConsoleClient.Rules.Movement;
+using Mills.Game.Contract.Data;
+using Mills.Game.Data.Contract;
+using Mills.Rules.GameOver;
+using Mills.Rules.Movement;
+using Mills.Rules.Rules;
 
 namespace Mills.Tests {
   [TestClass]

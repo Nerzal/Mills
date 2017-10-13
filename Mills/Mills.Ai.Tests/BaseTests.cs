@@ -1,14 +1,14 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-using Mills.ConsoleClient;
-using Mills.ConsoleClient.Board;
-using Mills.ConsoleClient.Board.Analyzer;
-using Mills.ConsoleClient.Board.Controller;
-using Mills.ConsoleClient.GameController;
-using Mills.ConsoleClient.Player;
-using Mills.ConsoleClient.Rules;
-using Mills.ConsoleClient.Rules.GameOver;
-using Mills.ConsoleClient.Rules.Movement;
+using Mills.Board.Logic;
+using Mills.Board.Logic.Contract;
+using Mills.Game.Contract;
+using Mills.Game.Data.Contract;
+using Mills.Game.GameController;
+using Mills.Game.Player;
+using Mills.Rules.Contract;
+using Mills.Rules.GameOver;
+using Mills.Rules.Movement;
+using Mills.Rules.Rules;
 
 namespace Mills.Ai.Tests {
   [TestClass]
@@ -22,7 +22,7 @@ namespace Mills.Ai.Tests {
 
     [TestInitialize]
     public void InitializeTests() {
-      this.Board = new Board();
+      this.Board = new Game.Data.Contract.Board();
       this.Analyzer = new BoardAnalyzer(this.Board);
       this.Controller = new BoardController(this.Board, this.Analyzer);
       this.Controller.Initialize();

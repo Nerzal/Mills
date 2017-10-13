@@ -1,23 +1,27 @@
 ﻿using System;
-using System.Runtime.CompilerServices;
-using Mills.ConsoleClient.Board;
-using Mills.ConsoleClient.Board.Analyzer;
-using Mills.ConsoleClient.Board.Controller;
-using Mills.ConsoleClient.GameController;
-using Mills.ConsoleClient.Player;
-using Mills.ConsoleClient.Rules;
-using Mills.ConsoleClient.Rules.GameOver;
-using Mills.ConsoleClient.Rules.Movement;
+using Mills.Board;
+using Mills.Board.Logic;
+using Mills.Board.Logic.Contract;
+using Mills.Game.Contract;
+using Mills.Game.Contract.Data;
+using Mills.Game.Data.Contract;
+using Mills.Game.GameController;
+using Mills.Game.Player;
+using Mills.Rules.Contract;
+using Mills.Rules.GameOver;
+using Mills.Rules.Movement;
+using Mills.Rules.Rules;
+
 
 namespace Mills.ConsoleClient {
   class Program {
     private static IGameController _controller;
 
     static void Main(string[] args) {
-      IPlayer player1 = new Player.Player("Olaf");
-      IPlayer player2 = new Player.Player("Karl");
+      IPlayer player1 = new Player("Olaf");
+      IPlayer player2 = new Player("Karl");
       IRowController rowController = new RowController();
-      IBoard board = new Board.Board();
+      IBoard board = new Game.Data.Contract.Board();
       IBoardAnalyzer analyzer = new BoardAnalyzer(board);
       IBoardController boardController = new BoardController(board, analyzer);
       boardController.Initialize();
@@ -29,7 +33,7 @@ namespace Mills.ConsoleClient {
       IPatternRecognizer recognizer = new PatternRecognizer(board, rowController);
 
       History history = new History();
-      _controller = new GameController.GameController(ruleEvaluator, board, history, boardController, recognizer, rowController);
+      _controller = new GameController(ruleEvaluator, board, history, boardController, recognizer, rowController);
       _controller.PlayerWon += OnPlayerWon;
       _controller.MillCompleted += OnMillCompleted;
       _controller.NewGame(player1, player2);

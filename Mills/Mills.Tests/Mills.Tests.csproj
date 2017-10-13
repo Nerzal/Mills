@@ -59,6 +59,34 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Mills.Board.Logic.Contract\Mills.Board.Logic.Contract.csproj">
+      <Project>{09BC8845-61F2-4370-A771-740FDCA7431C}</Project>
+      <Name>Mills.Board.Logic.Contract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mills.Board\Mills.Board.Logic.csproj">
+      <Project>{A0F41C4D-3923-4414-AA8A-FA02344A7BCB}</Project>
+      <Name>Mills.Board.Logic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mills.Game.Contract\Mills.Game.Contract.csproj">
+      <Project>{03B448F7-809D-47F0-A272-E7D432A60ED3}</Project>
+      <Name>Mills.Game.Contract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mills.Game.Data.Contract\Mills.Game.Data.Contract.csproj">
+      <Project>{EC013F8B-7E7D-4040-96F3-EE4CC7CA90A7}</Project>
+      <Name>Mills.Game.Data.Contract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mills.Game\Mills.Game.csproj">
+      <Project>{2C910064-5968-4FC0-A9BD-A41C6AA1EC9F}</Project>
+      <Name>Mills.Game</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mills.Rules.Contract\Mills.Rules.Contract.csproj">
+      <Project>{2cb60c35-2457-4c58-87a8-b77f8777debb}</Project>
+      <Name>Mills.Rules.Contract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mills.Rules\Mills.Rules.csproj">
+      <Project>{29a5c62a-a2b8-429e-b23c-d45d133a7750}</Project>
+      <Name>Mills.Rules</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Mills\Mills.ConsoleClient.csproj">
       <Project>{e0b05326-1a7b-42ef-8cc8-b61a15e97ad6}</Project>
       <Name>Mills.ConsoleClient</Name>

@@ -1,7 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Mills.ConsoleClient.Board;
-using Mills.ConsoleClient.Player;
+using Mills.Game.Data.Contract;
 
 namespace Mills.Tests {
   [TestClass]

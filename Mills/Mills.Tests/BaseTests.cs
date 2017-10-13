@@ -1,8 +1,8 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Mills.ConsoleClient.Board;
-using Mills.ConsoleClient.Board.Analyzer;
-using Mills.ConsoleClient.Board.Controller;
-using Mills.ConsoleClient.Player;
+using Mills.Board.Logic;
+using Mills.Board.Logic.Contract;
+using Mills.Game.Data.Contract;
+using Mills.Game.Player;
 
 namespace Mills.Tests {
     [TestClass]
@@ -15,7 +15,7 @@ namespace Mills.Tests {
 
         [TestInitialize]
         public void InitializeTests() {
-            this.Board = new Board();
+            this.Board = new Game.Data.Contract.Board();
             this.Analyzer = new BoardAnalyzer(this.Board);
             this.Controller = new BoardController(this.Board, this.Analyzer);
             this.Controller.Initialize();

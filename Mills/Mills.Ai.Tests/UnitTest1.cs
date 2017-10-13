@@ -1,12 +1,8 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-using Mills.Ai.Simple;
-using Mills.ConsoleClient.Ai;
-using Mills.ConsoleClient.GameController;
 using Mills.ConsoleClient.Player;
 using NSubstitute;
 using NSubstitute.Extensions;
-
 namespace Mills.Ai.Tests {
   [TestClass]
   public class UnitTest1 : BaseTests {

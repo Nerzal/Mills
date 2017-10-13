@@ -1,11 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using Mills.Ai.Simple.CoordinateEvaluators;
-using Mills.ConsoleClient.Ai;
-using Mills.ConsoleClient.Board;
-using Mills.ConsoleClient.Board.Analyzer;
-using Mills.ConsoleClient.GameController;
-
+using Mills.Board.Logic.Contract;
+using Mills.Game.Ai;
+using Mills.Game.Contract;
+using Mills.Game.Data.Contract;
 using Newtonsoft.Json;
 
 namespace Mills.Ai.Simple {

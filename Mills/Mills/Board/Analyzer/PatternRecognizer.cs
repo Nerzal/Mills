@@ -76,6 +76,17 @@ namespace Mills.ConsoleClient.Board.Analyzer {
         result.Add(foo);
       }
 
+      Row bar = new Row(player);
+      for (int level = 0; level < this.Board.LevelCount; level++) {
+        IPlayer occuppier = this.Board.Spots[level][1, 2].Player;
+        if (occuppier == player) {
+          this._controller.AddToRow(bar, new Coordinate(level, 1, 2));
+        }
+      }
+      if (bar.Second.HasValue) {
+        result.Add(bar);
+      }
+
       return result;
     }
 

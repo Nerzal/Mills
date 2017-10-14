@@ -82,4 +82,8 @@
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>"$(TargetDir)..\..\..\..\CopyDllsToUnity.exe" $(TargetDir) "$(TargetDir)..\..\..\Unity\Mills.UnityClient\Assets\BaseLibs"
+</PostBuildEvent>
+  </PropertyGroup>
 </Project>

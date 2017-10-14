@@ -35,12 +35,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Program.cs" />
@@ -50,6 +44,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Mills.Ai.Simple\Mills.Ai.Simple.csproj">
+      <Project>{9D06BBA1-0F77-43EC-9501-D9899EE81C9C}</Project>
+      <Name>Mills.Ai.Simple</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Mills.Board.Logic.Contract\Mills.Board.Logic.Contract.csproj">
       <Project>{09BC8845-61F2-4370-A771-740FDCA7431C}</Project>
       <Name>Mills.Board.Logic.Contract</Name>

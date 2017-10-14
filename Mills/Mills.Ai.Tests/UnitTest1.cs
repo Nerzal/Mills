@@ -10,7 +10,7 @@ namespace Mills.Ai.Tests {
       IRandomProvider randomProvider = NSubstitute.Substitute.For<IRandomProvider>();
       randomProvider.Next(0, 0).ReturnsForAnyArgs(5);
 
-      SimpleAi simpleAi = new SimpleAi(this.GameController, this.Analyzer, randomProvider);
+      SimpleAi simpleAi = new SimpleAi(this.GameController, this.Analyzer, randomProvider, this.MillRuleEvaluator);
       Move move = simpleAi.Analyse();
       simpleAi.Act(move);
     }

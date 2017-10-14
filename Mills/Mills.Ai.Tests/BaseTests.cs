@@ -19,6 +19,7 @@ namespace Mills.Ai.Tests {
     protected Player Player;
     protected Player Player2;
     protected IGameController GameController;
+    protected IMillRuleEvaluator MillRuleEvaluator;
 
     [TestInitialize]
     public void InitializeTests() {
@@ -33,11 +34,11 @@ namespace Mills.Ai.Tests {
       IGameOverRules gameOverRules = new GameOverRules(this.Analyzer);
       IRuleSet ruleSet = new RuleSet(movementRules, gameOverRules);
       IHistory history = new History();
-      IMillRuleEvaluator millRuleEvaluator = new Evaluator(ruleSet, this.Analyzer);
+      this.MillRuleEvaluator = new Evaluator(ruleSet, this.Analyzer);
       IRowController rowController = new RowController();
       IPatternRecognizer patternRecognizer = new PatternRecognizer(this.Board, rowController);
 
-      this.GameController = new GameController(millRuleEvaluator, this.Board, history, this.Controller, patternRecognizer, rowController);
+      this.GameController = new GameController(this.MillRuleEvaluator, this.Board, history, this.Controller, patternRecognizer, rowController);
     }
 
   }

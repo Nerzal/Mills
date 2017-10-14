@@ -2,7 +2,6 @@
 using Mills.Game.Contract;
 using Mills.Game.Contract.Data;
 using Mills.Game.Data.Contract;
-using Mills.Game.GameController;
 using Mills.Rules.Contract;
 
 namespace Mills.Rules.Rules {

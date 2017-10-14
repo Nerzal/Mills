@@ -18,16 +18,26 @@
         /// </summary>
         public IPlayer Player { get; set; }
 
-        /// <summary>
-        /// ctor
-        /// </summary>
-        /// <param name="source"></param>
-        /// <param name="target"></param>
-        /// <param name="activePlayer"></param>
-        public Move(Coordinate source, Coordinate target, IPlayer activePlayer) {
-            this.Source = source;
-            this.Destination = target;
-            this.Player = activePlayer;
-        }
+      /// <summary>
+      /// ctor
+      /// </summary>
+      /// <param name="source"></param>
+      /// <param name="target"></param>
+      /// <param name="activePlayer"></param>
+      public Move(Coordinate source, Coordinate target, IPlayer activePlayer):this(source, target)
+      {
+        this.Player = activePlayer;
     }
+
+      /// <summary>
+      /// ctor
+      /// </summary>
+      /// <param name="source"></param>
+      /// <param name="target"></param>
+      public Move(Coordinate source, Coordinate target)
+      {
+        this.Source = source;
+        this.Destination = target;
+      }
+  }
 }

@@ -36,12 +36,6 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CoordinateEvaluators\BasicScoreApplier.cs" />
@@ -74,9 +68,9 @@
       <Project>{2C910064-5968-4FC0-A9BD-A41C6AA1EC9F}</Project>
       <Name>Mills.Game</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Mills\Mills.ConsoleClient.csproj">
-      <Project>{e0b05326-1a7b-42ef-8cc8-b61a15e97ad6}</Project>
-      <Name>Mills.ConsoleClient</Name>
+    <ProjectReference Include="..\Mills.Rules.Contract\Mills.Rules.Contract.csproj">
+      <Project>{2CB60C35-2457-4C58-87A8-B77F8777DEBB}</Project>
+      <Name>Mills.Rules.Contract</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

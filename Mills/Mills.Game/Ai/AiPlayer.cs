@@ -2,8 +2,8 @@
 using Mills.Game.Contract;
 using Mills.Game.Contract.Data;
 using Mills.Game.Data.Contract;
-using Mills.Game.GameController;
 using Mills.Game.Player;
+using Mills.Rules.Contract;
 
 namespace Mills.Game.Ai {
   /// <summary>
@@ -19,13 +19,16 @@ namespace Mills.Game.Ai {
     /// <inheritdoc />
     public IBoardAnalyzer BoardAnalyzer { get; }
 
+    private IMillRuleEvaluator _ruleEvaluator;
+
     /// <inheritdoc />
     public GamePhases CurrentPhase => this._currentPhase;
 
     /// <inheritdoc />
-    protected AiPlayer(IGameController controller, IBoardAnalyzer analyzer) : base("Computer") {
+    protected AiPlayer(IGameController controller, IBoardAnalyzer analyzer, IMillRuleEvaluator ruleEvaluator) : base("Computer") {
       this.GameController = controller;
       this.BoardAnalyzer = analyzer;
+      _ruleEvaluator = ruleEvaluator;
     }
 
     /// <inheritdoc />
@@ -38,12 +41,11 @@ namespace Mills.Game.Ai {
 
     /// <inheritdoc />
     public void Act(Move move) {
-      throw new System.NotImplementedException();
+      this.GameController.DoTurn(move);
     }
 
     private GamePhases GetCurrentPhase() {
-      // TODO if(this.BoardAnalyzer.CountPlayerSpots())
-      return GamePhases.Set;
+      return this._ruleEvaluator.EvaluatePhase(this);
     }
   }
 }

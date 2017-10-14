@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Mills.Board.Logic.Contract;
-using Mills.Game.Contract;
 using Mills.Game.Data.Contract;
 
 namespace Mills.Board.Logic {

@@ -32,12 +32,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BoardAnalyzer.cs" />
@@ -51,10 +45,6 @@
     <ProjectReference Include="..\Mills.Board.Logic.Contract\Mills.Board.Logic.Contract.csproj">
       <Project>{09BC8845-61F2-4370-A771-740FDCA7431C}</Project>
       <Name>Mills.Board.Logic.Contract</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Mills.Game.Contract\Mills.Game.Contract.csproj">
-      <Project>{03B448F7-809D-47F0-A272-E7D432A60ED3}</Project>
-      <Name>Mills.Game.Contract</Name>
     </ProjectReference>
     <ProjectReference Include="..\Mills.Game.Data.Contract\Mills.Game.Data.Contract.csproj">
       <Project>{EC013F8B-7E7D-4040-96F3-EE4CC7CA90A7}</Project>

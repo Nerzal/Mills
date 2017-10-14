@@ -32,12 +32,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -61,10 +55,6 @@
     <ProjectReference Include="..\Mills.Game.Data.Contract\Mills.Game.Data.Contract.csproj">
       <Project>{EC013F8B-7E7D-4040-96F3-EE4CC7CA90A7}</Project>
       <Name>Mills.Game.Data.Contract</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Mills.Game\Mills.Game.csproj">
-      <Project>{2C910064-5968-4FC0-A9BD-A41C6AA1EC9F}</Project>
-      <Name>Mills.Game</Name>
     </ProjectReference>
     <ProjectReference Include="..\Mills.Rules.Contract\Mills.Rules.Contract.csproj">
       <Project>{2cb60c35-2457-4c58-87a8-b77f8777debb}</Project>

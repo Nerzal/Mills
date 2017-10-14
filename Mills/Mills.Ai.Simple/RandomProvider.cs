@@ -1,7 +1,7 @@
 ﻿using System;
 
 namespace Mills.Ai.Simple {
-  class RandomProvider : IRandomProvider {
+  public class RandomProvider : IRandomProvider {
     private readonly Random _random;
 
     public RandomProvider() {

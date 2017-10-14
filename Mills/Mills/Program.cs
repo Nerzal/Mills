@@ -1,6 +1,8 @@
 ﻿using System;
+using Mills.Ai.Simple;
 using Mills.Board.Logic;
 using Mills.Board.Logic.Contract;
+using Mills.Game.Ai;
 using Mills.Game.Contract;
 using Mills.Game.Contract.Data;
 using Mills.Game.Data.Contract;
@@ -18,7 +20,6 @@ namespace Mills.ConsoleClient {
 
     static void Main(string[] args) {
       IPlayer player1 = new Player("Olaf");
-      IPlayer player2 = new Player("Karl");
       IBoard board = new Game.Data.Contract.Board();
       IBoardAnalyzer analyzer = new BoardAnalyzer(board);
       IGameOverRules gameOverRules = new GameOverRules(analyzer);
@@ -34,6 +35,8 @@ namespace Mills.ConsoleClient {
       History history = new History();
       _controller = new GameController(ruleEvaluator, board, history, boardController, recognizer, rowController);
       _controller.PlayerWon += OnPlayerWon;
+      IRandomProvider randomProvider = new RandomProvider();
+      IPlayer player2 = new SimpleAi(_controller,analyzer,randomProvider,ruleEvaluator);
       _controller.MillCompleted += OnMillCompleted;
       _controller.NewGame(player1, player2);
 
@@ -69,8 +72,15 @@ namespace Mills.ConsoleClient {
     }
 
     private static void Set(IGameController controller) {
-      Console.Write(controller.ActivePlayer.Name + " Chose Level, X and Y: ");
-      Coordinate coordinate = GetCoordinateFromUser();
+      Coordinate coordinate;
+      if (controller.ActivePlayer is AiPlayer) {
+        coordinate = ((AiPlayer) controller.ActivePlayer).Analyse().Destination;
+        Console.WriteLine();
+      }
+      else {
+        Console.Write(controller.ActivePlayer.Name + " Chose Level, X and Y: ");
+        coordinate = GetCoordinateFromUser();
+      }
       bool validTurn = controller.Set(coordinate, controller.ActivePlayer);
     }
 

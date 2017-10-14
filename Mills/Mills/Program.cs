@@ -20,17 +20,17 @@ namespace Mills.ConsoleClient {
 
     static void Main(string[] args) {
       IPlayer player1 = new Player("Olaf");
-      IRowController rowController = new RowController();
       IBoard board = new Game.Data.Contract.Board();
       IBoardAnalyzer analyzer = new BoardAnalyzer(board);
-      IBoardController boardController = new BoardController(board, analyzer);
-      boardController.Initialize();
-
       IGameOverRules gameOverRules = new GameOverRules(analyzer);
       IMovementRules moveValidationRules = new MovementRules(analyzer, board);
       IRuleSet ruleSet = new RuleSet(moveValidationRules, gameOverRules);
       IMillRuleEvaluator ruleEvaluator = new Evaluator(ruleSet, analyzer);
+      IRowController rowController = new RowController();
       IPatternRecognizer recognizer = new PatternRecognizer(board, rowController);
+      IBoardController boardController = new BoardController(board, analyzer, recognizer);
+      boardController.Initialize();
+
 
       History history = new History();
       _controller = new GameController(ruleEvaluator, board, history, boardController, recognizer, rowController);

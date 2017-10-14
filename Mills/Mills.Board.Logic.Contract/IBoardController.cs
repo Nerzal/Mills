@@ -28,8 +28,9 @@ namespace Mills.Board.Logic.Contract {
         /// </summary>
         /// <param name="coordinate"></param>
         /// <param name="activePlayer"></param>
+        /// <param name="otherPlayer"></param>
         /// <returns>true if the move was valid</returns>
-        bool Unset(Coordinate coordinate, IPlayer activePlayer);
+        bool Unset(Coordinate coordinate, IPlayer activePlayer, IPlayer otherPlayer);
 
         /// <summary>
         /// Applies a move onto the board

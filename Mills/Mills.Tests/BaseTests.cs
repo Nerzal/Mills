@@ -10,14 +10,18 @@ namespace Mills.Tests {
         protected IBoard Board;
         protected IBoardAnalyzer Analyzer;
         protected IBoardController Controller;
-        protected Player Player;
-        protected Player Player2;
+        protected IPatternRecognizer Recognizer;
+        protected IRowController RowController;
+        protected IPlayer Player;
+        protected IPlayer Player2;
 
         [TestInitialize]
         public void InitializeTests() {
             this.Board = new Game.Data.Contract.Board();
             this.Analyzer = new BoardAnalyzer(this.Board);
-            this.Controller = new BoardController(this.Board, this.Analyzer);
+            this.RowController = new RowController();
+            this.Recognizer = new PatternRecognizer(this.Board, this.RowController);
+            this.Controller = new BoardController(this.Board, this.Analyzer, this.Recognizer);
             this.Controller.Initialize();
             this.Player = new Player("Nerzal") { Color = Colors.White };
             this.Player2 = new Player("Wr4th0n") { Color = Colors.Black };

@@ -7,6 +7,7 @@ namespace Mills.Board.Logic {
     /// </summary>
     public class BoardController : IBoardController {
         private readonly IBoardAnalyzer _analyzer;
+        private readonly IPatternRecognizer _recognizer;
 
         /// <inheritdoc />
         public IBoard Board { get; }
@@ -16,9 +17,11 @@ namespace Mills.Board.Logic {
         /// </summary>
         /// <param name="board"></param>
         /// <param name="analyzer"></param>
-        public BoardController(IBoard board, IBoardAnalyzer analyzer) {
+        /// <param name="recognizer"></param>
+        public BoardController(IBoard board, IBoardAnalyzer analyzer, IPatternRecognizer recognizer) {
             this.Board = board;
             this._analyzer = analyzer;
+            this._recognizer = recognizer;
         }
 
         /// <inheritdoc />
@@ -37,8 +40,12 @@ namespace Mills.Board.Logic {
         }
 
         /// <inheritdoc />
-        public bool Unset(Coordinate coordinate, IPlayer activePlayer) {
+        public bool Unset(Coordinate coordinate, IPlayer activePlayer, IPlayer otherPlayer) {
             if (this._analyzer.IsFreeSpot(coordinate)) {
+                return false;
+            }
+
+            if (this._recognizer.IsCoordinatePartOfMill(coordinate, otherPlayer)) {
                 return false;
             }
 

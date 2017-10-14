@@ -57,7 +57,7 @@ namespace Mills.Tests {
       Coordinate coordinate = new Coordinate(2, 1, 2);
       //Act
       this.Controller.Set(coordinate, this.Player);
-      bool result = this.Controller.Unset(coordinate, this.Player2);
+      bool result = this.Controller.Unset(coordinate, this.Player2, this.Player);
       //Assert
       Assert.IsTrue(result);
     }
@@ -68,7 +68,7 @@ namespace Mills.Tests {
       Coordinate coordinate = new Coordinate(2, 1, 1);
       //Act
       this.Controller.Set(coordinate, this.Player);
-      bool result = this.Controller.Unset(coordinate, this.Player);
+      bool result = this.Controller.Unset(coordinate, this.Player, this.Player2);
       //Assert
       Assert.IsFalse(result);
     }
@@ -78,7 +78,22 @@ namespace Mills.Tests {
       //Arrange
       Coordinate coordinate = new Coordinate(2, 1, 1);
       //Act
-      bool result = this.Controller.Unset(coordinate, this.Player);
+      bool result = this.Controller.Unset(coordinate, this.Player, this.Player2);
+      //Assert
+      Assert.IsFalse(result);
+    }
+
+    [TestMethod]
+    public void Unset_IsFalse_PartOfMill() {
+      //Arrange
+      Coordinate coordinate = new Coordinate(0, 0, 0);
+      Coordinate coordinate2 = new Coordinate(0, 1, 0);
+      Coordinate coordinate3 = new Coordinate(0, 2, 0);
+      this.Controller.Set(coordinate, this.Player);
+      this.Controller.Set(coordinate2, this.Player);
+      this.Controller.Set(coordinate3, this.Player);
+      //Act
+      bool result = this.Controller.Unset(coordinate2, this.Player2, this.Player);
       //Assert
       Assert.IsFalse(result);
     }

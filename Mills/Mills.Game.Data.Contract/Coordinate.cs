@@ -35,7 +35,7 @@ namespace Mills.Game.Data.Contract {
 
     /// <inheritdoc />
     public override string ToString() {
-      return $"Level: {this.Level} X: {this.X}, Y: {this.Y}";
+      return $"{this.Level}|{this.X}|{this.Y}";
     }
 
     /// <inheritdoc />

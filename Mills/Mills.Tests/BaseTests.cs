@@ -21,6 +21,7 @@ namespace Mills.Tests {
             this.Analyzer = new BoardAnalyzer(this.Board);
             this.RowController = new RowController();
             this.Recognizer = new PatternRecognizer(this.Board, this.RowController);
+            this.Recognizer.Initialize();
             this.Controller = new BoardController(this.Board, this.Analyzer, this.Recognizer);
             this.Controller.Initialize();
             this.Player = new Player("Nerzal") { Color = Colors.White };

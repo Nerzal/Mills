@@ -93,18 +93,21 @@ namespace Mills.Tests {
       // Most of Arrangement is done via TestInitialize of the BaseClass
       // The Second part is done via the Initialize Method of this class
       this.Controller.Set(new Coordinate(0, 0, 0), this.Player);
-      this.Controller.Set(new Coordinate(2, 0, 1), this.Player);
-      this.Controller.Set(new Coordinate(1, 0, 2), this.Player);
-      this.Controller.Set(new Coordinate(0, 1, 0), this.Player);
+      this.Controller.Set(new Coordinate(1, 0, 0), this.Player);
+      this.Controller.Set(new Coordinate(2, 0, 0), this.Player);
+      this.Controller.Set(new Coordinate(2, 2, 2), this.Player);
+
       this.Controller.Set(new Coordinate(0, 2, 0), this.Player);
-      this.Controller.Set(new Coordinate(1, 1, 0), this.Player);
-      this.Controller.Set(new Coordinate(1, 2, 0), this.Player);
+      this.Controller.Set(new Coordinate(1, 2, 2), this.Player);
+      this.Controller.Set(new Coordinate(2, 2, 2), this.Player);
       this.Controller.Set(new Coordinate(1, 0, 1), this.Player);
+
       this.Controller.Unset(new Coordinate(0, 0, 0), this.Player2, this.Player);
-      this.Controller.Unset(new Coordinate(2, 0, 1), this.Player2, this.Player);
-      this.Controller.Unset(new Coordinate(1, 0, 2), this.Player2, this.Player);
-      this.Controller.Unset(new Coordinate(1, 1, 0), this.Player2, this.Player);
-      this.Controller.Unset(new Coordinate(1, 2, 0), this.Player2, this.Player);
+      this.Controller.Unset(new Coordinate(1, 0, 0), this.Player2, this.Player);
+      this.Controller.Unset(new Coordinate(2, 0, 0), this.Player2, this.Player);
+
+      this.Controller.Unset(new Coordinate(2, 2, 2), this.Player2, this.Player);
+      this.Controller.Unset(new Coordinate(1, 2, 2), this.Player2, this.Player);
 
       //Act
       GamePhases phase = this._evaluator.EvaluatePhase(this.Player);

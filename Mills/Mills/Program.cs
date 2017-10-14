@@ -101,7 +101,7 @@ namespace Mills.ConsoleClient {
     /// </summary>
     /// <param name="board"></param>
     /// <param name="controllerActivePlayer"></param>
-    static void Draw(IBoard board, IPlayer controllerActivePlayer) {
+    private static void Draw(IBoard board, IPlayer controllerActivePlayer) {
       Spot[,] level1 = board.Spots[0];
       Spot[,] level2 = board.Spots[1];
       Spot[,] level3 = board.Spots[2];

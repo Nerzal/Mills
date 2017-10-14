@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Mills.Board.Logic.Contract;
-using Mills.Game.Contract;
 using Mills.Game.Data.Contract;
 
 namespace Mills.Board.Logic {
@@ -124,6 +123,17 @@ namespace Mills.Board.Logic {
     /// <inheritdoc />
     public IEnumerable<Row> FindAllMillsFor(IPlayer player) {
       return this.FindAllRowsFor(player).Where(row => this._controller.IsMill(row));
+    }
+
+    /// <inheritdoc />
+    public bool IsCoordinatePartOfMill(Coordinate coordinate, IPlayer player) {
+      IEnumerable<Row> mills = this.FindAllRowsFor(player);
+      foreach (Row mill in mills) {
+        if (this._controller.Contains(mill, coordinate)) {
+          return true;
+        }
+      }
+      return false;
     }
   }
 }

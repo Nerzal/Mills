@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Mills.Ai.Simple;
 using Mills.Game.Data.Contract;
+using Mills.Utils;
 using NSubstitute;
 namespace Mills.Ai.Tests {
   [TestClass]

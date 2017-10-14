@@ -152,6 +152,10 @@
       <Project>{29A5C62A-A2B8-429E-B23C-D45D133A7750}</Project>
       <Name>Mills.Rules</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Mills.Utils\Mills.Utils.csproj">
+      <Project>{D9467490-7670-4F7B-BC4E-0C14E4E2998E}</Project>
+      <Name>Mills.Utils</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

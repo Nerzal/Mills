@@ -1,5 +1,4 @@
 ﻿using System;
-using Mills.Board;
 using Mills.Board.Logic;
 using Mills.Board.Logic.Contract;
 using Mills.Game.Contract;
@@ -61,43 +60,27 @@ namespace Mills.ConsoleClient {
 
     private static void DrawJump(IGameController controller) {
       Console.Write(controller.ActivePlayer.Name + " Chose Start Level, X and Y: ");
-      ConsoleKeyInfo key = Console.ReadKey();
-      int.TryParse(key.KeyChar.ToString(), out int level);
-      key = Console.ReadKey();
-      int.TryParse(key.KeyChar.ToString(), out int x);
-      key = Console.ReadKey();
-      int.TryParse(key.KeyChar.ToString(), out int y);
-      Console.WriteLine();
-      Coordinate source = new Coordinate(level, x, y);
+      Coordinate source = GetCoordinateFromUser();
 
       Console.Write(controller.ActivePlayer.Name + " Chose Destination Level, X and Y: ");
-      key = Console.ReadKey();
-      int.TryParse(key.KeyChar.ToString(), out level);
-      key = Console.ReadKey();
-      int.TryParse(key.KeyChar.ToString(), out x);
-      key = Console.ReadKey();
-      int.TryParse(key.KeyChar.ToString(), out y);
-      Console.WriteLine();
-      Coordinate destination = new Coordinate(level, x, y);
+      Coordinate destination = GetCoordinateFromUser();
       Move move = new Move(source, destination, controller.ActivePlayer);
       bool validTurn = controller.DoTurn(move);
     }
 
     private static void Set(IGameController controller) {
       Console.Write(controller.ActivePlayer.Name + " Chose Level, X and Y: ");
-      ConsoleKeyInfo key = Console.ReadKey();
-      int.TryParse(key.KeyChar.ToString(), out int level);
-      key = Console.ReadKey();
-      int.TryParse(key.KeyChar.ToString(), out int x);
-      key = Console.ReadKey();
-      int.TryParse(key.KeyChar.ToString(), out int y);
-      Console.WriteLine();
-      Coordinate coordinate = new Coordinate(level, x, y);
+      Coordinate coordinate = GetCoordinateFromUser();
       bool validTurn = controller.Set(coordinate, controller.ActivePlayer);
     }
 
     private static void Unset(IGameController controller) {
       Console.Write(controller.ActivePlayer.Name + " Chose to remove: Level, X and Y: ");
+      Coordinate coordinate = GetCoordinateFromUser();
+      bool validTurn = controller.Unset(coordinate, controller.ActivePlayer);
+    }
+
+    private static Coordinate GetCoordinateFromUser() {
       ConsoleKeyInfo key = Console.ReadKey();
       int.TryParse(key.KeyChar.ToString(), out int level);
       key = Console.ReadKey();
@@ -106,7 +89,7 @@ namespace Mills.ConsoleClient {
       int.TryParse(key.KeyChar.ToString(), out int y);
       Console.WriteLine();
       Coordinate coordinate = new Coordinate(level, x, y);
-      bool validTurn = controller.Unset(coordinate, controller.ActivePlayer);
+      return coordinate;
     }
 
     private static void OnPlayerWon(IPlayer player) {

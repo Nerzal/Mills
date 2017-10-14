@@ -12,6 +12,7 @@ using Mills.Rules.Contract;
 using Mills.Rules.GameOver;
 using Mills.Rules.Movement;
 using Mills.Rules.Rules;
+using Mills.Utils;
 
 
 namespace Mills.ConsoleClient {

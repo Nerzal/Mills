@@ -9,7 +9,7 @@ using Mills.Game.Contract;
 using Mills.Game.Contract.Data;
 using Mills.Game.Data.Contract;
 using Mills.Rules.Contract;
-
+using Mills.Utils;
 using Newtonsoft.Json;
 
 namespace Mills.Ai.Simple {

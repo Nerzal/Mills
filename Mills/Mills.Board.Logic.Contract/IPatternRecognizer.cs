@@ -13,6 +13,11 @@ namespace Mills.Board.Logic.Contract {
         IBoard Board { get; }
 
         /// <summary>
+        /// Initializes the PatternRecognizer
+        /// </summary>
+        void Initialize();
+
+        /// <summary>
         /// Finds all rows of the given player
         /// </summary>
         /// <param name="player"></param>

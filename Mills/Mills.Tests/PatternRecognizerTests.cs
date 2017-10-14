@@ -11,8 +11,6 @@ namespace Mills.Tests {
     [TestMethod]
     public void FindAllRowsFor_2_PlayerOne2Rows() {
       //Arrange
-      IRowController rowController = new RowController();
-      IPatternRecognizer recognizer = new PatternRecognizer(this.Board, rowController);
       //Create row 1
       Coordinate row1Coordinate1 = new Coordinate(0, 0, 0);
       this.Controller.Set(row1Coordinate1, this.Player);
@@ -26,7 +24,7 @@ namespace Mills.Tests {
       Coordinate row2Coordinate3 = new Coordinate(2, 2, 2);
       this.Controller.Set(row2Coordinate3, this.Player);
       //Act
-      IEnumerable<Row> player1Rows = recognizer.FindAllRowsFor(this.Player);
+      IEnumerable<Row> player1Rows = this.Recognizer.FindAllRowsFor(this.Player);
       //Assert
       Assert.AreEqual(2, player1Rows.Count());
 
@@ -43,8 +41,6 @@ namespace Mills.Tests {
     [TestMethod]
     public void FindAllMillsFor_000To001To002_PlayerOne() {
       //Arrange
-      IRowController rowController = new RowController();
-      IPatternRecognizer recognizer = new PatternRecognizer(this.Board, rowController);
       Coordinate row2Coordinate1 = new Coordinate(0, 0, 0);
       this.Controller.Set(row2Coordinate1, this.Player);
       Coordinate row2Coordinate2 = new Coordinate(0, 0, 1);
@@ -52,7 +48,7 @@ namespace Mills.Tests {
       Coordinate row2Coordinate3 = new Coordinate(0, 0, 2);
       this.Controller.Set(row2Coordinate3, this.Player);
       //Act
-      IEnumerable<Row> player1Rows = recognizer.FindAllRowsFor(this.Player);
+      IEnumerable<Row> player1Rows = this.Recognizer.FindAllRowsFor(this.Player);
       //Assert
       Assert.AreEqual(1, player1Rows.Count());
 
@@ -66,8 +62,6 @@ namespace Mills.Tests {
     [TestMethod]
     public void FindAllMillsFor_010To110To210_PlayerOne() {
       //Arrange
-      IRowController rowController = new RowController();
-      IPatternRecognizer recognizer = new PatternRecognizer(this.Board, rowController);
       Coordinate row2Coordinate1 = new Coordinate(0, 1, 0);
       this.Controller.Set(row2Coordinate1, this.Player);
       Coordinate row2Coordinate2 = new Coordinate(1, 1, 0);
@@ -75,7 +69,7 @@ namespace Mills.Tests {
       Coordinate row2Coordinate3 = new Coordinate(2, 1, 0);
       this.Controller.Set(row2Coordinate3, this.Player);
       //Act
-      IEnumerable<Row> player1Rows = recognizer.FindAllRowsFor(this.Player);
+      IEnumerable<Row> player1Rows = this.Recognizer.FindAllRowsFor(this.Player);
       //Assert
       Assert.AreEqual(1, player1Rows.Count());
 
@@ -88,8 +82,6 @@ namespace Mills.Tests {
     [TestMethod]
     public void FindAllMillsFor_020To021To022_PlayerOne() {
       //Arrange
-      IRowController rowController = new RowController();
-      IPatternRecognizer recognizer = new PatternRecognizer(this.Board, rowController);
       Coordinate row2Coordinate1 = new Coordinate(0, 2, 0);
       this.Controller.Set(row2Coordinate1, this.Player);
       Coordinate row2Coordinate2 = new Coordinate(0, 2, 1);
@@ -97,7 +89,7 @@ namespace Mills.Tests {
       Coordinate row2Coordinate3 = new Coordinate(0, 2, 2);
       this.Controller.Set(row2Coordinate3, this.Player);
       //Act
-      IEnumerable<Row> player1Rows = recognizer.FindAllRowsFor(this.Player);
+      IEnumerable<Row> player1Rows = this.Recognizer.FindAllRowsFor(this.Player);
       //Assert
       Assert.AreEqual(1, player1Rows.Count());
 
@@ -111,8 +103,6 @@ namespace Mills.Tests {
     [TestMethod]
     public void FindAllMillsFor_100To101To102_PlayerOne() {
       //Arrange
-      IRowController rowController = new RowController();
-      IPatternRecognizer recognizer = new PatternRecognizer(this.Board, rowController);
       Coordinate row2Coordinate1 = new Coordinate(1, 0, 0);
       this.Controller.Set(row2Coordinate1, this.Player);
       Coordinate row2Coordinate2 = new Coordinate(1, 0, 1);
@@ -120,7 +110,7 @@ namespace Mills.Tests {
       Coordinate row2Coordinate3 = new Coordinate(1, 0, 2);
       this.Controller.Set(row2Coordinate3, this.Player);
       //Act
-      IEnumerable<Row> player1Rows = recognizer.FindAllRowsFor(this.Player);
+      IEnumerable<Row> player1Rows = this.Recognizer.FindAllRowsFor(this.Player);
       //Assert
       Assert.AreEqual(1, player1Rows.Count());
 
@@ -133,8 +123,6 @@ namespace Mills.Tests {
     [TestMethod]
     public void FindAllMillsFor_200To201To202_PlayerOne() {
       //Arrange
-      IRowController rowController = new RowController();
-      IPatternRecognizer recognizer = new PatternRecognizer(this.Board, rowController);
       Coordinate row2Coordinate1 = new Coordinate(2, 0, 0);
       this.Controller.Set(row2Coordinate1, this.Player);
       Coordinate row2Coordinate2 = new Coordinate(2, 0, 1);
@@ -142,7 +130,7 @@ namespace Mills.Tests {
       Coordinate row2Coordinate3 = new Coordinate(2, 0, 2);
       this.Controller.Set(row2Coordinate3, this.Player);
       //Act
-      IEnumerable<Row> player1Rows = recognizer.FindAllRowsFor(this.Player);
+      IEnumerable<Row> player1Rows = this.Recognizer.FindAllRowsFor(this.Player);
       //Assert
       Assert.AreEqual(1, player1Rows.Count());
 
@@ -155,8 +143,6 @@ namespace Mills.Tests {
     [TestMethod]
     public void FindAllMillsFor_220To221To222_PlayerOne() {
       //Arrange
-      IRowController rowController = new RowController();
-      IPatternRecognizer recognizer = new PatternRecognizer(this.Board, rowController);
       Coordinate row2Coordinate1 = new Coordinate(2, 2, 0);
       this.Controller.Set(row2Coordinate1, this.Player);
       Coordinate row2Coordinate2 = new Coordinate(2, 2, 1);
@@ -164,7 +150,7 @@ namespace Mills.Tests {
       Coordinate row2Coordinate3 = new Coordinate(2, 2, 2);
       this.Controller.Set(row2Coordinate3, this.Player);
       //Act
-      IEnumerable<Row> player1Rows = recognizer.FindAllRowsFor(this.Player);
+      IEnumerable<Row> player1Rows = this.Recognizer.FindAllRowsFor(this.Player);
       //Assert
       Assert.AreEqual(1, player1Rows.Count());
 
@@ -177,8 +163,6 @@ namespace Mills.Tests {
     [TestMethod]
     public void FindAllMillsFor_120To121To122_PlayerOne() {
       //Arrange
-      IRowController rowController = new RowController();
-      IPatternRecognizer recognizer = new PatternRecognizer(this.Board, rowController);
       Coordinate row2Coordinate1 = new Coordinate(1, 2, 0);
       this.Controller.Set(row2Coordinate1, this.Player);
       Coordinate row2Coordinate2 = new Coordinate(1, 2, 1);
@@ -186,7 +170,7 @@ namespace Mills.Tests {
       Coordinate row2Coordinate3 = new Coordinate(1, 2, 2);
       this.Controller.Set(row2Coordinate3, this.Player);
       //Act
-      IEnumerable<Row> player1Rows = recognizer.FindAllRowsFor(this.Player);
+      IEnumerable<Row> player1Rows = this.Recognizer.FindAllRowsFor(this.Player);
       //Assert
       Assert.AreEqual(1, player1Rows.Count());
 
@@ -199,8 +183,6 @@ namespace Mills.Tests {
     [TestMethod]
     public void FindAllMillsFor_000To010To020_PlayerOne() {
       //Arrange
-      IRowController rowController = new RowController();
-      IPatternRecognizer recognizer = new PatternRecognizer(this.Board, rowController);
       Coordinate row2Coordinate1 = new Coordinate(0, 0, 0);
       this.Controller.Set(row2Coordinate1, this.Player);
       Coordinate row2Coordinate2 = new Coordinate(0, 1, 0);
@@ -208,7 +190,7 @@ namespace Mills.Tests {
       Coordinate row2Coordinate3 = new Coordinate(0, 2, 0);
       this.Controller.Set(row2Coordinate3, this.Player);
       //Act
-      IEnumerable<Row> player1Rows = recognizer.FindAllRowsFor(this.Player);
+      IEnumerable<Row> player1Rows = this.Recognizer.FindAllRowsFor(this.Player);
       //Assert
       Assert.AreEqual(1, player1Rows.Count());
 
@@ -221,8 +203,6 @@ namespace Mills.Tests {
     [TestMethod]
     public void FindAllMillsFor_001To101To201_PlayerOne() {
       //Arrange
-      IRowController rowController = new RowController();
-      IPatternRecognizer recognizer = new PatternRecognizer(this.Board, rowController);
       Coordinate row2Coordinate1 = new Coordinate(0, 0, 1);
       this.Controller.Set(row2Coordinate1, this.Player);
       Coordinate row2Coordinate2 = new Coordinate(1, 0, 1);
@@ -230,7 +210,7 @@ namespace Mills.Tests {
       Coordinate row2Coordinate3 = new Coordinate(2, 0, 1);
       this.Controller.Set(row2Coordinate3, this.Player);
       //Act
-      IEnumerable<Row> player1Rows = recognizer.FindAllRowsFor(this.Player);
+      IEnumerable<Row> player1Rows = this.Recognizer.FindAllRowsFor(this.Player);
       //Assert
       Assert.AreEqual(1, player1Rows.Count());
 
@@ -244,8 +224,6 @@ namespace Mills.Tests {
     [TestMethod]
     public void FindAllMillsFor_002To012To022_PlayerOne() {
       //Arrange
-      IRowController rowController = new RowController();
-      IPatternRecognizer recognizer = new PatternRecognizer(this.Board, rowController);
       Coordinate row2Coordinate1 = new Coordinate(0, 0, 2);
       this.Controller.Set(row2Coordinate1, this.Player);
       Coordinate row2Coordinate2 = new Coordinate(0, 1, 2);
@@ -253,7 +231,7 @@ namespace Mills.Tests {
       Coordinate row2Coordinate3 = new Coordinate(0, 2, 2);
       this.Controller.Set(row2Coordinate3, this.Player);
       //Act
-      IEnumerable<Row> player1Rows = recognizer.FindAllRowsFor(this.Player);
+      IEnumerable<Row> player1Rows = this.Recognizer.FindAllRowsFor(this.Player);
       //Assert
       Assert.AreEqual(1, player1Rows.Count());
 
@@ -266,8 +244,6 @@ namespace Mills.Tests {
     [TestMethod]
     public void FindAllMillsFor_100To110To120_PlayerOne() {
       //Arrange
-      IRowController rowController = new RowController();
-      IPatternRecognizer recognizer = new PatternRecognizer(this.Board, rowController);
       Coordinate row2Coordinate1 = new Coordinate(1, 0, 0);
       this.Controller.Set(row2Coordinate1, this.Player);
       Coordinate row2Coordinate2 = new Coordinate(1, 1, 0);
@@ -276,7 +252,7 @@ namespace Mills.Tests {
       this.Controller.Set(row2Coordinate3, this.Player);
 
       //Act
-      IEnumerable<Row> player1Rows = recognizer.FindAllRowsFor(this.Player);
+      IEnumerable<Row> player1Rows = this.Recognizer.FindAllRowsFor(this.Player);
 
       //Assert
       Assert.AreEqual(1, player1Rows.Count());
@@ -290,8 +266,6 @@ namespace Mills.Tests {
     [TestMethod]
     public void FindAllMillsFor_102To112To122_PlayerOne() {
       //Arrange
-      IRowController rowController = new RowController();
-      IPatternRecognizer recognizer = new PatternRecognizer(this.Board, rowController);
       Coordinate row2Coordinate1 = new Coordinate(1, 0, 2);
       this.Controller.Set(row2Coordinate1, this.Player);
       Coordinate row2Coordinate2 = new Coordinate(1, 1, 2);
@@ -300,7 +274,7 @@ namespace Mills.Tests {
       this.Controller.Set(row2Coordinate3, this.Player);
 
       //Act
-      IEnumerable<Row> player1Rows = recognizer.FindAllRowsFor(this.Player);
+      IEnumerable<Row> player1Rows = this.Recognizer.FindAllRowsFor(this.Player);
 
       //Assert
       Assert.AreEqual(1, player1Rows.Count());
@@ -314,8 +288,6 @@ namespace Mills.Tests {
     [TestMethod]
     public void FindAllMillsFor_200To210To220_PlayerOne() {
       //Arrange
-      IRowController rowController = new RowController();
-      IPatternRecognizer recognizer = new PatternRecognizer(this.Board, rowController);
       Coordinate row2Coordinate1 = new Coordinate(2, 0, 0);
       this.Controller.Set(row2Coordinate1, this.Player);
       Coordinate row2Coordinate2 = new Coordinate(2, 1, 0);
@@ -324,7 +296,7 @@ namespace Mills.Tests {
       this.Controller.Set(row2Coordinate3, this.Player);
 
       //Act
-      IEnumerable<Row> player1Rows = recognizer.FindAllRowsFor(this.Player);
+      IEnumerable<Row> player1Rows = this.Recognizer.FindAllRowsFor(this.Player);
 
       //Assert
       Assert.AreEqual(1, player1Rows.Count());
@@ -338,8 +310,6 @@ namespace Mills.Tests {
     [TestMethod]
     public void FindAllMillsFor_221To121To021_PlayerOne() {
       //Arrange
-      IRowController rowController = new RowController();
-      IPatternRecognizer recognizer = new PatternRecognizer(this.Board, rowController);
       Coordinate row2Coordinate1 = new Coordinate(0, 2, 1);
       this.Controller.Set(row2Coordinate1, this.Player);
       Coordinate row2Coordinate2 = new Coordinate(1, 2, 1);
@@ -348,7 +318,7 @@ namespace Mills.Tests {
       this.Controller.Set(row2Coordinate3, this.Player);
 
       //Act
-      IEnumerable<Row> player1Rows = recognizer.FindAllRowsFor(this.Player);
+      IEnumerable<Row> player1Rows = this.Recognizer.FindAllRowsFor(this.Player);
 
       //Assert
       Assert.AreEqual(1, player1Rows.Count());
@@ -362,8 +332,6 @@ namespace Mills.Tests {
     [TestMethod]
     public void FindAllMillsFor_212To112To012_PlayerOne() {
       //Arrange
-      IRowController rowController = new RowController();
-      IPatternRecognizer recognizer = new PatternRecognizer(this.Board, rowController);
       Coordinate row2Coordinate1 = new Coordinate(0, 1, 2);
       this.Controller.Set(row2Coordinate1, this.Player);
       Coordinate row2Coordinate2 = new Coordinate(1, 1, 2);
@@ -372,7 +340,7 @@ namespace Mills.Tests {
       this.Controller.Set(row2Coordinate3, this.Player);
 
       //Act
-      IEnumerable<Row> player1Rows = recognizer.FindAllRowsFor(this.Player);
+      IEnumerable<Row> player1Rows = this.Recognizer.FindAllRowsFor(this.Player);
 
       //Assert
       Assert.AreEqual(1, player1Rows.Count());
@@ -386,8 +354,6 @@ namespace Mills.Tests {
     [TestMethod]
     public void FindAllMillsFor_202To212To222_PlayerOne() {
       //Arrange
-      IRowController rowController = new RowController();
-      IPatternRecognizer recognizer = new PatternRecognizer(this.Board, rowController);
       Coordinate row2Coordinate1 = new Coordinate(2, 0, 2);
       this.Controller.Set(row2Coordinate1, this.Player);
       Coordinate row2Coordinate2 = new Coordinate(2, 1, 2);
@@ -396,7 +362,7 @@ namespace Mills.Tests {
       this.Controller.Set(row2Coordinate3, this.Player);
 
       //Act
-      IEnumerable<Row> player1Rows = recognizer.FindAllRowsFor(this.Player);
+      IEnumerable<Row> player1Rows = this.Recognizer.FindAllRowsFor(this.Player);
 
       //Assert
       Assert.AreEqual(1, player1Rows.Count());

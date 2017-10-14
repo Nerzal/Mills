@@ -36,6 +36,8 @@
   <ItemGroup>
     <Compile Include="BoardAnalyzer.cs" />
     <Compile Include="BoardController.cs" />
+    <Compile Include="BoardRow.cs" />
+    <Compile Include="CreateCoordinateFromPosition.cs" />
     <Compile Include="History.cs" />
     <Compile Include="PatternRecognizer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -16,15 +16,19 @@ namespace Mills.Ai.Tests {
     protected IBoard Board;
     protected IBoardAnalyzer Analyzer;
     protected IBoardController Controller;
-    protected Player Player;
-    protected Player Player2;
+    protected IPlayer Player;
+    protected IPlayer Player2;
     protected IGameController GameController;
+    protected IPatternRecognizer Recognizer;
+    protected IRowController RowController;
 
     [TestInitialize]
     public void InitializeTests() {
       this.Board = new Game.Data.Contract.Board();
+      this.RowController = new RowController();
+      this.Recognizer = new PatternRecognizer(this.Board, this.RowController);
       this.Analyzer = new BoardAnalyzer(this.Board);
-      this.Controller = new BoardController(this.Board, this.Analyzer);
+      this.Controller = new BoardController(this.Board, this.Analyzer, this.Recognizer);
       this.Controller.Initialize();
       this.Player = new Player("Nerzal") { Color = Colors.White };
       this.Player2 = new Player("Wr4thon") { Color = Colors.Black };
@@ -39,6 +43,5 @@ namespace Mills.Ai.Tests {
 
       this.GameController = new GameController(millRuleEvaluator, this.Board, history, this.Controller, patternRecognizer, rowController);
     }
-
   }
 }

@@ -99,11 +99,7 @@ namespace Mills.Game.GameController {
 
         /// <inheritdoc />
         public bool Unset(Coordinate coordinate, IPlayer activePlayer) {
-            IPlayer otherPlayer = GetOtherPlayer(activePlayer);
-            if (this._recognizer.IsCoordinatePartOfMill(coordinate, otherPlayer)) {
-                return false;
-            }
-            return this._boardController.Unset(coordinate, activePlayer);
+          return this._boardController.Unset(coordinate, activePlayer, GetOtherPlayer(activePlayer));
         }
 
         private IPlayer GetOtherPlayer(IPlayer activePlayer) {
